@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ejercicio 005</title>
     <link rel="stylesheet" href="../../../CSS/estilos.css">
     <script src="js/lista.js"></script>
+    <style>
+        #quitar {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -23,12 +28,18 @@
             </ul>
         </nav>
     </header>
-        <button onclick="añadirMeses()">
-            aasdaas
+    <div class="caja3">
+        <button class="botones" id="boton1" onclick="añadirMeses()">
+            Añadir Meses
         </button>
-        <ul id="listaMeses">
+        <div id="quitar">
+            <button class="botones" id="boton2" onclick="quitarMeses()">
+                Quitar Meses
+            </button>
+        </div>
+        <ul class="lista" id="listaMeses">
             
         </ul>
-        
+    </div>
 </body>
 </html>
