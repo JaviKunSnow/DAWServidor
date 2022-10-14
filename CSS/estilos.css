@@ -118,3 +118,13 @@ body {
   color: #FD9DFF;
 }
 
+.botones {
+  background-color: #0F0E21;
+  width: 150px;
+  margin: 10px;
+  border: 3px solid #FD9DFF;
+  padding: 1px;
+  color:#FD9DFF;
+  text-align: center;
+}
+
