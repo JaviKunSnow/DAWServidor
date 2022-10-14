@@ -10,7 +10,7 @@
         include_once("../../../cabecera.html");
     ?>
     <?php
-        $valor = implode($_GET);
+        $valor = (int)$_GET["lista"];
         echo "<h2>1. Realiza un programa utilizando bucles que muestre la siguiente figura:</h2>";
         for($i = 1; $i <= $valor; $i++){
             for($blanco = 1; $blanco <= $valor-$i; $blanco++){
@@ -72,7 +72,17 @@
             }
             echo "<br>";
         }
-        echo "<h2>4. Realiza un programa utilizando bucles que muestre la siguinte :</h2>";
+        echo "<h2>4. Realiza un programa utilizando bucles que muestre la siguinte: </h2>";
+        
+        echo "<br>";
+        echo "<h2>5. Escriba un programa que se le paso un año por url y diga si es bisiesto o no: </h2>";
+        $year = (int)$_GET["ano"];
+        if($year%4 == 0 && $year%100 != 0 || $year%400 == 0){
+            echo "<p>el año ". $year . " es bisiesto.</p>";
+        } else {
+            echo "<p>el año ". $year . " NO es bisiesto.</p>";
+        }
+
     ?>
 </body>
 </html>

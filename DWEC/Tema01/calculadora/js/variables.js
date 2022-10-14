@@ -55,8 +55,8 @@ function calcularD(){
     const l = parseInt(forma["numeroB"].value);
     if(isNaN(n)){
         document.getElementById("resultado").value="Numero A no es un numero";
-    } else if(isNaN(l)){
-        document.getElementById("resultado").value="Numero B no es un numero";
+    } else if(isNaN(l) || l == 0){
+        document.getElementById("resultado").value="Numero B no es un numero o es 0";
     } else {
         document.getElementById("resultado").value = n/l;
     }  
