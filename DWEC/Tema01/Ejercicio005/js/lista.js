@@ -19,7 +19,6 @@ function añadirMeses(){
 
 
 function quitarMeses(){
-    const ul = document.getElementById("listaMeses");
     ul.removeChild(ul.lastChild);
     i--;
     if(i == 0){
