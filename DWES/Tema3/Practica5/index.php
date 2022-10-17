@@ -42,6 +42,27 @@
 
         echo "<h2>3. Escribe un programa que pida por pantalla el tamaño de una matriz: </h2>";
         
+        $lado = 4;
+
+        $array1 = array();
+        $array1 = array();
+        $array1 = array();
+        $array1 = array();
+
+        for($i = 0; $i < $lado; $i++){
+            array_push($array1, 1);
+        }
+
+        for($i = 0; $i < $lado; $i++){
+            array_push($array2, 1);
+        }
+        
+
+
+        foreach($array1 as $key => $valor){
+            echo " $valor ";
+        }
+
     ?>
 </body>
 </html>
