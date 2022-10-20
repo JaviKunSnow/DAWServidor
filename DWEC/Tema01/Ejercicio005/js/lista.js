@@ -14,12 +14,14 @@ function añadirMeses(){
     if(i == 12){
         document.getElementById("boton1").style.display = "none";
         document.getElementById("quitar").style.display = "block";
+        i++;
     }
 }
 
 
 function quitarMeses(){
-    ul.removeChild(ul.lastChild);
+    ul = document.getElementById("listaMeses");
+    ul.removeChild(ul.firstChild);
     i--;
     if(i == 0){
         document.getElementById("quitar").style.display = "none";
