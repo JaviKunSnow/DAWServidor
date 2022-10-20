@@ -18,12 +18,7 @@ function myself(){
 
 function dni($dni){
     $letra = substr($dni, -1);
-  $numberos = substr($dni, 0, -1);
-
-  if (substr("TRWAGMYFPDXBNJZSQVHLCKE", $numberos%23, 1) == $letra && strlen($letra) == 1 && strlen ($numberos) == 8 ){
-    echo "Es valido";
-  }
-    echo "No es valido";
+    echo $letra;
 }
 
 

@@ -1,3 +1,17 @@
+/* colores:
+    rosa palo: #fd9dff
+    negro azulado: #0f0e21
+
+  colores halloween 1:
+    naranja: #ff7531
+    negro: #1D1C30
+
+  colores halloween 2:
+    morado oscuro: #381566
+    morado: #893EFF
+
+*/
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -12,7 +26,7 @@ li {
 
 li a {
   display: inline-block;
-  color: #FD9DFF;
+  color: #ff7531;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -23,8 +37,8 @@ li a:hover {
 }
 
 body {
-  background-color: #0F0E21;
-  color: #FD9DFF;
+  background-color: #1D1C30;
+  color: white;
   font-family: Arial;
 }
 
@@ -33,7 +47,7 @@ body {
   text-shadow: 2px 2px 5px black;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 40px;
-  color:#FD9DFF;
+  color: #ff7531;
 }
 
 .caja1 {
@@ -44,7 +58,7 @@ body {
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color:#FD9DFF;
+  color:#ff7531;
   padding: 50px;
   float: left;
 }
@@ -70,7 +84,7 @@ body {
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color:#FD9DFF;
+  color:#ff7531;
   padding: 50px;
   float: left;
 }
@@ -82,7 +96,7 @@ body {
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color:#FD9DFF;
+  color: #ff7531;
   padding: 50px;
   float: left;
 }
@@ -94,25 +108,25 @@ body {
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color:#FD9DFF;
+  color: #ff7531;
   padding: 50px;
   float: left;
 }
 
 .cajalink {
-  background-color: #0F0E21;
+  background-color: #1D1C30;
   width: 200px;
   margin: auto;
-  border: 3px solid #FD9DFF;
+  border: 3px solid #ff7531;
   padding: 1px;
   text-align: center;
 }
 
 .cajalink2 {
-  background-color: #0F0E21;
+  background-color: #1D1C30;
   width: 200px;
   margin: 10px;
-  border: 3px solid #FD9DFF;
+  border: 3px solid #ff7531;
   padding: 1px;
   text-align: center;
   float: left;
@@ -121,28 +135,28 @@ body {
 .cajalink a {
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
-  color: #FD9DFF;
+  color: #ff7531;
 }
 
 .cajalink2 a {
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
-  color: #FD9DFF;
+  color: #ff7531;
 }
 
 .botones {
-  background-color: #0F0E21;
+  background-color: #1D1C30;
   width: 150px;
   margin: 10px;
-  border: 3px solid #FD9DFF;
+  border: 3px solid #ff7531;
   padding: 1px;
-  color:#FD9DFF;
+  color:#ff7531;
   text-align: center;
 }
 
 .lista {
   display: grid;
   font-family: Arial;
-  color: #FD9DFF;
+  color: #ff7531;
 }
 

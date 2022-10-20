@@ -16,17 +16,18 @@ function añadirMeses(){
         document.getElementById("quitar").style.display = "block";
         i++;
     }
+    
 }
 
-
 function quitarMeses(){
-    ul = document.getElementById("listaMeses");
+    const ul = document.getElementById("listaMeses");
     ul.removeChild(ul.firstChild);
     i--;
     if(i == 0){
         document.getElementById("quitar").style.display = "none";
         document.getElementById("boton1").style.display = "block";
     }
+    
 }
 
 añadirMeses();
