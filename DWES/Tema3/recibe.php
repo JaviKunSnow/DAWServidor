@@ -21,7 +21,7 @@ echo "<br>";
 print_r($_FILES);
 echo "<br>";
 $ubicacion = "/var/www/html";
-$nombretemp = "hola";
+$nombretemp = basename($_FILES['fichero']['name']);
 if(move_uploaded_file($_FILES['fichero']['tmp_name'], $ubicacion)){
     echo "<br>Fichero subido correctamente";
 } else {
