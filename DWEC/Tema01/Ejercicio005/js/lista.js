@@ -1,27 +1,25 @@
-let lista = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", 
+ let lista = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", 
     "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
 let i = 0;
 
-
+const ul = document.getElementById("listaMeses");
 
 function añadirMeses(){
-    const ul = document.getElementById("listaMeses");
+    
     const li = document.createElement("li");
     li.appendChild(document.createTextNode(lista[i]));
     ul.appendChild(li);
-    i++;
-    if(i == 12){
+    
+    if(lista[i] == "Diciembre"){
         document.getElementById("boton1").style.display = "none";
         document.getElementById("quitar").style.display = "block";
-        i++;
     }
-    
+    i++;
 }
 
 function quitarMeses(){
-    const ul = document.getElementById("listaMeses");
-    ul.removeChild(ul.firstChild);
+    ul.removeChild(ul.lastChild);
     i--;
     if(i == 0){
         document.getElementById("quitar").style.display = "none";
@@ -30,8 +28,21 @@ function quitarMeses(){
     
 }
 
-añadirMeses();
-quitarMeses();
+let verde=0;
+let rojo=0;
 
+let botrojo = document.getElementById("brojo");
+botrojo.appendChild(document.createTextNode(rojo));
 
+let botverde = document.getElementById("bverde");
+botverde.appendChild(document.createTextNode(verde));
+console.log(botrojo);
+
+function botonRojo(){
+    botrojo.innerHTML++;
+}
+
+function botonVerde(){
+    botverde.innerHTML++;
+}
 
