@@ -5,18 +5,18 @@ let i = 0;
 
 const ul = document.getElementById("listaMeses");
 
-function añadirMeses(){
-    
+function addMeses(){
     const li = document.createElement("li");
     li.appendChild(document.createTextNode(lista[i]));
     ul.appendChild(li);
-    
-    if(lista[i] == "Diciembre"){
+    i++;
+    if(i == 12){
         document.getElementById("boton1").style.display = "none";
         document.getElementById("quitar").style.display = "block";
+        document.getElementById("boton2").style.backgroundColor = "#893EFF";
     }
-    i++;
-}
+    
+}         
 
 function quitarMeses(){
     ul.removeChild(ul.lastChild);
