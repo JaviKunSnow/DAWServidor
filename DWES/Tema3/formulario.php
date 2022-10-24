@@ -1,3 +1,6 @@
+<?php
+    require("./funciones.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,26 +10,85 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="./recibe.php" method="post" enctype="multipart/form-data">
+    <form action="./formulario.php" method="post" enctype="multipart/form-data">
         <p>
             <label for="idNombre">Nombre</label>
-            <input type="text" name="nombre" id="idNombre">
+            <input type="text" name="nombre" id="idNombre" value=
+            "<?php
+                if(enviado() && !vacio("nombre")){
+                    echo $_REQUEST["nombre"];
+                }
+            ?>"
+            >
+            <?php
+                if(vacio("nombre") && enviado()){
+                    ?>
+                        <br>
+                        <span style="color: red;">Rellene el nombre</span>
+                    <?
+                }
+            ?>
         </p>
         <p>
             <label for="idPass">Contraseña</label>
-            <input type="password" name="pass" id="idPass">
+            <input type="password" name="pass" id="idPass" value=
+            "<?
+                if(enviado() && vacio("pass")){
+                    echo $_REQUEST["pass"];
+                }
+            ?>">
+            <?php
+                if(vacio("pass") && enviado()){
+                    ?>
+                        <br>
+                        <span style="color: red;">Rellene la contraseña</span>
+                    <?
+                }
+            ?>
         </p>
         <p>
             <label for="idMasculino">Masculino</label>
-            <input type="radio" name="genero" id="idMasculino" value="Masculino">
+            <input type="radio" name="genero" id="idMasculino" value="Masculino" <?php
+                if(enviado() && existe("genero") && $_REQUEST["genero"] == "Masculino")
+                    echo "checked";
+            ?>
+            >
             <label for="idFemenino">Femenino</label>
-            <input type="radio" name="genero" id="idFemenino" value="femenino">
+            <input type="radio" name="genero" id="idFemenino" value="femenino" <?php
+                if(enviado() && existe("genero") && $_REQUEST["genero"] == "femenino")
+                    echo "checked";
+            ?>
+            >
+            <?php
+                if(!existe("genero") && enviado()){
+                    ?>
+                        <br>
+                        <span style="color: red;">Elige un genero</span>
+                    <?
+                }
+            ?>
         </p>
         <p>
             <label for="idDWES">DWES</label>
-            <input type="checkbox" name="asig[]" id="idDWES" value="DWES">
+            <input type="checkbox" name="asig[]" id="idDWES" value="DWES" <?php
+                if(enviado() && existe("asig") && $_REQUEST["asig"] == "DWES")
+                    echo "checked";
+            ?>
+            >
             <label for="idDWEC">DWEC</label>
-            <input type="checkbox" name="asig[]" id="idDWEC" value="DWEC">          
+            <input type="checkbox" name="asig[]" id="idDWEC" value="DWEC" <?php
+                if(enviado() && existe("asig") && $_REQUEST["asig"] == "DWEC")
+                    echo "checked";
+            ?>
+            >        
+            <?php
+                if(!existe("asig") && enviado()){
+                    ?>
+                        <br>
+                        <span style="color: red;">Elige una asignatura</span>
+                    <?
+                }
+            ?>  
         </p>
         <p><b>Curso</b>
             <select name="curso" id="idCurso">
@@ -40,7 +102,14 @@
             <input type="file" name="fichero" id="idFichero">
 
         </p>
-        <input type="submit" value="enviar">
+        <input type="submit" value="enviar" name="enviar">
     </form>
+    <?php
+        if($_FILES){
+
+        }
+
+
+    ?>
 </body>
 </html>
