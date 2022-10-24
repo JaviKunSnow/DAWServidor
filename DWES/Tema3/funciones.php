@@ -56,4 +56,29 @@
     function cambioLado($objeto, $lado){
         $objeto -> lado = $lado;
     }
+
+    function vacio($nombre){
+        if(empty($_REQUEST[$nombre])){
+            return true;
+        }
+        return false;
+    }
+
+    function enviado(){
+        if(isset($_REQUEST["enviar"])){
+            return true;
+        }
+        return false;
+    }
+
+    function existe($nombre){
+        if(isset($_REQUEST[$nombre])){
+           return true;
+        }
+        return false;
+    }
+
+    function check(){
+        if($_REQUEST["genero"].is("checked"))
+    }
 ?>
