@@ -77,8 +77,4 @@
         }
         return false;
     }
-
-    function check(){
-        if($_REQUEST["genero"].is("checked"))
-    }
 ?>
