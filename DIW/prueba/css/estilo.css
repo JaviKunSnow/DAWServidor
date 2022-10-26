@@ -1,0 +1,29 @@
+h1{
+    color:green;
+}
+
+p{
+    color:red;
+    text-align: center;
+}
+
+#especial{
+    color:white;
+    background-color: blue;
+}
+
+.letraverde{
+    color:green;
+}
+
+.fondoamarillo{
+    background-color: yellow;
+}
+
+.ula{
+
+}
+
+#primera .cursiva{
+    font-style: italic;
+}
