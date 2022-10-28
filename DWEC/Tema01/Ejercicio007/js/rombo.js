@@ -1,6 +1,7 @@
 
 function romboCambio(){
     const valor = document.getElementById("input_filas").value;
+    const valorf = valor/2;
     const div = document.getElementById("divi");
     if(div.innerHTML != ""){
         div.innerHTML = "";

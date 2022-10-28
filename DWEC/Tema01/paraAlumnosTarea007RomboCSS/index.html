@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rombo hueco</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    
+</head>
+<body>
+    <div id ="contenedor_pantalla">
+        <div class="contenedor_rombo">
+            <div id ="titulo">Rombo Hueco</div>
+            <div id="contenedor_input"> 
+                <label for="input_filas" id ="label_filas">
+                    Indique cuantas filas tendrá el rombo:
+                </label>
+                <input type="number" id="input_filas"
+                placeholder="Indique el número de filas"
+                value=7 min=1 max=50 step="1"
+                onchange="actualizarRombo()"                
+                />
+            </div>
+            <div id="divRombo">Aquí vendrá el rombo</div>
+        </div>
+    </div>
+    
+    
+    
+    
+    <!-- <h1>Rombo Hueco</h1>
+    <input type="number" name="" id="input_filas" 
+        placeholder="Indique el número de filas"
+        value=5 min=1 max=23
+        onchange="rombo()"/>
+    <div id ="d1" style="font-family:'Courier New', Courier, monospace">aquí irá el rombo</div> -->
+    <script src="js/rombo.js"></script>
+</body>
+</html>
