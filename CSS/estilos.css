@@ -126,6 +126,18 @@ body {
   float: left;
 }
 
+.caja7 {
+  background-color: rgb(59, 55, 55);
+  max-width: 400px;
+  text-align: center;
+  margin: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color:#ff7531;
+  padding: 50px;
+  float: left;
+}
+
 .cajalink {
   background-color: #1D1C30;
   width: 200px;

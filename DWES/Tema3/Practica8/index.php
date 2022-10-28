@@ -14,7 +14,14 @@
     ?>
     <div class="caja4">
     <h1>Formulario</h1>
+
+
+
+
     <form action="./index.php" method="post" enctype="multipart/form-data">
+        <?php
+            $correctos = 0;
+        ?>
         <p>
             <label for="idNombre">Nombre</label>    
             <input type="text" name="nombre" id="idNombre" placeholder="nombre" value=
@@ -29,6 +36,8 @@
                     ?>
                         <span style="color: red;"><-- Rellene el nombre</span>
                     <?
+                } else {
+                    $correctos++;
                 }
             ?>
         </p>
@@ -44,7 +53,7 @@
         </p>
         <p>
             <label for="idalnum">alfanumerico</label>    
-            <input type="text" name="alnum" id="idalnum" placeholder="nombre" value=
+            <input type="text" name="alnum" id="idalnum" placeholder="alfanumerico" value=
             "<?php
                 if(enviado() && !vacio("alnum")){
                     echo $_REQUEST["alnum"];
@@ -52,13 +61,29 @@
             ?>"
             >
             <?php
-                if(vacio("nombre") && enviado()){
+                if(vacio("alnum") && enviado()){
                     ?>
                         <span style="color: red;"><-- Rellene el nombre</span>
                     <?
+                } else if(!is_numeric($_REQUEST["alnum"])){
+                    ?>
+                        <span style="color: red;"><-- No es numerico</span>
+                    <?
+                } else {
+                    $correctos++;
                 }
             ?>
         </p>
+        <p>
+        <label for="idalnumop">alfanumerico opcional</label>    
+            <input type="text" name="alnumop" id="idalnumop" placeholder="alfanumerico" value=
+            "<?php
+                if(enviado() && !vacio("alnumop")){
+                    echo $_REQUEST["alnumop"];
+                }
+            ?>"
+            >
+        </P>
         <p>
             <label for="idFecha">Fecha</label>
             <input type="date" name="fecha" id="idFecha" value=
@@ -73,6 +98,8 @@
                     ?>
                         <span style="color: red;"><-- Elija una fecha</span>
                     <?
+                } else {
+                    $correctos++;
                 }
             ?>
         </p>
@@ -110,6 +137,8 @@
                 ?>
                     <span style="color: red;"><-- Elige una opcion</span>
                 <?
+            } else {
+                $correctos++;
             }
         ?>
         </p>
@@ -123,6 +152,8 @@
             <?php
                 if(existe("opciones") && $_REQUEST['opciones']==0){
                     echo"<span style='color: red;'><-- Elige una opcion</span>";
+                } else {
+                    $correctos++;
                 }
             ?>
         </p>
@@ -172,6 +203,8 @@
                     ?>
                         <span style="color: red;">Elige menos de 3 opciones</span>
                     <?
+                } else {
+                    $correctos++;
                 }
             ?>            
         <p>
@@ -196,8 +229,10 @@
                     ?>
                         <span style="color: red;"><-- No se han pasado 9 numeros, el telefono no es valido</span>
                     <?
+                } else {
+                    $correctos++;
                 }
-
+                
             ?>
         </p>
         <p>
@@ -214,6 +249,8 @@
                     ?>
                         <span style="color: red;"><-- No has introducido email</span>
                     <?
+                } else {
+                    $correctos++;
                 }
             ?>
         </p>
@@ -230,6 +267,8 @@
                     ?>
                         <span style="color: red;"><-- Rellene la contraseña</span>
                     <?
+                } else {
+                    $correctos++;
                 }
             ?>
         </p>
@@ -238,6 +277,12 @@
         </p>
         <input type="submit" value="enviar" name="enviar">
     </form>
+    <?php
+        echo $correctos;
+        if($correctos == 9){
+            ocultar("formulario");
+        }
+    ?>
     </div>
 </body>
 </html>

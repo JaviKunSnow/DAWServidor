@@ -34,4 +34,17 @@ function vacio($nombre){
         }
         return false;
     }
+
+    function comprobacion(){
+        if(vacio("nombre") && enviado()){
+            return false;
+        } else {
+            
+        }
+    }
+
+
+    function ocultar($form){
+       
+    }
 ?>
