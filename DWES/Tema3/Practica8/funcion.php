@@ -44,7 +44,7 @@ function vacio($nombre){
     }
 
 
-    function ocultar($form){
-       
+    function mostrarResultados(){
+       echo "<p>Nombre: ". $_REQUEST;
     }
 ?>

@@ -26,7 +26,7 @@ li {
 
 li a {
   display: inline-block;
-  color: #ff7531;
+  color: #FD9DFD;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -47,7 +47,7 @@ body {
   text-shadow: 2px 2px 5px black;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 40px;
-  color: #ff7531;
+  color: #fd9dff;
 }
 
 .caja1 {
@@ -58,7 +58,7 @@ body {
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color:#ff7531;
+  color:#fd9dff;
   padding: 50px;
   float: left;
 }
@@ -84,7 +84,7 @@ body {
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color:#ff7531;
+  color:#fd9dff;
   padding: 50px;
   float: left;
 }
@@ -96,7 +96,7 @@ body {
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color: #ff7531;
+  color: #fd9dff;
   padding: 50px;
   float: left;
 }
@@ -108,7 +108,7 @@ body {
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color: #ff7531;
+  color: #fd9dff;
   padding: 50px;
   float: left;
 }
@@ -121,7 +121,7 @@ body {
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color:#ff7531;
+  color:#fd9dff;
   padding: 50px;
   float: left;
 }
@@ -133,7 +133,7 @@ body {
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color:#ff7531;
+  color:#fd9dff;
   padding: 50px;
   float: left;
 }
@@ -142,7 +142,7 @@ body {
   background-color: #1D1C30;
   width: 200px;
   margin: auto;
-  border: 3px solid #ff7531;
+  border: 3px solid #fd9dff;
   padding: 1px;
   text-align: center;
 }
@@ -151,7 +151,7 @@ body {
   background-color: #1D1C30;
   width: 200px;
   margin: 10px;
-  border: 3px solid #ff7531;
+  border: 3px solid #fd9dff;
   padding: 1px;
   text-align: center;
   float: left;
@@ -160,28 +160,28 @@ body {
 .cajalink a {
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
-  color: #ff7531;
+  color: #fd9dff;
 }
 
 .cajalink2 a {
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
-  color: #ff7531;
+  color: #fd9dff;
 }
 
 .botones {
   background-color: #1D1C30;
   width: 150px;
   margin: 10px;
-  border: 3px solid #ff7531;
+  border: 3px solid #fd9dff;
   padding: 1px;
-  color:#ff7531;
+  color:#fd9dff;
   text-align: center;
 }
 
 .lista {
   display: grid;
   font-family: Arial;
-  color: #ff7531;
+  color: #fd9dff;
 }
 
