@@ -36,15 +36,38 @@ function vacio($nombre){
     }
 
     function comprobacion(){
-        if(vacio("nombre") && enviado()){
-            return false;
-        } else {
-            
+        if (enviado()) {
+           if (!vacio("alfabetico") && is_numeric($_REQUEST['alfabetico'])) {
+                if (!vacio('alfaNum')) {
+                    if (!vacio('fecha')) {
+                        if (existe('radios')) {
+                            if (existe('selector') && $_REQUEST['selector']!=0) {
+                               if (existe('box') && cuantos('box')) {
+                                    if (!vacio('tel') && telefono('tel')) {
+                                        return true;
+                                    }
+                               }
+                            }
+                        }
+                    }
+                }
+           }
         }
+        return false;
     }
 
 
     function mostrarResultados(){
-       echo "<p>Nombre: ". $_REQUEST;
+       echo "<p>Nombre: ". $_REQUEST["nombre"] . "</p>";
+       echo "<p>Nombre opcional: ". $_REQUEST["nombreo"] . "</p>";
+       echo "<p>Alfanumerico: ". $_REQUEST["alnum"] . "</p>";
+       echo "<p>Alfanumerico opcional: ". $_REQUEST["alnumop"] . "</p>";
+       echo "<p>Fecha: ". $_REQUEST["fecha"] . "</p>";
+       echo "<p>Fecha opcional: ". $_REQUEST["fechao"] . "</p>";
+       echo "<p>opciones radio: ". $_REQUEST["radio"] . "</p>";
+       echo "<p>opciones desplegable: ". $_REQUEST["opciones"] . "</p>";
+       echo "<p>telefono: ". $_REQUEST["telefono"] . "</p>";
+       echo "<p>mail: ". $_REQUEST["mail"] . "</p>";
+       echo "<p>contraseña: ". $_REQUEST["pass"] . "</p>";
     }
 ?>

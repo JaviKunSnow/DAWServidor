@@ -29,7 +29,7 @@
     ?>
     <h2>LINK EJERCICIO 5:</h2>
     <div class="cajalink2">
-        <a href="Ejercicio5.php?valor=3"><p>Ejercicio 5</p></a>
+        <a href="Ejercicio5.php?valor=4"><p>Ejercicio 5</p></a>
     </div>
 </body>
 </html>

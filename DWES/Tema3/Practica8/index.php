@@ -15,15 +15,14 @@
     <div class="caja4">
     <h1>Formulario</h1>
     <?php
-        echo $correctos;
-        if($correctos == 9){
+        
+        if(comprobacion() == true){
             mostrarResultados();
-        }
+        } else {
+
+        
     ?>
     <form action="./index.php" method="post" enctype="multipart/form-data">
-        <?php
-            $correctos = 0;
-        ?>
         <p>
             <label for="idNombre">Nombre</label>    
             <input type="text" name="nombre" id="idNombre" placeholder="nombre" value=
@@ -279,6 +278,9 @@
         </p>
         <input type="submit" value="enviar" name="enviar">
     </form>
+    <?php
+        }
+    ?>
     </div>
 </body>
 </html>
