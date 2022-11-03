@@ -59,6 +59,8 @@
 
     // match con <html> <h3> <a> </html> </h3>
 
+    // quiero que devuelva donde ha hecho mas
+
     $patron = '/<\/?\D+\d*>/';
     $cadena = "<html>";
     $cadena1 = "h3>";
