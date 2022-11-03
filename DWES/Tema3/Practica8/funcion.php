@@ -37,23 +37,27 @@ function vacio($nombre){
 
     function comprobacion(){
         if (enviado()) {
-           if (!vacio("alfabetico") && is_numeric($_REQUEST['alfabetico'])) {
-                if (!vacio('alfaNum')) {
-                    if (!vacio('fecha')) {
-                        if (existe('radios')) {
-                            if (existe('selector') && $_REQUEST['selector']!=0) {
-                               if (existe('box') && cuantos('box')) {
-                                    if (!vacio('tel') && telefono('tel')) {
-                                        return true;
-                                    }
-                               }
-                            }
-                        }
-                    }
-                }
+           if (vacio("alnum") && is_numeric($_REQUEST["alnum"])) {                              
+            return true;                 
+           } else if (vacio("nombre")) {
+            return true;
+           } else if (vacio("fecha")) {
+            return true;
+           } else if (!existe("radio")) {
+            return true;
+           } else if (existe("opciones") && $_REQUEST["opciones"]==0) {
+            return true;
+           } else if (!existe("check") && veces("check")) {
+            return true;
+           } else if (vacio("telefono") && !is_numeric($_REQUEST["telefono"]) && !longitud("telefono")) {
+            return true;
+           } else if (vacio("mail")) {
+            return true;
+           } else if (vacio("pass")) {
+            return true;
            }
         }
-        return false;
+        return false; 
     }
 
 

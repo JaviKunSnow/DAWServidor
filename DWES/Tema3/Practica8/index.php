@@ -16,11 +16,10 @@
     <h1>Formulario</h1>
     <?php
         
-        if(comprobacion() == true){
+        if(comprobacion() == false){
             mostrarResultados();
         } else {
 
-        
     ?>
     <form action="./index.php" method="post" enctype="multipart/form-data">
         <p>
@@ -37,8 +36,6 @@
                     ?>
                         <span style="color: red;"><-- Rellene el nombre</span>
                     <?
-                } else {
-                    $correctos++;
                 }
             ?>
         </p>
@@ -70,8 +67,6 @@
                     ?>
                         <span style="color: red;"><-- No es numerico</span>
                     <?
-                } else {
-                    $correctos++;
                 }
             ?>
         </p>
@@ -99,8 +94,6 @@
                     ?>
                         <span style="color: red;"><-- Elija una fecha</span>
                     <?
-                } else {
-                    $correctos++;
                 }
             ?>
         </p>
@@ -138,8 +131,6 @@
                 ?>
                     <span style="color: red;"><-- Elige una opcion</span>
                 <?
-            } else {
-                $correctos++;
             }
         ?>
         </p>
@@ -153,8 +144,6 @@
             <?php
                 if(existe("opciones") && $_REQUEST['opciones']==0){
                     echo"<span style='color: red;'><-- Elige una opcion</span>";
-                } else {
-                    $correctos++;
                 }
             ?>
         </p>
@@ -204,8 +193,6 @@
                     ?>
                         <span style="color: red;">Elige menos de 3 opciones</span>
                     <?
-                } else {
-                    $correctos++;
                 }
             ?>            
         <p>
@@ -230,8 +217,6 @@
                     ?>
                         <span style="color: red;"><-- No se han pasado 9 numeros, el telefono no es valido</span>
                     <?
-                } else {
-                    $correctos++;
                 }
                 
             ?>
@@ -250,8 +235,6 @@
                     ?>
                         <span style="color: red;"><-- No has introducido email</span>
                     <?
-                } else {
-                    $correctos++;
                 }
             ?>
         </p>
@@ -268,8 +251,6 @@
                     ?>
                         <span style="color: red;"><-- Rellene la contraseña</span>
                     <?
-                } else {
-                    $correctos++;
                 }
             ?>
         </p>
