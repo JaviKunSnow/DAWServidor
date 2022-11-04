@@ -1,4 +1,4 @@
-// EJERCICIO 1
+ /* EJERCICIO 1
 
 // parte 1
 
@@ -129,5 +129,52 @@ console.log(input);
 let valor = document.querySelector("input[name='sexo']:checked").value;
 console.log(valor);
 
+*/ 
 
+// OTROS EJERCICIOS
 
+// 1
+
+document.getElementById("button1").addEventListener("click", function() {
+    alert("click sobre boton 1");
+})
+
+// 2
+
+function abrirVentana(){
+    const nueva = window.open("", "", "width = 200, height = 100, left= 200, top= 100");
+    const p = document.createElement("p");
+    p.appendChild(document.createTextNode("Nueva ventana emergente"));
+    nueva.document.body.appendChild(p);
+}
+
+document.getElementById("button1").addEventListener("click", abrirVentana);
+
+// 3
+
+function pasarEncima() {
+    document.body.innerHTML+= "<p style='color: red;'>Nueva ventana</p>";
+    console.log(document.body.lastChild);
+}
+
+function pasarEncima2() {
+    const p = document.createElement("p");
+    p.appendChild(document.createTextNode("sddsfsdds"));
+    p.style.color = "red";
+    document.body.appendChild(p);
+}
+
+document.getElementById("button1").addEventListener("mouseenter", pasarEncima2)
+
+function pasarFuera() {
+    setTimeout(() => {
+        document.body.lastElementChild.remove()
+        console.log(document.body.lastChild);
+    }, 2000);
+}
+
+function pasarFuera2() {
+    document.body.lastElementChild.remove();
+}
+
+document.getElementById("button1").addEventListener("mouseout", pasarFuera2);

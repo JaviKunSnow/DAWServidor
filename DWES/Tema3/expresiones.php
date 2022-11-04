@@ -61,10 +61,39 @@
 
     // quiero que devuelva donde ha hecho mas
 
-    $patron = '/<\/?\D+\d*>/';
-    $cadena = "<html>";
-    $cadena1 = "h3>";
+    $patron = '/<\/?[a-z]+\d*>/';
+    $cadena = "<html>dentro de html</html>
+    <a>dentro enlace</a>
+    <h1>dentro h1</h1>";
 
     echo "<br> cadena: ".$cadena." y patron : ".$patron." match ". preg_match($patron,$cadena);
     echo "<br> cadena: ".$cadena1." y patron : ".$patron." match ". preg_match($patron,$cadena1);
+
+    preg_match_all($patron,$cadena,$array);
+    foreach($array[0] as $value){
+        echo str_replace('<','&lt',$value);
+        echo "<br>";
+    }
+
+    $patron = '/<[a-z]+[0-9]?>(.*)<\/[a-z]+[0-9]?>?/';
+    $cadena = "<html>dentro de html</html>
+    <a>dentro enlace</a>
+    <h1>dentro h1</h1>";
+
+    preg_match_all($patron,$cadena,$array);
+    foreach($array[0] as $value){
+        echo str_replace('<','&lt',$value);
+        echo "<br>";
+    }
+
+    // expresiones regulares en arrays
+
+    $lista = array('Javier', '23', 'Zamora', 'Avenida Pacheco 21', '45');
+    $patron = '/^\d{1,3}$/';
+    $numeros = preg_grep($patron, $lista);
+    print_r($numeros);
+
+    $sustituir = 'numero';
+    $cambiado = preg_replace($patron, $sustituir, $lista);
+    print_r($cambiado);
     ?>

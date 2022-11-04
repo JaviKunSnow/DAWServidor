@@ -16,7 +16,7 @@
     <h1>Formulario</h1>
     <?php
         
-        if(comprobacion() == false){
+        if(comprobacion() == true){
             mostrarResultados();
         } else {
 
@@ -62,10 +62,6 @@
                 if(vacio("alnum") && enviado()){
                     ?>
                         <span style="color: red;"><-- Rellene el nombre</span>
-                    <?
-                } else if(!is_numeric($_REQUEST["alnum"])){
-                    ?>
-                        <span style="color: red;"><-- No es numerico</span>
                     <?
                 }
             ?>
@@ -205,18 +201,20 @@
             ?>"
             >
             <?php
-                if(vacio("telefono") && enviado()){
-                    ?>
-                        <span style="color: red;"><-- el campo esta vacio, rellenelo</span>
-                    <?
-                } else if(!is_numeric($_REQUEST["telefono"])){
-                    ?>
-                        <span style="color: red;"><-- No es numerico</span>
-                    <?
-                } else if(!longitud("telefono")){
-                    ?>
-                        <span style="color: red;"><-- No se han pasado 9 numeros, el telefono no es valido</span>
-                    <?
+                if(enviado()){
+                    if(vacio("telefono")){
+                        ?>
+                            <span style="color: red;"><-- el campo esta vacio, rellenelo</span>
+                        <?
+                    } else if(isset($_REQUEST["telefono"]) &&!is_numeric($_REQUEST["telefono"])){
+                        ?>
+                            <span style="color: red;"><-- No es numerico</span>
+                        <?
+                    } else if(!longitud("telefono")){
+                        ?>
+                            <span style="color: red;"><-- No se han pasado 9 numeros, el telefono no es valido</span>
+                        <?
+                    }
                 }
                 
             ?>
@@ -247,10 +245,12 @@
                 }
             ?>">
             <?php
-                if(vacio("pass") && enviado()){
+                if(isset($_REQUEST["pass"])){
+                    if(vacio("pass")){
                     ?>
                         <span style="color: red;"><-- Rellene la contraseña</span>
                     <?
+                    }
                 }
             ?>
         </p>
@@ -260,7 +260,7 @@
         <input type="submit" value="enviar" name="enviar">
     </form>
     <?php
-        }
+       }
     ?>
     </div>
 </body>
