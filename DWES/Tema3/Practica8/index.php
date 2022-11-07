@@ -262,6 +262,13 @@
     <?php
        }
     ?>
+        <h2>Ver codigo:</h2>
+        <div class="cajalink2">
+            <a href="verCodigo.php?valor=index.php"><p>Ver codigo index</p></a>
+        </div>
+        <div class="cajalink2">
+            <a href="verCodigo.php?valor=funcion.php"><p>Ver codigo funcion</p></a>
+        </div>    
     </div>
 </body>
 </html>
