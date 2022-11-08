@@ -14,13 +14,6 @@
     ?>
     <div class="caja4">
     <h1>Formulario</h1>
-    <?php
-        
-        /*if(comprobacion() == true){
-            mostrarResultados();
-        } else { */
-
-    ?>
     <form action="./index.php" method="post" enctype="multipart/form-data">
         <p>
             <label for="idNombre">Nombre: </label>    
@@ -34,13 +27,13 @@
             <?php
                 if(enviado()){
                     if(vacio("nombre")){
-                        ?>
-                            <span style="color: red;"><-- Rellene el nombre</span>
-                        <?
+                        
+                        echo"<span style='color: red;'><-- Rellene el nombre</span>";
+
                     } else if(!compNombre("nombre")){
-                        ?>
-                            <span style="color: red;"><-- Minimo tiene que tener 3 caracteres</span>
-                        <?
+                        
+                        echo "<span style='color: red;'><-- Minimo tiene que tener 3 caracteres en cada uno</span>";
+
                     }
                 }
             ?>
@@ -57,15 +50,15 @@
             <?php
                 if(enviado()){
                     if(vacio("apellido")){
-                        ?>
-                            <span style="color: red;"><-- Rellene los apellidos</span>
-                        <?
+                        
+                        echo "<span style='color: red;'><-- Rellene los apellidos</span>";
+                        
                     } else if(!compApellidos("apellido")){
-                        ?>
-                            <span style="color: red;"><-- Minimo tiene que tener 3 caracteres en cada uno</span>
-                        <?
+                        
+                        echo "<span style='color: red;'><-- Minimo tiene que tener 3 caracteres en cada uno</span>";
+                        
                     }
-                }    
+                }  
             ?>
         </p>       
         <p>
@@ -80,13 +73,13 @@
             <?php
                 if(enviado()){
                     if(vacio("fecha")){
-                        ?>
-                            <span style="color: red;"><-- Fecha no puede estar vacia</span>
-                        <?
-                    } else if(!compFecha("fecha")){
-                        ?>
-                            <span style="color: red;"><-- Fecha incorrecta</span>
-                        <?
+                        
+                        echo "<span style='color: red;'><-- Fecha no puede estar vacia</span>";
+                        
+                    } else if(!compFecha()){
+                        
+                        echo "<span style='color: red;'><-- Fecha incorrecta</span>";
+                        
                     }
                 }  
             ?>
@@ -103,15 +96,15 @@
             <?php
             if(enviado()){
                 if(vacio("dni")){
-                    ?>
-                        <span style="color: red;"><-- Rellene el dni</span>
-                    <?
+                    
+                    echo "<span style='color: red;'><-- Rellene el dni</span>";
+                    
                 } else if(!compDNI("dni")){
-                    ?>
-                        <span style="color: red;"><-- </span>
-                    <?
+                    
+                    echo "<span style='color: red;'><-- dni invalido</span>";
+                    
                 }
-            }
+            } 
             ?>
         </p>
         <p>
@@ -126,18 +119,15 @@
             <?php
                 if(enviado()){
                     if(vacio("mail")){
-                        ?>
-                            <span style="color: red;"><-- No has introducido email</span>
-                        <?
+                        
+                        echo "<span style='color: red;'><-- No has introducido email</span>";
+                        
                     }
                 }
             ?>
         </p>
         <input type="submit" value="enviar" name="enviar">
     </form>
-    <?php
-      // }
-    ?>
         <h2>Ver codigo:</h2>
         <div class="cajalink2">
             <a href="verCodigo.php?valor=index.php"><p>Ver codigo index</p></a>

@@ -90,15 +90,21 @@ html {
 
   .diana {
     height: 40px;
+    display: flex;
+    flex-flow: row;
+    width: auto;
   }
 
-  #circulo {
+  .circulo {
     width: 30px;
     height: 30px;
     border: solid black 1px;
     border-radius: 50%;
     position:absolute;
     background: red;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
   }
 
   .hueco {

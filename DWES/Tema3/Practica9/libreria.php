@@ -36,25 +36,35 @@
         return false;
     }
 
-    function compFecha($fecha){
-        $patron = '/^([0][1-9]|[12][0-9]|3[01])(\/|-)([0][1-9]|[1][0-2])\2(\d{4})/';
+    function compFecha(){
+        $patron = '/^([0-2][0-9]|3[0-1])\/[1-12]{1,2}\/\d{4}$/';
         $fechaactual = new dateTime();
-        if(preg_match($patron, $_REQUEST[$fecha])){
-            $valores = explode('/', $_REQUEST[$fecha]);
-            $fecha1 = new dateTime($_REQUEST[$fecha]);
-            $intervalo = $fechaactual->diff($fecha);
-            $year = $intervalo->y;
-            if($year >= 18){
-                if(checkdate($valores[1], $valores[0], $valores[2])){
+        if(preg_match($patron, $_REQUEST["fecha"]) == 1){
+            $valores = explode('/', $_REQUEST["fecha"]);
+            if(checkdate($valores[1], $valores[0], $valores[2])){
+                $fecha = new dateTime($_REQUEST["fecha"]);
+                $intervalo = $fechaactual->diff($fecha);
+                if($intervalo->y >= 18){
                     return true;
-                } 
-            }
+                }
+            } 
             
         }
         return false;
     }
 
     function compDNI($dni){
-
+        $patron= '/\d{8}[T|R|W|A|G|M|Y|F|P|D|X|B|N|J|Z|S|Q|V|H|L|C|K|E]$/';
+        if (preg_match($patron,$_REQUEST['dni'])==1){
+            $letras = 'TRWAGMYFPDXBNJZSQVHLCKE';
+            $num= substr($_REQUEST['dni'],0,8);
+            $dni=$_REQUEST['dni'];
+            if ($dni[8] == $letras[$num%23]){
+                    return true;
+            }
+        }
+        return false;
     }
+
+
 ?>
