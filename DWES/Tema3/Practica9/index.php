@@ -32,14 +32,16 @@
             ?>"
             >
             <?php
-                if(vacio("nombre") && enviado()){
-                    ?>
-                        <span style="color: red;"><-- Rellene el nombre</span>
-                    <?
-                } else if(!compNombre("nombre")){
-                    ?>
-                        <span style="color: red;"><-- Minimo tiene que tener 3 caracteres</span>
-                    <?
+                if(enviado()){
+                    if(vacio("nombre")){
+                        ?>
+                            <span style="color: red;"><-- Rellene el nombre</span>
+                        <?
+                    } else if(!compNombre("nombre")){
+                        ?>
+                            <span style="color: red;"><-- Minimo tiene que tener 3 caracteres</span>
+                        <?
+                    }
                 }
             ?>
         </p>
@@ -53,15 +55,17 @@
             ?>"
             >
             <?php
-                if(vacio("apellido") && enviado()){
-                    ?>
-                        <span style="color: red;"><-- Rellene los apellidos</span>
-                    <?
-                } else if(!compApellidos("apellido")){
-                    ?>
-                        <span style="color: red;"><-- Minimo tiene que tener 3 caracteres en cada uno</span>
-                    <?
-                }
+                if(enviado()){
+                    if(vacio("apellido")){
+                        ?>
+                            <span style="color: red;"><-- Rellene los apellidos</span>
+                        <?
+                    } else if(!compApellidos("apellido")){
+                        ?>
+                            <span style="color: red;"><-- Minimo tiene que tener 3 caracteres en cada uno</span>
+                        <?
+                    }
+                }    
             ?>
         </p>       
         <p>
@@ -74,15 +78,17 @@
             ?>"
             >
             <?php
-                if(vacio("fecha") && enviado()){
-                    ?>
-                        <span style="color: red;"><-- Fecha no puede estar vacia</span>
-                    <?
-                } else if(!compFecha("fecha")){
-                    ?>
-                        <span style="color: red;"><-- Feasdasfasd</span>
-                    <?
-                }
+                if(enviado()){
+                    if(vacio("fecha")){
+                        ?>
+                            <span style="color: red;"><-- Fecha no puede estar vacia</span>
+                        <?
+                    } else if(!compFecha("fecha")){
+                        ?>
+                            <span style="color: red;"><-- Fecha incorrecta</span>
+                        <?
+                    }
+                }  
             ?>
         </p>
         <p>
@@ -95,7 +101,8 @@
             ?>"
             >
             <?php
-                if(vacio("dni") && enviado()){
+            if(enviado()){
+                if(vacio("dni")){
                     ?>
                         <span style="color: red;"><-- Rellene el dni</span>
                     <?
@@ -104,6 +111,7 @@
                         <span style="color: red;"><-- </span>
                     <?
                 }
+            }
             ?>
         </p>
         <p>
@@ -116,10 +124,12 @@
             ?>"
             >
             <?php
-                if(vacio("mail") && enviado()){
-                    ?>
-                        <span style="color: red;"><-- No has introducido email</span>
-                    <?
+                if(enviado()){
+                    if(vacio("mail")){
+                        ?>
+                            <span style="color: red;"><-- No has introducido email</span>
+                        <?
+                    }
                 }
             ?>
         </p>
