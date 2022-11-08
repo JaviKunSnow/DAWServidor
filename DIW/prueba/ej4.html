@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+
+        }
+
+        .cajas {
+            display: flex;
+            background-color: #0f0e21;
+        }
+        
+        .cajas > div {
+            background-color: #fd9dff;
+            width: 200px;
+            margin: 10px;
+            text-align: center;
+            line-height: 75px;
+            font-size: 30px;
+        }
+        .cajas > div#primero {
+            order: 3;
+        }
+        .cajas > div#cuarto {
+            order: 1;
+        }
+        .cajas > div#seis {
+            order: 2;
+        }
+        .cajas > div#ocho {
+            order: 4;
+        }
+        .cajas > div#siete {
+            order: 5;
+        }
+    </style>
+</head>
+<body>
+    <h1>cajas flex</h1>
+    <div class="cajas">
+        <div id="primero">1</div>
+        <div>2</div>
+        <div>3</div>
+        <div id="cuarto">4</div>
+        <div>5</div>
+        <div id="seis">6</div>
+        <div id="siete">7</div>
+        <div id="ocho">8</div>
+    </div>
+</body>
+</html>

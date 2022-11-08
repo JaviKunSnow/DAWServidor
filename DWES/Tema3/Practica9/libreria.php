@@ -37,19 +37,18 @@
     }
 
     function compFecha($fecha){
-        $patron = '/^[1-31]{1,2}(\/|-)[1-12]{1,2}(\/|-)[0-9]{1,4}$/';
+        $patron = '/^([0][1-9]|[12][0-9]|3[01])(\/|-)([0][1-9]|[1][0-2])\2(\d{4})/';
         $fechaactual = new dateTime();
-        if(preg_match($patron, $_REQUEST[$fecha]) == 1){
-            return true;
-            /*$valores = explode('/', $_REQUEST[$fecha]);
-            $fecha = new dateTime($_REQUEST[$fecha]);
+        if(preg_match($patron, $_REQUEST[$fecha])){
+            $valores = explode('/', $_REQUEST[$fecha]);
+            $fecha1 = new dateTime($_REQUEST[$fecha]);
             $intervalo = $fechaactual->diff($fecha);
             $year = $intervalo->y;
             if($year >= 18){
-                
                 if(checkdate($valores[1], $valores[0], $valores[2])){
+                    return true;
                 } 
-            }*/
+            }
             
         }
         return false;

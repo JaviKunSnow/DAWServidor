@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-type" content="text/html; charset">
+    <title>CSS - localizacion</title>
+    <!-- <link rel="stylesheet" href="css/estiloej02.css"> -->
+    <style>
+        li{
+            display:inline;
+            border: 1px solid black;
+            padding: 10px;
+            
+        }
+
+        .mates {
+            display:none;
+        }
+        
+        .nat {
+            visibility: hidden;
+        }
+
+        div.primero {
+            border: 3px solid red;
+            top: 80px;
+            left: 20px;
+            float:left;
+            width: 100px;
+            margin: 10px;
+        }
+
+        div.segundo {
+            border: 3px solid blue;
+            top: 120px;
+            left: 20px;
+            float: left;
+            width: 100px;
+            margin: 10px;
+        }
+        div.tercero {
+            border: 3px solid green;
+            top: 160px;
+            left: 20px;
+            float:left;
+            width: 100px;
+            height: 100px;
+            overflow: scroll;
+        }
+
+        p.sinflote {
+            clear:left;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>lengua</li>
+        <li class="mates">mates</li>
+        <li class="nat">Naturales</li>
+        <li>Sociales</li>
+    </ul>
+
+    <div class="primero">primero</div>
+    <div class="segundo">segundo</div>
+    <div class="tercero">ASDASDASDASDA
+        SDASDASDASDASDA
+        SDASDASDASDASDASD
+        ASDASDASDASDASDAS
+        DASDASDASDASDASDAS
+        DASDASDASDASDASDASD</div>
+    <p class="sinflote">sdfsdsds</p>
+</body>
+</html>
