@@ -95,6 +95,11 @@ html {
     width: auto;
   }
 
+  #idCirculo {
+    position:absolute;
+    font-size: 60px;
+  }
+
   .circulo {
     width: 30px;
     height: 30px;
