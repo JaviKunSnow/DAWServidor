@@ -36,24 +36,33 @@
         return false;
     }
 
-    function compFecha(){
-        $patron = '/^([0-2][0-9]|3[0-1])\/[1-12]{1,2}\/\d{4}$/';
-        $fechaactual = new dateTime();
-        if(preg_match($patron, $_REQUEST["fecha"]) == 1){
-            $valores = explode('/', $_REQUEST["fecha"]);
+    function compFecha($fecha){
+        $patron = '/^([0-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/(\d{4})$/';
+        
+        if(preg_match($patron, $_REQUEST[$fecha])==1){
+            
+            $valores = explode('/', $_REQUEST[$fecha]);
+            
             if(checkdate($valores[1], $valores[0], $valores[2])){
-                $fecha = new dateTime($_REQUEST["fecha"]);
-                $intervalo = $fechaactual->diff($fecha);
-                if($intervalo->y >= 18){
-                    return true;
-                }
+                return true;
             } 
             
         }
         return false;
     }
 
-    function compDNI($dni){
+    function compEdad($fecha){
+        $fechaactual = new dateTime();
+        $fechacomp = new dateTime($_REQUEST[$fecha]);
+        $intervalo = $fechaactual->diff($fechacomp);  
+        
+        if($intervalo->y >= 18){
+            return true;
+        }
+        return false;
+    }
+
+    function compDNI(){
         $patron= '/\d{8}[T|R|W|A|G|M|Y|F|P|D|X|B|N|J|Z|S|Q|V|H|L|C|K|E]$/';
         if (preg_match($patron,$_REQUEST['dni'])==1){
             $letras = 'TRWAGMYFPDXBNJZSQVHLCKE';
@@ -66,5 +75,39 @@
         return false;
     }
 
+    function compCorreo($correo){
+        $patron = '/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/';
+
+        if(preg_match($patron,$_REQUEST[$correo])==1){
+            return true;
+        }
+        return false;
+    }
+
+    function compTotal(){
+        if (enviado()) {
+            if (!vacio("nombre") && compNombre("nombre")) {
+                 if (!vacio("apellido") && compApellidos("apellido")) {
+                     if (!vacio("fecha") && compFecha("fecha")) {
+                         if (!vacio("dni") && compDNI("dni")) {
+                             if (!vacio("mail") && compCorreo("mail")) {
+                                return true;
+                             }
+                         }
+                     }
+                 }
+            }
+         }
+         return false;
+    }
+
+    function mostrarDatos(){
+        echo "<h1>Datos insertados:</h1>";
+        echo "<p>Nombre: ". $_REQUEST["nombre"] . "</p>";
+        echo "<p>Apellidos: ". $_REQUEST["apellido"] . "</p>";
+        echo "<p>Fecha: ". $_REQUEST["fecha"] . "</p>";
+        echo "<p>DNI: ". $_REQUEST["dni"] . "</p>";
+        echo "<p>correo electronico: ". $_REQUEST["mail"] . "</p>";
+     }
 
 ?>

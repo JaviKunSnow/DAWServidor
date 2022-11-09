@@ -13,7 +13,6 @@
         include_once("../../../cabecera.html");
     ?>
     <div class="caja4">
-    <h1>Formulario</h1>
     <?php
         
         if(comprobacion() == true){
@@ -21,6 +20,7 @@
         } else {
 
     ?>
+    <h1>Formulario</h1>
     <form action="./index.php" method="post" enctype="multipart/form-data">
         <p>
             <label for="idNombre">Nombre</label>    

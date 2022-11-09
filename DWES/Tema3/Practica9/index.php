@@ -13,7 +13,13 @@
         include_once("../../../cabecera.html");
     ?>
     <div class="caja4">
-    <h1>Formulario</h1>
+    <?php
+
+    if(compTotal()){
+        mostrarDatos();
+    } else {
+        echo "<h1>Formulario</h1>";
+    ?>
     <form action="./index.php" method="post" enctype="multipart/form-data">
         <p>
             <label for="idNombre">Nombre: </label>    
@@ -27,13 +33,9 @@
             <?php
                 if(enviado()){
                     if(vacio("nombre")){
-                        
                         echo"<span style='color: red;'><-- Rellene el nombre</span>";
-
                     } else if(!compNombre("nombre")){
-                        
                         echo "<span style='color: red;'><-- Minimo tiene que tener 3 caracteres en cada uno</span>";
-
                     }
                 }
             ?>
@@ -50,13 +52,9 @@
             <?php
                 if(enviado()){
                     if(vacio("apellido")){
-                        
                         echo "<span style='color: red;'><-- Rellene los apellidos</span>";
-                        
                     } else if(!compApellidos("apellido")){
-                        
                         echo "<span style='color: red;'><-- Minimo tiene que tener 3 caracteres en cada uno</span>";
-                        
                     }
                 }  
             ?>
@@ -73,13 +71,11 @@
             <?php
                 if(enviado()){
                     if(vacio("fecha")){
-                        
                         echo "<span style='color: red;'><-- Fecha no puede estar vacia</span>";
-                        
-                    } else if(!compFecha()){
-                        
+                    } else if(!compFecha("fecha")){
                         echo "<span style='color: red;'><-- Fecha incorrecta</span>";
-                        
+                    } else if(!compEdad("fecha")){
+                        echo "<span style='color: red;'><-- La edad tiene que ser mayor de 18 años</span>";
                     }
                 }  
             ?>
@@ -96,20 +92,16 @@
             <?php
             if(enviado()){
                 if(vacio("dni")){
-                    
                     echo "<span style='color: red;'><-- Rellene el dni</span>";
-                    
                 } else if(!compDNI("dni")){
-                    
                     echo "<span style='color: red;'><-- dni invalido</span>";
-                    
                 }
             } 
             ?>
         </p>
         <p>
             <label for="idEmail">Email</label>    
-            <input type="email" name="mail" id="idMail" placeholder="mail" value=
+            <input type="text" name="mail" id="idMail" placeholder="mail" value=
             "<?php
                 if(enviado() && !vacio("mail")){
                     echo $_REQUEST["mail"];
@@ -119,21 +111,24 @@
             <?php
                 if(enviado()){
                     if(vacio("mail")){
-                        
                         echo "<span style='color: red;'><-- No has introducido email</span>";
-                        
+                    } else if(!compCorreo("mail")){
+                        echo "<span style='color: red;'><-- El email no es correo</span>";
                     }
                 }
             ?>
         </p>
         <input type="submit" value="enviar" name="enviar">
     </form>
+    <?php
+    }
+    ?>
         <h2>Ver codigo:</h2>
         <div class="cajalink2">
             <a href="verCodigo.php?valor=index.php"><p>Ver codigo index</p></a>
         </div>
         <div class="cajalink2">
-            <a href="verCodigo.php?valor=funcion.php"><p>Ver codigo funcion</p></a>
+            <a href="verCodigo.php?valor=libreria.php"><p>Ver codigo libreria</p></a>
         </div>    
     </div>
 </body>
