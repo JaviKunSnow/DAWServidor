@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+header {
+  padding: 60px;
+  text-align: center;
+  background:darkslateblue;
+  color: white;
+}
+
+/* La barra de navegación es flex */
+nav {
+    background-color: #333;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+/* Propiedades de los enlaces de la barra de navegación */
+nav a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* El contenedor principal es flex y permite colapsar -wrap- */
+.row {  
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Columna izquierda */
+aside {
+    background-color: #f1f1f1;
+    padding: 20px;
+    flex: 100%;
+}
+
+/* Cuerpo de la página */
+main {
+    background-color:thistle;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+    
+article{
+    display: inline-block;
+    padding: 20px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+/* Imagenes */
+img{
+    width: 100px;
+    margin-right: 10px;
+    float: left;
+}
+
+.cuadrado {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+  border: solid 1px black;
+  height: 60px;
+}
+
+/* Pie */
+footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+@media screen and (min-width: 768px){
+    nav{
+        flex-wrap: nowrap;
+        flex-direction: row;
+    }
+    aside{
+        flex: 25%;
+    }
+    main{
+        flex: 75%;
+    }
+    article{
+        flex: 30%;
+    }
+}

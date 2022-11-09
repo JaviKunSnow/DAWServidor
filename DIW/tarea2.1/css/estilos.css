@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 body {
     background-color: lightgray;
     font-family: Arial, Helvetica, sans-serif;
@@ -30,16 +34,44 @@ header {
     padding: 5px;
 }
 
-.botones {
+.naveg {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 70%;
+}
+
+aside {
+    flex: 10%;
+    padding: 20px;
+    flex-direction: column;
+}
+
+section {
+    border-bottom: 1px solid black;
+    display: flex;
+    flex: 70%;
+}
+
+section > article{
+    background-color: white;
+    margin: 10px;
+}
+
+input.botones {
     background-color: red;
     color:white;
-    padding: 10px;
+    margin: 5px;
     height: 40px;
 }
 
 .btnbuscar {
     height: 40px;
-    margin-right: 30px;
+    margin-right: 20px;
 }
 
 #buscador {
@@ -49,7 +81,21 @@ header {
     margin-left: 10px;
 }
 
-nav > ul {
-    list-style-type: none;
 
+aside a {
+    display: block;
+    width: 200px;
+    padding: 8px 16px;
+    color: white;
+    text-decoration: none;
+    background-color: rgb(25, 97, 253);
+    border: 1px solid black;
 }
+
+aside a:hover {
+    background-color: lightseagreen;
+}
+
+
+
+
