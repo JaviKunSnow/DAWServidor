@@ -98,7 +98,7 @@ html {
 
   #idCirculo {
     position:absolute;
-    font-size: 100px;
+    font-size: 40px;
   }
 
   .circulo {
@@ -125,5 +125,5 @@ html {
 
   #idPistola {
     position:absolute;
-    font-size: 40px;
+    font-size: 30px;
   }

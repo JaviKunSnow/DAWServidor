@@ -60,7 +60,7 @@
             ?>
         </p>       
         <p>
-            <label for="idFecha">Fecha</label>
+            <label for="idFecha">Fecha: </label>
             <input type="text" name="fecha" placeholder="fecha" id="idFecha" value=
             "<?php
                 if(enviado() && !vacio("fecha")){
@@ -100,7 +100,7 @@
             ?>
         </p>
         <p>
-            <label for="idEmail">Email</label>    
+            <label for="idEmail">Email: </label>    
             <input type="text" name="mail" id="idMail" placeholder="mail" value=
             "<?php
                 if(enviado() && !vacio("mail")){
@@ -114,6 +114,24 @@
                         echo "<span style='color: red;'><-- No has introducido email</span>";
                     } else if(!compCorreo("mail")){
                         echo "<span style='color: red;'><-- El email no es correo</span>";
+                    }
+                }
+            ?>
+        </p>
+        <p>
+            <label for="idFichero">Fichero: </label>
+            <input type="text" name="fichero" name="idFichero" placeholder="fichero" value=
+            "<?php
+                if(enviado() && !vacio("fichero")){
+                    echo $_REQUEST["fichero"];
+                }
+            ?>">
+            <?php
+                if(enviado()){
+                    if(!existe("fichero")){
+                        echo "<span style='color: red;'><-- El fichero esta vacio</span>";
+                    } else if(!compFichero()){
+                        echo "<span style='color: red;'><-- El fichero no es una imagen</span>";
                     }
                 }
             ?>

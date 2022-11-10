@@ -84,6 +84,16 @@
         return false;
     }
 
+    function compFichero(){
+        $patron = '/^[^.]+\.(jpg|bmp|png)$/';
+
+        if(preg_match($patron, $_REQUEST["fichero"])==1){
+            return true;
+        }
+        return false;
+    }
+
+
     function compTotal(){
         if (enviado()) {
             if (!vacio("nombre") && compNombre("nombre")) {
@@ -91,7 +101,9 @@
                      if (!vacio("fecha") && compFecha("fecha")) {
                          if (!vacio("dni") && compDNI("dni")) {
                              if (!vacio("mail") && compCorreo("mail")) {
-                                return true;
+                                if(!vacio("fichero") && compFichero("fichero")){
+                                    return true;
+                                }
                              }
                          }
                      }
@@ -108,6 +120,7 @@
         echo "<p>Fecha: ". $_REQUEST["fecha"] . "</p>";
         echo "<p>DNI: ". $_REQUEST["dni"] . "</p>";
         echo "<p>correo electronico: ". $_REQUEST["mail"] . "</p>";
+        echo "<p>fichero: ". $_REQUEST["fichero"] . "</p>";
      }
 
 ?>

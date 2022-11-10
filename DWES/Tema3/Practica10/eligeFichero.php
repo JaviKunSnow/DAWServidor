@@ -19,9 +19,9 @@
                         header("location: ./editarFichero.php?Fichero=".$_REQUEST["fichero"]);
                 } else if(existe("leer")) {
                     if(file_exists($_REQUEST["fichero"])){
-
+                        header("location: ./editarFichero.php?Fichero=".$_REQUEST["fichero"]);
                     }else {
-                        crearFichero();
+                        echo "<span style:'color: red;'>El fichero no existe</span>";
                     }
                 }
             }    

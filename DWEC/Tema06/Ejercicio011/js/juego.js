@@ -28,31 +28,33 @@ function movDiana(){
     }
 }
 
+
 function compColisiones(){
-    const circulo_pos = {t: getComputedStyle(circulo, null).getPropertyValue("top"), l: circulo.style.left,
-                        r: circulo.style.left + circulo.style.width, b: getComputedStyle(circulo, null).getPropertyValue("bottom") };
-    const pistola_pos = {t: pistola.style.top, l: pistola.style.left,
-                        r: pistola.style.left + pistola.style.width, b: pistola.style.top + pistola.style.height};
+    const circulo_pos = circulo.getBoundingClientRect();
+    const pistola_pos = pistola.getBoundingClientRect();
         
-    if(circulo_pos.l >= pistola_pos.r && circulo_pos.r <= pistola_pos.l 
-        && circulo_pos.b <= pistola_pos.t && circulo_pos.t >= pistola_pos.b){
+        if(circulo_pos.right < pistola_pos.left && pistola_pos.top < circulo_pos.bottom || circulo_pos.left < pistola_pos.right
+            && pistola_pos.top < circulo_pos.bottom){
             return true;
         }
     return false;
 }
+console.log(circulo.left);
+
 
 document.addEventListener("keydown", function(e){
     if(e.key == "ArrowUp"){
         let intervalo2 = setInterval(function movPistola2() {
-            console.log("entra");
-            posicion -= velocidad;
+            posicion -= 20;
             pistola.style.top = `${posicion}px`;
             if(posicion <= 80){
                 pistola.style.top = `${posicionorg}px`;
                 posicion = posicionorg;
             }
             if(compColisiones() == true){
-                console.log("colisionado");
+                console.log("cxasdsdfs");
+                clearInterval(intervalo2);
+                clearInterval(intervalo);
             }
 
         }, 50);
