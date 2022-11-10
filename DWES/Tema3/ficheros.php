@@ -13,7 +13,7 @@
         echo "<br>Existe";
     } else {
         echo "<br>No existe";
-
+        
     }
 
     if(!$fp = fopen("miarchivo.txt", "r")){
