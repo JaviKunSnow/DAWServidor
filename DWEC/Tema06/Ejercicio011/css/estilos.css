@@ -93,11 +93,12 @@ html {
     display: flex;
     flex-flow: row;
     width: auto;
+    background-color: #3f51b5;
   }
 
   #idCirculo {
     position:absolute;
-    font-size: 60px;
+    font-size: 100px;
   }
 
   .circulo {
@@ -114,8 +115,15 @@ html {
 
   .hueco {
     height: 600px;
+    background-color: #2196f3;
   }
 
   .pistola {
-    height: 30px
+    height: 30px;
+    background-color: #3f51b5;
+  }
+
+  #idPistola {
+    position:absolute;
+    font-size: 40px;
   }
