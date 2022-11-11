@@ -101,18 +101,27 @@ html {
     font-size: 60px;
   }
 
-  .circulo {
-    width: 30px;
-    height: 30px;
-    border: solid black 1px;
+  #idCirculo {
+    width: 40px;
+    height: 40px;
+    border: solid red 8px;
     border-radius: 50%;
     position:absolute;
-    background: red;
+    background-color: yellow;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
   }
 
+  #idCentroCirculo {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    left: 10px;
+    top: 10px;
+  }
   #hueco {
     height: 600px;
     background: #7CA3CD;
@@ -125,7 +134,9 @@ html {
 
   #idPistola {
     position:absolute;
-    font-size: 30px;
+    width: 5px;
+    height: 35px;
+    background-color: brown;
   }
 
   #aciertos {

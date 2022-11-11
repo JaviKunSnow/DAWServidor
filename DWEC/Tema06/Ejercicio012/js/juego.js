@@ -12,8 +12,15 @@ let posicionorg = posicion;
 let velocidad=10;
 let xdiana=50;
 
+let intervaloFlecha;
+
+let p1 = document.createElement("p");
+let p2 = document.createElement("p");
+
 let contAciertos = 0;
 let contErrores = 0;
+
+let disparoEfectuado = false;
 
 
 let mov = true;
@@ -67,43 +74,52 @@ function contadorFallos(){
     aciertos.appendChild(p2);
 }
 
-document.addEventListener("keydown", function(e){
-    if(e.key == "ArrowUp"){
-        let intervalo2 = setInterval(function movPistola2() {
-            posicion -= velocidad;
-            pistola.style.top = `${posicion}px`;
-            if(posicion <= 60){
-                pistola.style.top = `${posicionorg}px`;
-                posicion = posicionorg;
-                contadorFallos();
+function teclas(e){
+    switch (e.key) {
+        case 'ArrowLeft':
+            posicionleft -= velocidad;
+            pistola.style.left = `${posicionleft}px`;
+            break;
+    
+        case 'ArrowRight':
+            posicionleft += velocidad;
+            pistola.style.left = `${posicionleft}px`;
+            break;
+         
+        case 'ArrowUp':
+            if(!disparoEfectuado){
+                intervalo2 = setInterval(function movPistola2() {
+                    posicion -= velocidad;
+                    pistola.style.top = `${posicion}px`;
+                    if(posicion <= 60){
+                        pistola.style.top = `${posicionorg}px`;
+                        posicion = posicionorg;
+                        contadorFallos();
+                    }
+                    if(compColisiones() == true){
+                        clearInterval(intervalo2);
+                        pistola.style.top = `${posicionorg}px`;
+                        posicion = posicionorg;
+                        sonidoAcierto.play();
+                        contadorAciertos();
+                        const start = () => {
+                            setTimeout(function(){
+                                confetti.start();
+                            }, 1000);
+                        }
+                        const stop = () => {
+                            setTimeout(function(){
+                                confetti.stop();
+                            }, 5000);
+                        }
+                        start();
+                        stop();
+                    }
+                }, 50);
             }
-            if(compColisiones() == true){
-                clearInterval(intervalo2);
-                pistola.style.top = `${posicionorg}px`;
-                posicion = posicionorg;
-                sonidoAcierto.play();
-                contadorAciertos();
-                const start = () => {
-                    setTimeout(function(){
-                        confetti.start();
-                    }, 1000);
-                }
-                const stop = () => {
-                    setTimeout(function(){
-                        confetti.stop();
-                    }, 5000);
-                }
-                start();
-                stop();
-            }
-        }, 50);
-    } else if(e.key == "ArrowLeft"){
-        posicionleft -= velocidad;
-        pistola.style.left = `${posicionleft}px`;
-    } else if(e.key == "ArrowRight"){
-        posicionleft += velocidad;
-        pistola.style.left = `${posicionleft}px`;
+            break;
     }
-});
+}
 
+document.addEventListener("keydown", teclas);
 let intervalo = setInterval(movDiana, 50);

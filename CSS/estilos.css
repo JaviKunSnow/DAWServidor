@@ -11,8 +11,8 @@
     morado: #893EFF
 
   colores diferentes:
-    morado fondo: #7260A8
-    azul: #7CA3CD
+    rosa: #CD7E98
+    otro: #941F48
 */
 
 ul {
@@ -29,7 +29,7 @@ li {
 
 li a {
   display: inline-block;
-  color: #FD9DFD;
+  color: #fd9dff;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -40,7 +40,7 @@ li a:hover {
 }
 
 body {
-  background-color: #1D1C30;
+  background-color: #0f0e21;
   color: white;
   font-family: Arial;
 }
@@ -142,7 +142,7 @@ body {
 }
 
 .cajalink {
-  background-color: #1D1C30;
+  background-color: #0f0e21;
   width: 200px;
   margin: auto;
   border: 3px solid #fd9dff;
@@ -151,7 +151,7 @@ body {
 }
 
 .cajalink2 {
-  background-color: #1D1C30;
+  background-color: #0f0e21;
   width: 200px;
   margin: 10px;
   border: 3px solid #fd9dff;
@@ -173,7 +173,7 @@ body {
 }
 
 .botones {
-  background-color: #1D1C30;
+  background-color: #0f0e21;
   width: 150px;
   margin: 10px;
   border: 3px solid #fd9dff;
