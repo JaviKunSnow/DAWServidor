@@ -14,20 +14,18 @@
     ?>
     <?php
         if(enviado()){
-            if(existe("fichero")){
-                if(existe("editar")){
-                        header("location: ./editarFichero.php?Fichero=".$_REQUEST["fichero"]);
-                } else if(existe("leer")) {
-                    if(file_exists($_REQUEST["fichero"])){
-                        header("location: ./editarFichero.php?Fichero=".$_REQUEST["fichero"]);
-                    }else {
-                        echo "<span style:'color: red;'>El fichero no existe</span>";
-                    }
-                }
-            }    
+            if(existe("leer")) {
+                if(file_exists($_REQUEST["fichero"])){
+                    header('Location: ./leeFichero.php?Fichero='.$_REQUEST["fichero"]);
+                    exit();
+                }     
+            } else if(existe("editar")){
+                header('Location: ./editaFichero.php?Fichero='.$_REQUEST["fichero"]);
+                exit();
+            }
         }
     ?>
-    <form action="./editaFichero" method="post" enctype="multipart/form-data">
+    <form action="./eligeFichero.php" method="post" enctype="multipart/form-data">
         <p>
             <label for="idFichero">Nombre fichero: </label>    
             <input type="text" name="fichero" id="idFichero" placeholder="fichero" value=
@@ -37,6 +35,13 @@
                 }
             ?>"
             >
+            <?php
+                if(enviado()){
+                    if(!file_exists($_REQUEST["fichero"] && existe("leer"))){
+                        echo "<p style='color: red;'>El fichero no existe</p>";
+                    }
+                }
+            ?>
         </p>
         <input type="submit" value="editar" name="editar">
         <input type="submit" value="leer" name="leer">

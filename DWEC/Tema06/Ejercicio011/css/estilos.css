@@ -98,7 +98,7 @@ html {
 
   #idCirculo {
     position:absolute;
-    font-size: 40px;
+    font-size: 60px;
   }
 
   .circulo {
@@ -113,9 +113,9 @@ html {
     align-items: flex-start;
   }
 
-  .hueco {
+  #hueco {
     height: 600px;
-    background-color: #2196f3;
+    background: #7CA3CD;
   }
 
   .pistola {

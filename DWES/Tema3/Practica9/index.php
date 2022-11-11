@@ -58,6 +58,44 @@
                     }
                 }  
             ?>
+        </p>
+        <p>
+            <label for="idPass">Contraseña: </label>    
+            <input type="text" name="pass" id="idPass" placeholder="Contraseña" value=
+            "<?php
+                if(enviado() && !vacio("pass")){
+                    echo $_REQUEST["pass"];
+                }
+            ?>"
+            >
+            <?php
+                if(enviado()){
+                    if(vacio("pass")){
+                        echo "<span style='color: red;'><-- Rellene la contraseña</span>";
+                    } else if(!compPass("pass")){
+                        echo "<span style='color: red;'><-- La contraseña no cumple los requisitos</span>";
+                    }
+                }  
+            ?>
+        </p>
+        <p>
+            <label for="idPassr">Repetir contraseña: </label>    
+            <input type="text" name="passr" id="idPassr" placeholder="Contraseña" value=
+            "<?php
+                if(enviado() && !vacio("passr")){
+                    echo $_REQUEST["passr"];
+                }
+            ?>"
+            >
+            <?php
+                if(enviado()){
+                    if(vacio("passr")){
+                        echo "<span style='color: red;'><-- Rellene la contraseña</span>";
+                    } else if($_REQUEST['passr']!=$_REQUEST['pass']){
+                        echo "<span style='color: red;'><-- La contraseña no coincide</span>";
+                    }
+                }  
+            ?>
         </p>       
         <p>
             <label for="idFecha">Fecha: </label>
@@ -120,15 +158,11 @@
         </p>
         <p>
             <label for="idFichero">Fichero: </label>
-            <input type="text" name="fichero" name="idFichero" placeholder="fichero" value=
-            "<?php
-                if(enviado() && !vacio("fichero")){
-                    echo $_REQUEST["fichero"];
-                }
-            ?>">
+            <input type="file" name="fichero" name="idFichero">
             <?php
                 if(enviado()){
-                    if(!existe("fichero")){
+                    print_r($_FILES);
+                    if(!file_exists($_FILES['fichero']['tmp_name'])){
                         echo "<span style='color: red;'><-- El fichero esta vacio</span>";
                     } else if(!compFichero()){
                         echo "<span style='color: red;'><-- El fichero no es una imagen</span>";
