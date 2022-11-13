@@ -14,8 +14,6 @@ const aciertos3 = document.getElementById("id3aciertos");
 const aciertos6 = document.getElementById("id6aciertos");
 aciertos3.style.display = "none";
 aciertos6.style.display = "none";
-document.getElementById("text3aciertos").style.display = "none";
-document.getElementById("text6aciertos").style.display = "none";
 
 const inputVelocidadDiana = document.getElementById("velocidadDiana");
 const inputDiametroDiana = document.getElementById("diametroDiana");
