@@ -1,16 +1,5 @@
-html {
-    background-color: #2196f3;
-    min-height: 1000px;
-    font-family: "helvetica neue";
-    background: url(fondo.png), #2196f3;
-    background: url(fondo.png),
-      -webkit-gradient(linear, right top, left top, from(#2196f3), to(#009688));
-    background: url(fondo.png),
-      linear-gradient(to left, #2196f3, #009688);
-  }
-  
   h1 {
-    color: #fff;
+    font-size: 30px;
     padding: 10px;
     text-align: center;
   }
@@ -98,7 +87,6 @@ html {
 
   #idCirculo {
     position:absolute;
-    font-size: 60px;
   }
 
   #idCirculo {
@@ -141,5 +129,26 @@ html {
 
   #aciertos {
     background-color: green;
-    color:white;
+    height: 100px;
+    width: 300px;
+  }
+
+  #fallos{
+    background-color: red;
+    height: 100px;
+    width: 300px;
+  }
+
+  #divBotones {
+    height: 300px;
+    background-color: #7CA3CD;
+    padding: 10px;
+  }
+
+  #idResetMarcadores {
+    padding: 10px;
+  }
+
+  #idMusica {
+    padding: 10px;
   }

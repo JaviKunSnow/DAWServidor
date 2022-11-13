@@ -12,27 +12,52 @@
     </div>
     <div class="diana">
         <div id="idCirculo">
-            <!-- &#127467;&#127479; -->
-            <!-- <img src="cine.jfif" height="80px" width="80px"> -->
             <div id="idCentroCirculo">
 
             </div>
         </div>
     </div>
     <div id="hueco">
+        <div id="aciertos">
         
+        </div>
+        <div id="fallos">
+    
+        </div>
     </div>
     <div class="pistola">
         <div id="idPistola">
-            <!-- &#128163; -->
         </div>
     </div>
-    <div ID="aciertos">
-        
+    <div id="divBotones">
+        <input type="button" id="idResetMarcadores" value="Reset marcadores">
+        <input type="button" id="idMusica" value="Quitar musica">
+        <input type="checkbox" id="id3aciertos">
+        <p id="text3Aciertos">3 aciertos</p>
+        <input type="checkbox" id="id6aciertos">
+        <p id="text6Aciertos">6 aciertos</p>
+        <p>
+            Velocidad diana: 
+            <input type="number" id="velocidadDiana" value="10">
+        </p>
+        <p>
+            Diametro diana:
+            <input type="number" id="diametroDiana" value="">
+        </p>
+        <p>
+            velocidad flecha horizontal:
+            <input type="number" id="velocidadFlechah" value="10">
+        </p>
     </div>
     <div style="display:none">
         <audio id="audio_acierto" class="audio" controls> 
             <source type="audio/wav" src="sonidos/chapa_jp01897.wav ">
+        </audio>
+        <audio id="audio_cerca" class="audio" controls> 
+            <source type="audio/wav" src="sonidos/fallo_pj01699.wav">
+        </audio>
+        <audio id="audio_error" class="audio" controls> 
+            <source type="audio/wav" src="sonidos/rozando_pgj01887.wav">
         </audio>
     </div>
     <script src="js/juego.js"></script>
