@@ -55,8 +55,7 @@ body {
 
 .caja1 {
   background-color: rgb(59, 55, 55);
-  width: 300px;
-  height: 300px;
+  max-width: 400px;
   text-align: center;
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
@@ -68,8 +67,7 @@ body {
 
 .caja2 {
   background-color: rgb(59, 55, 55);
-  height: 300px;
-  width: 300px;
+  max-width: 400px;
   text-align: center;
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
@@ -81,8 +79,7 @@ body {
 
 .caja3 {
   background-color: rgb(59, 55, 55);
-  width: 300px;
-  height: 500px;
+  max-width: 400px;
   text-align: center;
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
