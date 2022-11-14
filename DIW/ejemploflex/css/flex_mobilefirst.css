@@ -87,17 +87,18 @@ footer {
 }
 
 @media screen and (min-width: 768px){
+    
     nav{
         flex-wrap: nowrap;
         flex-direction: row;
     }
     aside{
-        flex: 25%;
+       flex:10%;
     }
     main{
         flex: 75%;
     }
-    article{
+    section > article{
         flex: 30%;
     }
 }

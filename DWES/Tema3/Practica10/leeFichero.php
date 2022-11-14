@@ -27,12 +27,16 @@
         ?>">
         <textarea name="area" rows="10" cols="30"><?php
                 if($fichero = fopen($_REQUEST["fichero"], "r")){
-                    while($leer = fgets($fichero, filesize($_REQUEST["fichero"]))){
-                        echo $leer;
+                    if(filesize($fichero) == 0){
+                        echo "<span style:'color: red;'>El fichero esta vacio</span>";
+                    } else {
+                        while($leer = fgets($fichero, filesize($_REQUEST["fichero"]))){
+                            echo $leer;
+                        }
                     }
-                } else {
-                    echo "<span style='color: red;'>Ha habido un error al abrir el fichero</span>";
+                    fclose($fichero);
                 }
+                
             ?>
         </textarea>
         <br>
