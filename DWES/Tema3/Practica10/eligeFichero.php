@@ -16,12 +16,10 @@
         if(enviado()){
             if(existe("leer")) {
                 if(file_exists($_REQUEST["fichero"])){
-                    header('Location: ./leeFichero.php?Fichero='.$_REQUEST["fichero"]);
-                    exit();
+                    header('Location: ./leeFichero.php?fichero='.$_REQUEST["fichero"]);
                 }     
             } else if(existe("editar")){
-                header('Location: ./editaFichero.php?Fichero='.$_REQUEST["fichero"]);
-                exit();
+                header('Location: ./editaFichero.php?fichero='.$_REQUEST["fichero"]);
             }
         }
     ?>
@@ -37,8 +35,10 @@
             >
             <?php
                 if(enviado()){
-                    if(!file_exists($_REQUEST["fichero"] && existe("leer"))){
-                        echo "<p style='color: red;'>El fichero no existe</p>";
+                    if(existe("leer")){
+                        if(!file_exists($_REQUEST["fichero"])){
+                            echo "<span style='color: red;'>El fichero no existe</span>";
+                        }
                     }
                 }
             ?>
