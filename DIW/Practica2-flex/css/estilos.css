@@ -153,22 +153,14 @@ footer > section > form > p {
     color: black;
 }
 
-@media screen and (min-width: 1030px){
-    nav{
-        flex-wrap: nowrap;
-        flex-direction: row;
-    }
-    aside{
-        flex: 10%;
-    }
-    main{
-        flex: 75%;
-    }
-    section > article{
-        flex: 30%;
-    }
-    footer{
+@media screen and (max-width: 1000px){
+    section {
         flex: 100%;
     }
 }
 
+@media screen and (max-width: 600px){
+    .naveg, nav {
+        flex-direction: column;
+    }
+}

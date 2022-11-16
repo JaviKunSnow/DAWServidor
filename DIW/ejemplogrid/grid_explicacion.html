@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.grid-container {
+    padding: 10px;
+    height: 400px;
+    background-color: green;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: auto auto auto;
+    align-content: center;
+}
+
+.grid-container > div {
+    background-color: lightgray;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+}
+    .primero {
+        /*grid-column-start: 1;
+        grid-column-end: 4;*/
+        /*grid-column: 1 / 4;*/
+        grid-column: 1 / span 3;
+    }
+    .segundo {
+        grid-area: 2 / 1 / 5 / 2;
+    }
+    .cuarto{
+        grid-area: 2 / 3 / 5 / 4;
+    }
+    
+</style>
+</head>
+<body>
+    <h1>Grid</h1>
+
+ <div class="grid-container">
+  <div class="grid-item primero">1</div>
+  <div class="grid-item segundo">2</div>
+  <div class="grid-item">3</div>
+  <div class="grid-item cuarto">4</div>
+  <div class="grid-item">5</div>
+  <div class="grid-item">6</div>
+  <div class="grid-item">7</div>
+  <div class="grid-item">8</div>
+  <div class="grid-item">9</div>
+</div> 
+
+    <h2>Propiedades del contenedor grid</h2>
+    <p>display indica si el contenedor ocupa o no el ancho de la pantalla: grid | inline-grid</p>
+    <p>grid-column-gap define el espacio entre columnas.</p>
+    <p>grid-row-gap define el espacio entre filas.</p>
+    <p>grid-gap define el espacio entre filas y columnas.</p>
+    <p>grid-template-columns indica el número de columnas que tiene la rejilla y su ancho: auto | % | px</p>
+    <p>grid-template-rows indica el número de filas que tiene la rejilla y su alto: auto | % | px</p>
+    <p>justify-content permite alinear los elementos dentro del contenedor: space-evenly | space-around | space-between | center | start | end</p>
+    <p>align-content permite alinear los elementos verticalmente dentro del contenedor: space-evenly | space-around | space-between | center | start | end</p>
+    
+    <h2>Propiedades de los elementos grid</h2>
+    <p>grid-column-start y grid-column-end indica en qué línea de columna empieza y termina el elemento.</p>
+    <p>grid-row-start y grid-row-end indica en qué línea de fila empieza y termina el elemento.</p>
+    <p>grid-column indica en qué columnas colocar un elemento. Podemos indicarlo como: inicio/fin | inicio/span numero</p>
+    <p>grid-column indica en qué filas colocar un elemento. Podemos indicarlo como: inicio/fin | inicio/span numero</p>
+    <p>grid-area auna los dos elementos anteriores: fila inicio/columna inicio / fila fin / columna fin (podemos usar span en cualquiera de ellos). </p>
+    
+    <h2>Grid template areas</h2>
+    <p>Podemos asignar nombres a los elementos de la rejilla y distribuirlos:</p>
+    <p>A cada elemento le asignamos "grid-area: nombre;"</p>
+    <p>Al contenedor le asignamos "grid-template-areas: 'entre comillas simples los elementos de una fila' 'cada fila separada por espacios'</p>
+    
+    </body>
+</html>
