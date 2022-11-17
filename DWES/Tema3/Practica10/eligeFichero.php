@@ -46,6 +46,15 @@
         <input type="submit" value="editar" name="editar">
         <input type="submit" value="leer" name="leer">
     </form>
-
+    <h2>Ver codigo:</h2>
+        <div class="cajalink2">
+            <a href="verCodigo.php?valor=eligeFichero.php"><p>Ver codigo eligeFichero</p></a>
+        </div>
+        <div class="cajalink2">
+            <a href="verCodigo.php?valor=editaFichero.php"><p>Ver codigo editaFichero</p></a>
+        </div> 
+        <div class="cajalink2">
+            <a href="verCodigo.php?valor=leeFichero.php"><p>Ver codigo leeFichero</p></a>
+        </div> 
 </body>
 </html>
