@@ -1,0 +1,15 @@
+html {
+    background: url(fondo.png),
+      linear-gradient(to left, #2196f3, #009688);
+  }
+  
+  h1 {
+    color: #fff;
+    padding: 10px;
+  }
+  
+  #contenedorContadores{
+      background: url(#),
+      linear-gradient(to left, #2196f3, #009688);
+  }
+  
