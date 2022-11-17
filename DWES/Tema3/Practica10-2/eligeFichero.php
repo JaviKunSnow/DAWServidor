@@ -23,6 +23,9 @@
         }
     ?>
     <form action="./eligeFichero.php" method="post">
+        <input type="hidden" name="fichero" value="<?php
+        echo $_REQUEST["fichero"];
+        ?>">
         <?php
             echo "<table border='1'>";
             echo "<tr>";
@@ -33,10 +36,12 @@
                 echo "<th>Editar</th>";
             echo "</tr>";
             if($fichero = fopen("notas.csv", "r")){
+                $array = array();
                 $j = 0;
                 while(($datos = fgetcsv($fichero, filesize("notas.csv"), ";")) !== false){
                     $cont = count($datos);
-                    echo "<tr>"; 
+                    echo "<tr>";
+                    array_push($array, $datos); 
                     for($i = 0; $i<$cont;$i++){
                         echo "<td>".$datos[$i]."</td>";
                     }

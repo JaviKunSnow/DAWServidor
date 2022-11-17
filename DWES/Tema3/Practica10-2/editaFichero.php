@@ -22,7 +22,7 @@
             }
         }
     ?>
-    <form action="./eligeFichero.php" method="post">
+    <form action="./editaFichero.php" method="post">
         <?php
             
         ?>
