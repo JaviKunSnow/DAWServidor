@@ -12,20 +12,44 @@
     <?php
         include_once("../../../cabecera.html");
     ?>
-    <?php
-        if(enviado()){
-            if(existe("editar")) {
-                if(file_exists("notas.csv")){
-                    header('Location: ./editaFichero.php?fichero=notas.csv');
-                    exit();
-                }
-            }
-        }
-    ?>
+
     <form action="./editaFichero.php" method="post">
         <?php
-            
+            $array;
+            $cont = 0;
+            if($fichero = fopen("notas.csv", "r")){
+                $array = array();
+                while(($datos = fgetcsv($fichero, filesize("notas.csv"), ";")) !== false){
+                    array_push($array, $datos); 
+                }
+                fclose($fichero);
+            }
         ?>
+        <p>
+            <label for="nombre">Nombre: </label>
+            <label><?php
+                echo $array[$_REQUEST["numero"]][$cont++];
+            ?></label>
+        <p>
+        <p>
+            <label for="nota1">Nota 1: </label>
+            <input type="text" name="nota1" value="<?php
+                echo $array[$_REQUEST["numero"]][$cont++];
+            ?>">
+        </p>
+        <p>
+            <label for="nota2">Nota 2: </label>
+            <input type="text" name="nota2" value="<?php
+                echo $array[$_REQUEST["numero"]][$cont++];
+            ?>">
+        </p>
+        <p>
+            <label for="nota3">Nota 3: </label>
+            <input type="text" name="nota3" value="<?php
+                echo $array[$_REQUEST["numero"]][$cont++];
+            ?>">
+        </p>
+        <input type="submit" name="cambiar" value="cambiar">
     </form>
     <h2>Ver codigo:</h2>
         <div class="cajalink2">

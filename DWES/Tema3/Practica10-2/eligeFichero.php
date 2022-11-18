@@ -12,20 +12,7 @@
     <?php
         include_once("../../../cabecera.html");
     ?>
-    <?php
-        if(enviado()){
-            if(existe("editar")) {
-                if(file_exists("notas.csv")){
-                    header('Location: ./editaFichero.php?fichero=notas.csv');
-                    exit();
-                }
-            }
-        }
-    ?>
     <form action="./eligeFichero.php" method="post">
-        <input type="hidden" name="fichero" value="<?php
-        echo $_REQUEST["fichero"];
-        ?>">
         <?php
             echo "<table border='1'>";
             echo "<tr>";
@@ -45,9 +32,10 @@
                     for($i = 0; $i<$cont;$i++){
                         echo "<td>".$datos[$i]."</td>";
                     }
-                    echo "<td><input type='submit' name='editar".$j++."' value='editar'></td>";
+                    echo "<td><a href='./editaFichero.php?numero=".$j++."'>Editar</a></td>";
                     echo "</tr>";
                 }
+                fclose($fichero);
             }
             echo "</table>";
         ?>
