@@ -1,7 +1,7 @@
 <?php
 
 function enviado(){
-    if(isset($_REQUEST['editar'])){
+    if(isset($_REQUEST['cambiar'])){
         return true;
     }
     return false;

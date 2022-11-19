@@ -23,12 +23,10 @@
                 echo "<th>Editar</th>";
             echo "</tr>";
             if($fichero = fopen("notas.csv", "r")){
-                $array = array();
                 $j = 0;
                 while(($datos = fgetcsv($fichero, filesize("notas.csv"), ";")) !== false){
                     $cont = count($datos);
                     echo "<tr>";
-                    array_push($array, $datos); 
                     for($i = 0; $i<$cont;$i++){
                         echo "<td>".$datos[$i]."</td>";
                     }
