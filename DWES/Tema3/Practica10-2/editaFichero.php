@@ -22,7 +22,7 @@
             }
     ?>
     <?php
-        if(enviado()){
+        if(compTodo()){
             
             $array[$_REQUEST["numero"]][1] = $_REQUEST["nota1"];
             $array[$_REQUEST["numero"]][2] = $_REQUEST["nota2"];
@@ -54,18 +54,45 @@
             <input type="text" name="nota1" value="<?php
                 echo $array[$_REQUEST["numero"]][1];
             ?>">
+            <?php
+                if(enviado()){
+                    if(vacio("nota1")){
+                        echo "<span style='color: red;'><-- Escribe una nota.</span>";
+                    } elseif(!compNotas("nota1")){
+                        echo "<span style='color: red;'><-- La nota tiene que ser entre 0 y 10.</span>";
+                    }
+                }
+            ?>
         </p>
         <p>
             <label for="nota2">Nota 2: </label>
             <input type="text" name="nota2" value="<?php
                 echo $array[$_REQUEST["numero"]][2];
             ?>">
+            <?php
+                if(enviado()){
+                    if(vacio("nota2")){
+                        echo "<span style='color: red;'><-- Escribe una nota.</span>";
+                    } elseif(!compNotas("nota2")){
+                        echo "<span style='color: red;'><-- La nota tiene que ser entre 0 y 10.</span>";
+                    }
+                }
+            ?>
         </p>
         <p>
             <label for="nota3">Nota 3: </label>
             <input type="text" name="nota3" value="<?php
                 echo $array[$_REQUEST["numero"]][3];
             ?>">
+            <?php
+                if(enviado()){
+                    if(vacio("nota3")){
+                        echo "<span style='color: red;'><-- Escribe una nota.</span>";
+                    } elseif(!compNotas("nota3")){
+                        echo "<span style='color: red;'><-- La nota tiene que ser entre 0 y 10.</span>";
+                    }
+                }
+            ?>
         </p>
         <input type="submit" name="cambiar" value="cambiar">
     </form>
