@@ -31,7 +31,6 @@ header {
     display: flex;
     justify-content: left;
     align-content: flex-start;
-    align-items: center;
     border-bottom: 1px solid black;
     padding: 5px;
 }
@@ -64,7 +63,6 @@ input.botones {
 
 aside {
     padding: 20px;
-    flex: 100%;
 }
 
 aside a {
@@ -86,12 +84,11 @@ aside a:hover {
 main {
     display: flex;
     flex-wrap: wrap;
+    flex: 70%;
 }
 
 main > section {
     border-bottom: 1px solid black;
-    display: flex;
-    flex-wrap: wrap;
 }
 
 main > section > article{
@@ -160,7 +157,16 @@ footer > section > form > p {
 }
 
 @media screen and (max-width: 600px){
-    .naveg, nav {
+    header {
         flex-direction: column;
     }
+    
+    .naveg {
+        flex-direction: column;
+    }
+
+    footer {
+        flex-direction: column;
+    }
+
 }

@@ -6,7 +6,6 @@ body {
     background-color: lightgray;
     font-family: Arial, Helvetica, sans-serif;
     display: grid;
-    grid-template-columns: auto auto auto auto;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -33,12 +32,6 @@ header {
     align-items: center;
     border-bottom: 1px solid black;
     padding: 5px;
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    grid-column-start: 1;
-    grid-column-end: span 4;
-    grid-row-start: 1;
-    grid-row-end: 2;
 }
 
 input.botones {
@@ -84,13 +77,14 @@ aside a:hover {
 /* main */
 
 main {
-    
+    grid-area: 3 / 1 / auto / auto;
 }
 
 main > section {
     display: grid;
-    grid-template-columns: auto auto auto;
 }
+    
+
 
 main > section > article{
     display: inline-block;
@@ -100,7 +94,6 @@ main > section > article{
 }
 
 main > form {
-    
     margin: 10px;
 }
 
@@ -114,12 +107,9 @@ main > form > #set1 > div{
 footer {
     background-color: rgb(56, 56, 56);
     margin: 5px;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-column-start: 1;
-    grid-column-end: span 4;
-    grid-row-start: 4;
     border-top: 1px solid black;
+    display: grid;
+    grid-area: 4 / 1 / auto / auto;
 }
 
 footer > section {
@@ -142,5 +132,29 @@ footer > section > form > p {
 
 @media screen and (min-width: 768px){
     
-    
+    header {
+        grid-column-start: 1;
+        grid-column-end: span 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    aside {
+        grid-area: 2 / 1 / 2 / 2;
+    }
+
+    main {
+        grid-area: 2 / 2 / auto / auto;
+    }
+
+    main > section {
+        grid-template-columns: auto auto auto;
+    }
+
+    footer {
+        grid-template-columns: auto auto auto;
+        grid-column-start: 1;
+        grid-column-end: span 4;
+        grid-row-start: 4;
+    }
 }

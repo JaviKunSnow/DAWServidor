@@ -117,8 +117,8 @@ footer {
     main {
         grid-area: 4/1/5/5;    
     }
-    /*footer {
+    footer {
         grid-area: 5/1/6/5;
-    }*/
+    }
 
 }
