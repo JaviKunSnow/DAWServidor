@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mundial>
+  <equipo>
+    <equipo>España</equipo>
+    <Entrenador>Luis Enrique</Entrenador>
+  </equipo>
+  <equipo>
+    <equipo>Francia</equipo>
+    <Entrenador>Baguette</Entrenador>
+  </equipo>
+</mundial>
