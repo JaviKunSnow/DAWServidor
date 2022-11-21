@@ -6,18 +6,19 @@ $dom->load("mundial.xml");
 // buscar la etiqueta nombre que tenga de valor Francia
 foreach($dom->childNodes as $elementos){
     foreach($elementos->childNodes as $datos){
-        if($datos->tagName == "Baguette"){
+        if($datos->nodeValue == "Baguette"){
             $datos->nodeValue = "Zidane";
         }
     }
 }
+
+// cambiar el value
 
 if($dom->save('mundial.xml')){
     echo "todo correcto";
 } else {
     echo "error";
 }
-// cambiar el value
 
 // salvar el documento
 ?>
