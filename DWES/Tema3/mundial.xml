@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mundial>
   <equipo>
-    <equipo>España</equipo>
+    <Nombre>España</Nombre>
     <Entrenador>Luis Enrique</Entrenador>
   </equipo>
   <equipo>
-    <equipo>Francia</equipo>
-    <Entrenador>Baguette</Entrenador>
+    <Nombre>Francia</Nombre>
+    <Entrenador>Paco</Entrenador>
   </equipo>
-</mundial>
+<Equipo><Nombre>Italia</Nombre><Entrenador>Alex</Entrenador></Equipo></mundial>
