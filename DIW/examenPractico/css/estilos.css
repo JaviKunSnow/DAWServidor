@@ -1,0 +1,39 @@
+body {
+    display: grid;
+}
+header{
+   display: grid;
+   grid-template-columns: auto auto auto;
+   align-items: center;
+   justify-content: space-evenly;
+}
+
+h1 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+}
+
+.contenedor {
+    border: 1px solid black;
+    height: 500px;
+    background-color: green;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    align-items: center;
+}
+
+@media screen and (min-width: 700px){
+    
+    .contenedor {
+        justify-content: space-evenly;
+    }
+
+    .primero {
+        grid-area: 1 / 1 / span 4 / 2;
+    }
+    
+    .tercero {
+        grid-column: span 2;
+    }
+}
