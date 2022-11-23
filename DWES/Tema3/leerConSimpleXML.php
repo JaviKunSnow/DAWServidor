@@ -2,11 +2,8 @@
 
 $mundial = simplexml_load_file("mundial.xml");
 
-foreach($mundial as $equipo){
-    echo "Equipo: ".$equipo->children()[0]."<br>";
-    echo "Entrenador: ".$equipo->children()[1]."<br>"; 
-}
-
+$equipo2 = $mundial->children();
+$equipo2->children()[2] = "sasdasd";
 $equipo = $mundial->addChild("Equipo");
 $equipo->addChild("Nombre", "Italia");
 $equipo->addChild("Entrenador", "Alex");
