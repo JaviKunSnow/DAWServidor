@@ -25,8 +25,8 @@
             $dom = new DOMDocument();
             $dom ->load('notas.xml');
             $raiz = $dom->childNodes[0];
+            $j = 0;
             foreach($raiz->childNodes as $elementos){
-                $j = 0;
                 if($elementos->nodeType == 1){
                     echo "<tr>";
                     foreach($elementos->childNodes as $datos){

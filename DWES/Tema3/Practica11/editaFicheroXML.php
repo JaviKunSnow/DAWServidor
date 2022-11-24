@@ -17,12 +17,12 @@
     ?>
     <?php
         if(compTodo()){
-            
-            $dom->children()[intval($_REQUEST["numero"])]->children()[1] = $_REQUEST["nota1"];
-            $dom->children()[intval($_REQUEST["numero"])]->children()[2] = $_REQUEST["nota2"];
-            $dom->children()[intval($_REQUEST["numero"])]->children()[3] = $_REQUEST["nota3"];
 
-            $dom->saveXML("notas.xml");
+            $dom->children()[intval($_REQUEST["numero"])]->nota1 = $_REQUEST["nota1"];
+            $dom->children()[intval($_REQUEST["numero"])]->nota2 = $_REQUEST["nota2"];
+            $dom->children()[intval($_REQUEST["numero"])]->nota3 = $_REQUEST["nota3"];
+
+            $dom->asXML("notas.xml");
 
             header('Location: ./leeFicheroXML.php');
             exit(); 
