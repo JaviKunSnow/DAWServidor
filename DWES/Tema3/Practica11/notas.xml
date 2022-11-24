@@ -2,15 +2,15 @@
 <notas>
   <alumno>
     <nombre>maria</nombre>
-    <nota1>0</nota1>
-    <nota2>7</nota2>
-    <nota3>6</nota3>
+    <nota1>1</nota1>
+    <nota2>4</nota2>
+    <nota3>5</nota3>
   </alumno>
   <alumno>
     <nombre>david</nombre>
-    <nota1>2</nota1>
-    <nota2>3</nota2>
-    <nota3>4</nota3>
+    <nota1>4</nota1>
+    <nota2>5</nota2>
+    <nota3>6</nota3>
   </alumno>
   <alumno>
     <nombre>ismael</nombre>
@@ -20,9 +20,9 @@
   </alumno>
   <alumno>
     <nombre>uriel</nombre>
-    <nota1>1</nota1>
-    <nota2>1</nota2>
-    <nota3>1</nota3>
+    <nota1>3</nota1>
+    <nota2>6</nota2>
+    <nota3>5</nota3>
   </alumno>
   <alumno>
     <nombre>aaron</nombre>
