@@ -8,7 +8,7 @@ function enviado(){
 }
 
 function vacio($nombre){
-    if(empty($_REQUEST[$nombre])){
+    if(empty($_REQUEST[$nombre]) && $_REQUEST[$nombre] != 0){
         return true;
     }
     return false;
