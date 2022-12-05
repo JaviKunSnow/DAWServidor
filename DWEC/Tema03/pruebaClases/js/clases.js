@@ -9,9 +9,8 @@ class Producto {
         this.unidades = unidades;
         this.precio = precio;
     }
-    
-    getInfo(){
-        return `${this.nombre} (${this.categoria}): ${this.unidades} uds x ${this.precio.moneda()} = ${(this.unidades*this.precio).moneda()}`;
+    toString() {
+        return `${this.nombre} ${this.categoria}: ${this.unidades.moneda()} x ${this.precio.moneda()} = ${(this.unidades*this.precio).moneda()}`;
     }
 };
 
@@ -39,6 +38,7 @@ function prodsSortByName(arrayPro){
 let porNombre = prodsSortByName(arrayProductos);
 
 console.log(porNombre);
+
 // por precio
 
 function prodsSortByPrice(arrayPro){
@@ -47,9 +47,13 @@ function prodsSortByPrice(arrayPro){
 
 let porPrecio = prodsSortByPrice(arrayProductos);
 console.log(porPrecio);
+
 // por precio total
+
 let porPrecioTotal = arrayProductos.sort((pro1, pro2) => (pro1.precio*pro1.unidades) - (pro2.precio*pro2.unidades))
 console.log(porPrecioTotal);
+
+
 
 
 /*class Alumno {
