@@ -86,8 +86,7 @@ console.log(porPocasUnidades);
 // lista de productos
 
 function prodsList(arrayProductos) {
-    console.log("lista de Productos:");
-    const cadena = arrayProductos.reduce((texto, producto) =>
+    const cadena = "lista de Productos:\n" + arrayProductos.reduce((texto, producto) =>
     texto += `\n${producto.toString()}`);
     return cadena;
 }
