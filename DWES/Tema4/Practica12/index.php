@@ -17,16 +17,24 @@
         if(enviado("enviar")){
             crearBD();
         }
-
-        try {
-            $conexion = new mysqli();
+        if(enviado("leer")){
+            header('Location: ./php/leeBD.php');
+        }
+        if(enviado("insertar")){
+            header('Location: ./php/insertarBD.php');
+        }
+    ?>
+    <form action="./index.php" method="post">
+       <? 
+     try {
+        $conexion = new mysqli();
         $conexion->connect($_SERVER["SERVER_ADDR"],USER,PASS, BBDD);
         } catch (Exception $ex){
             if($ex->getCode() == 1049){
                 echo "<span style='color: red;'>La base de datos no existe.</span>";
                 $conexion->close();
                 ?>
-                    <input type="submit" name="enviar" value="crear tabla">
+                    <input type="submit" name="enviar" value="crear BD">
                 <?
             }
             if($ex->getCode() == 1045){
@@ -38,26 +46,13 @@
                 $conexion0->close();
             }
         } finally {
-
-    ?>
-    <form action="./index.php" method="post">
-        <?php
-            echo "<table border='1'>";
-            echo "<tr>";
-                echo "<th>Jugador</th>";
-                echo "<th>Edad</th>";
-                echo "<th>PPP</th>";
-                echo "<th>APP</th>";
-                echo "<th>RPP</th>";
-                echo "<th>Fecha debut</th>";
-            echo "</tr>";
-            
-            echo "</table>";
-        ?>
-    </form>
-    <?
+            ?>
+                <input type="submit" name="leer" value="leer tabla">
+                <input type="submit" name="insertar" value="insertar datos">
+            <?
         }
-    ?>
+            ?>
+    </form>
     <h2>Ver codigo:</h2>
         <div class="cajalink2">
             <a href="verCodigo.php?valor=eligeFichero.php"><p>Ver codigo eligeFichero</p></a>
