@@ -30,17 +30,15 @@
                 $conexion->connect($_SERVER["SERVER_ADDR"],"javier",PASS, BBDD);
                 $sql = 'select * from LosAngelesLakers';
                 $resultado = mysqli_query($conexion, $sql);
-                $i = 0;
                 while($filas = mysqli_fetch_assoc($resultado)){
                     echo "<tr>";
-                    echo "<td>".$fila["id"]."</td>";
                     echo "<td>".$fila["jugador"]."</td>";
                     echo "<td>".$fila["edad"]."</td>";
                     echo "<td>".$fila["puntos"]."</td>";
                     echo "<td>".$fila["asistencias"]."</td>";
                     echo "<td>".$fila["rebotes"]."</td>";
                     echo "<td>".$fila["fechadebut"]."</td>";
-                    echo "<td><a href='./editaBD.php?numero=".$i++."'>Editar/Borrar</a></td>";
+                    echo "<td><a href='./editaBD.php?numero=".$fila["id"]."'>Editar/Borrar</a></td>";
                     echo "</tr>";
                 }
                 echo "</table>";

@@ -1,6 +1,8 @@
 <?php
-    require("funciones/funcionesBD.php");
-    require("funciones/conexionBD.php");
+
+require("./conexionBD.php");
+require("./funcionesBD.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -14,40 +16,36 @@
         include_once("../../../cabecera.html");
     ?>
     <?php
-        if(enviado()){
-            crearBD();
-        }
-        if(enviado()){
-            header('Location: ./php/leeBD.php');
-        }
-        if(enviado()){
-            header('Location: ./php/insertarBD.php');
+
+       if(enviado()){
+            $conexion1 = mysqli_connect($_SERVER["SERVER_ADDR"],USER,PASS);
+            $script = crearBD();
+            mysqli_multi_query($conexion1, $script);
+            $conexion1->close();
+
+            echo "<a href='funciones/editaBD.php'>Editar base de datos</a>";
+            echo "<a href='funciones/leeBD.php'>Leer base de datos</a>";
         }
     ?>
-    <form action="./index.php" method="post">
+    <form action="./index.php" method="post" enctype="multipart/form-data">
        <?php 
         try {
-            $conexion = new mysqli();
-            $conexion->connect($_SERVER["SERVER_ADDR"],"javier",PASS, BBDD);
-            $conexion->close();
+            $conexion = mysqli_connect("192.168.1.106", USER, PASS, BBDD);
+
             } catch (Exception $ex){
                 if($ex->getCode() == 1049){
                     echo "<span style='color: red;'>La base de datos no existe.</span>";
-                    $conexion->close();
                     echo "<input type='submit' name='enviar' value='crear BD'>";    
                     
                 }
                 if($ex->getCode() == 1045){
                     echo "<span style='color: red;'>El nombre de usuario o la contraseña no es correcto.</span>";
-                    $conexion0->close();
+
                 }
                 if($ex->getCode() == 2002){
                     echo "<span style='color: red;'>Se acabo el tiempo de espera, no hemos podido establecer la conexion.</span>";
-                    $conexion0->close();
+                    
                 }
-            } finally {
-                    echo "<input type='submit' name='leer' value='leer tabla'>";
-                    echo "<input type='submit' name='insertar' value='insertar datos'>";
             }
         ?>
     </form>
