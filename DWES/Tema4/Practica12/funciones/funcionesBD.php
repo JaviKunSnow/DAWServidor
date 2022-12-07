@@ -1,9 +1,9 @@
 <?
 
-require("./conexion.php");
+require("./conexionBD.php");
 
-function enviado($enviar){
-    if(isset($_REQUEST[$enviar])){
+function enviado(){
+    if(isset($_REQUEST["enviar"]) || isset($_REQUEST["leer"]) || isset($_REQUEST["leer"])){
         return true;
     }
     return false;

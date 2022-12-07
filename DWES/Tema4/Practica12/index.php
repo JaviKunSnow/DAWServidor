@@ -1,6 +1,6 @@
 <?php
-    require("./funciones/funcionesBD.php");
-    require("./funciones/conexionBD.php");
+    require("funciones/funcionesBD.php");
+    require("funciones/conexionBD.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -13,45 +13,43 @@
     <?php
         include_once("../../../cabecera.html");
     ?>
-    <?
-        if(enviado("enviar")){
+    <?php
+        if(enviado()){
             crearBD();
         }
-        if(enviado("leer")){
+        if(enviado()){
             header('Location: ./php/leeBD.php');
         }
-        if(enviado("insertar")){
+        if(enviado()){
             header('Location: ./php/insertarBD.php');
         }
     ?>
     <form action="./index.php" method="post">
-       <? 
-     try {
-        $conexion = new mysqli();
-        $conexion->connect($_SERVER["SERVER_ADDR"],USER,PASS, BBDD);
-        } catch (Exception $ex){
-            if($ex->getCode() == 1049){
-                echo "<span style='color: red;'>La base de datos no existe.</span>";
-                $conexion->close();
-                ?>
-                    <input type="submit" name="enviar" value="crear BD">
-                <?
+       <?php 
+        try {
+            $conexion = new mysqli();
+            $conexion->connect($_SERVER["SERVER_ADDR"],"javier",PASS, BBDD);
+            $conexion->close();
+            } catch (Exception $ex){
+                if($ex->getCode() == 1049){
+                    echo "<span style='color: red;'>La base de datos no existe.</span>";
+                    $conexion->close();
+                    echo "<input type='submit' name='enviar' value='crear BD'>";    
+                    
+                }
+                if($ex->getCode() == 1045){
+                    echo "<span style='color: red;'>El nombre de usuario o la contraseña no es correcto.</span>";
+                    $conexion0->close();
+                }
+                if($ex->getCode() == 2002){
+                    echo "<span style='color: red;'>Se acabo el tiempo de espera, no hemos podido establecer la conexion.</span>";
+                    $conexion0->close();
+                }
+            } finally {
+                    echo "<input type='submit' name='leer' value='leer tabla'>";
+                    echo "<input type='submit' name='insertar' value='insertar datos'>";
             }
-            if($ex->getCode() == 1045){
-                echo "<span style='color: red;'>El nombre de usuario o la contraseña no es correcto.</span>";
-                $conexion0->close();
-            }
-            if($ex->getCode() == 2002){
-                echo "<span style='color: red;'>Se acabo el tiempo de espera, no hemos podido establecer la conexion.</span>";
-                $conexion0->close();
-            }
-        } finally {
-            ?>
-                <input type="submit" name="leer" value="leer tabla">
-                <input type="submit" name="insertar" value="insertar datos">
-            <?
-        }
-            ?>
+        ?>
     </form>
     <h2>Ver codigo:</h2>
         <div class="cajalink2">
