@@ -1,7 +1,7 @@
 <?php
 
-require("./conexionBD.php");
-require("./funcionesBD.php");
+require("conexionBD.php");
+require("funcionesBD.php");
 
 ?>
 <!DOCTYPE html>
@@ -22,15 +22,16 @@ require("./funcionesBD.php");
             $script = crearBD();
             mysqli_multi_query($conexion1, $script);
             $conexion1->close();
-
-            echo "<a href='funciones/editaBD.php'>Editar base de datos</a>";
-            echo "<a href='funciones/leeBD.php'>Leer base de datos</a>";
         }
     ?>
     <form action="./index.php" method="post" enctype="multipart/form-data">
        <?php 
         try {
-            $conexion = mysqli_connect("192.168.1.106", USER, PASS, BBDD);
+            $conexion = mysqli_connect($_SERVER["SERVER_ADDR"], USER, PASS, BBDD);
+
+            echo "<a href='funciones/editaBD.php'>Editar base de datos</a>";
+            echo "<br>";
+            echo "<a href='funciones/leeBD.php'>Leer base de datos</a>";
 
             } catch (Exception $ex){
                 if($ex->getCode() == 1049){

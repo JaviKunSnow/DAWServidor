@@ -7,8 +7,15 @@ function enviado(){
     return false;
 }
 
+function enviadoGuardar(){
+    if(isset($_REQUEST["guardar"])){
+        return true;
+    }
+    return false;
+}
+
 function crearBD(){ 
-        return file_get_contents("../sql/nba.sql");
+    return file_get_contents("../sql/nba.sql");
 }
 
 ?>
