@@ -1,5 +1,8 @@
 <?php
-require("./funciones.php");
+
+require("../conexionBD.php");
+require("../funcionesBD.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="es">

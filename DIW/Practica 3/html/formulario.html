@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periodico</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+    <body>
+        <header>
+                <img src="../imagenes/logo.jpg" width="200" height="70"/>
+                <input type="search" name="buscador" id="buscador" placeholder="Articulo a buscar"/>
+                <input type="button" class="btnbuscar" value="&#128269;"/>
+                <input type="button" class="botones" value="Datos"/>
+                <input type="button" class="botones" value="Carrito"/> 
+        </header>      
+                <aside>
+                    <a href="../index.html">Inicio</a>
+                    <a href="html/formulario.html">Formulario</a>
+                    <a href="#">Destacadas</a>
+                    <a href="#">Contacto</a>
+                </aside>
+            <main>
+                <form action="php/enviar.php" method="GET">
+                    <fieldset id="set1">
+                        <div>
+                            <label for="idTextArticulo">Articulo *</label>
+                            <input type="text" id="idTextArticulo">
+                        </div>
+                        <div>
+                            <label for="idTextArticulo">Descripcion *</label>
+                            <textarea></textarea>
+                        </div>
+                    </fieldset>
+                    <fieldset>    
+                        <input type="checkbox" id="destacado" name="destacado" value="destacados">
+                        <label for="destacado">Articulo destacado</label>
+                        <br>
+                        <p>Categoria:</p>
+                        <input type="radio" id="hardware" name="categoria" value="hardware">
+                        <label for="hardware">Hardware</label><br>
+                        <input type="radio" id="software" name="categoria" value="software">
+                        <label for="software">Software</label><br>
+                        <input type="radio" id="servicios" name="categoria" value="servicios">
+                        <label for="servicios">Servicios</label>
+                        <br>
+                        <br>
+                        <select name="subcategoria" id="subcategoria">
+                            <optgroup label="Hardware">
+                            <option value="componentes">Componentes</option>
+                            <option value="perifericos">Perifericos</option>
+                            <option value="cableado">Cableado</option>
+                            <option value="equipos">Equipos</option>
+                            </optgroup>
+                        </select>
+                        <br>
+                        <br>
+                    </fieldset>
+                    <input type="submit" class="botones" value="Enviar" id="enviar">
+                    <input type="reset" class="botones" value="Borrar Datos" id="reset">
+                </form>
+            </main>
+        <footer>
+            <section>
+                <h2>DATOS DE CONTACTO</h2>
+                <p>Email: lavanguardia@gmail.com</p>
+                <p>Telefono: 123456789</p>
+            </section>
+            <section>
+                <form>
+                    <p>Suscribete</p>
+                    <label for="idNombre">Nombre:</label>
+                    <input type="text" name="nombre" id="idNombre">
+                    <br>
+                    <label for="idCorreo">Correo:</label>
+                    <input type="text" name="correo" id="idCorreo">
+                </form>
+            </section>
+            <section>
+                    <p>Redes Sociales</p>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Facebook</a>
+            </section>
+        </footer>
+    </body>
+</html>
