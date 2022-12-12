@@ -29,9 +29,16 @@ require("funcionesBD.php");
         try {
             $conexion = mysqli_connect($_SERVER["SERVER_ADDR"], USER, PASS, BBDD);
 
-            echo "<a href='funciones/editaBD.php'>Editar base de datos</a>";
-            echo "<br>";
-            echo "<a href='funciones/leeBD.php'>Leer base de datos</a>";
+            ?>
+
+            <div class="cajalink2">
+                <a href="php/leeBD.php"><p>Leer datos</p></a>
+            </div>
+            <div class="cajalink2">
+                <a href="php/editaBD.php?opc=ins"><p>Insertar datos</p></a>
+            </div> 
+
+            <?php
 
             } catch (Exception $ex){
                 if($ex->getCode() == 1049){

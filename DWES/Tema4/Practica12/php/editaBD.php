@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../../../../CSS/estilos.css">
 </head>
 <body>
     <?php
@@ -14,12 +15,17 @@
 
     ?>
     <?php
+        include_once("../../../../cabecera.html");
+    ?>
+    <?php
+
+        $modID = $_REQUEST["numeroID"];
 
         if($_REQUEST["opc"] == "elm"){
             try {
                 $conexion= mysqli_connect($_SERVER['SERVER_ADDR'],USER,PASS,BBDD);
 
-                $script = "delete from losAngelesLakers where id='".$_REQUEST["id"]."';";
+                $script = "delete from LosAngelesLakers where id='".$_REQUEST["numeroID"]."';";
 
                 mysqli_query($conexion, $script);
                 mysqli_close($conexion);
@@ -37,13 +43,12 @@
             }  
 
             header("Location: ./leeBD.php");
-        } else if(enviadoGuardar()){
+        } else if(enviadoGuardar() && compTodo()){
             if($_REQUEST["opc"] == "mod"){
                 try {
                     $conexion= mysqli_connect($_SERVER['SERVER_ADDR'],USER,PASS,BBDD);
 
-                    $script = "update into losAngelesLakers set jugador='".$_REQUEST["jugador"]."', edad='".$_REQUEST["edad"]."', puntos='".$_REQUEST["puntos"]."', 
-                    asistencias='".$_REQUEST["asistencias"]."', rebotes='".$_REQUEST["rebotes"]."', fechadebut='".$_REQUEST["fecha"]."';";
+                    $script = "update LosAngelesLakers set jugador='".$_REQUEST["jugador"]."', edad='".$_REQUEST["edad"]."', puntos='".$_REQUEST["puntos"]."', asistencias='".$_REQUEST["asistencias"]."', rebotes='".$_REQUEST["rebotes"]."', fechadebut='".$_REQUEST["fecha"]."' where id='".$_REQUEST["id"]."';";
                 
                     mysqli_query($conexion, $script);
                     mysqli_close($conexion);
@@ -60,18 +65,17 @@
                     }       
                 }
                 
-                header("Location: ./leeBD.php");
-            }
-        } else if($_REQUEST["opc"] == "int"){
+            header("Location: ./leeBD.php");
+
+            } else if($_REQUEST["opc"] == "ins"){
                 try {
                     $conexion= mysqli_connect($_SERVER['SERVER_ADDR'],USER,PASS,BBDD);
 
-                    $script = "insert into losAngelesLakers values ('".$_REQUEST["jugador"]."','".$_REQUEST["edad"]."','".$_REQUEST["puntos"]."',
-                    '".$_REQUEST["asistencias"]."','".$_REQUEST["rebotes"]."','".$_REQUEST["fecha"]."');";
-                
-                    mysqli_query($conexion, $script);
+                    $script = "insert into `LosAngelesLakers` (`jugador`, `edad`, `puntos`, `asistencias`, `rebotes`, `fechadebut`) values ('".$_REQUEST["jugador"]."','".$_REQUEST["edad"]."','".$_REQUEST["puntos"]."','".$_REQUEST["asistencias"]."','".$_REQUEST["rebotes"]."','".$_REQUEST["fecha"]."');";
+                    
+                     mysqli_query($conexion, $script);
                     mysqli_close($conexion);
-                
+                    
                 } catch (Exception $ex) {
                     if ($ex->getCode()==1045){
                         echo "Credenciales incorrectas";
@@ -83,20 +87,21 @@
                         echo "No existe la base de datos no existe";
                     }       
                 }
-                
+                    
                 header("Location: ./leeBD.php");
-            }    
+            }
+        }    
     ?>
     <?php
             try {
                     
                 $conexion= mysqli_connect($_SERVER['SERVER_ADDR'],USER,PASS,BBDD);
                 
-                if ($_REQUEST["opc"]=="mod"){
-                    $sql="select * from losAngelesLakers where id='" . $_REQUEST["numeroID"] . "';";
+                if ($_REQUEST["opc"] == "mod"){
+                    $sql="select * from LosAngelesLakers where id='". $modID ."';";
                     $resultado= mysqli_query($conexion,$sql);
 
-                    while($fila = $resultado->fetch_array()){
+                    while($fila = mysqli_fetch_array($resultado)){
                         $jugador = $fila["jugador"];
                         $edad = $fila["edad"];
                         $puntos = $fila["puntos"];
@@ -125,48 +130,80 @@
         ?>">
 
         <input type="hidden" name="id" value="<?php
-        if($_REQUEST["opc"] == "mod"){
-            echo $_REQUEST["numeroID"];
-        }
+            echo $modID;
         ?>">
 
-
-        <label for="jugador">Jugador: </label>
-        <input type="text" name="jugador" id="jugador" value="<?php
-        if($_REQUEST["opc"] == "mod"){
-            echo $jugador;
-        }
-        ?>">
-        <label for="edad">Edad: </label>
-        <input type="number" name="edad" id="edad" value="<?php
-        if($_REQUEST["opc"] == "mod"){
-            echo $edad;
-        }
-        ?>">
-        <label for="puntos">PPP: </label>
-        <input type="number" name="puntos" id="puntos" value="<?php
-        if($_REQUEST["opc"] == "mod"){
-            echo $puntos;
-        }
-        ?>">
-        <label for="asistencias">APP: </label>
-        <input type="number" name="asistencias" id="asistencias" value="<?php
-        if($_REQUEST["opc"] == "mod"){
-            echo $asistencias;
-        }
-        ?>">
-        <label for="rebotes">RPP: </label>
-        <input type="number" name="rebotes" id="rebotes" value="<?php
-        if($_REQUEST["opc"] == "mod"){
-            echo $rebotes;
-        }
-        ?>">
-        <label for="fecha">Fecha Debut: </label>
-        <input type="text" name="fecha" id="fecha" value="<?php
-        if($_REQUEST["opc"] == "mod"){
-            echo $fecha;
-        }
-        ?>">
+        <p>
+            <label for="jugador">Jugador: </label>
+            <input type="text" name="jugador" id="jugador" value="<?php
+                echo $jugador;
+            ?>">
+        </p>
+        <p>
+            <label for="edad">Edad: </label>
+            <input type="number" name="edad" id="edad" value="<?php
+                echo $edad;
+            ?>">
+        </p>
+        <?php
+            if(enviadoGuardar()){
+                if(!compEdad("edad")){
+                    echo "<span style='color: red;'><-- edad incorrectos</span>";
+                }
+            }
+            ?>
+        <p>
+            <label for="puntos">PPP: </label>
+            <input type="number" step="0.1" name="puntos" id="puntos" value="<?php
+                echo $puntos;
+            ?>">
+            <?php
+                if(enviadoGuardar()){
+                    if(!compStats("puntos")){
+                        echo "<span style='color: red;'><-- valores incorrectos</span>";
+                    }
+                }
+            ?>
+        </p>
+        <p>
+            <label for="asistencias">APP: </label>
+            <input type="number" step="0.1" name="asistencias" id="asistencias" value="<?php
+                echo $asistencias;
+            ?>">
+            <?php
+                if(enviadoGuardar()){
+                    if(!compStats("asistencias")){
+                        echo "<span style='color: red;'><-- valores incorrectos</span>";
+                    }
+                }
+            ?>
+        </p>
+        <p>
+            <label for="rebotes">RPP: </label>
+            <input type="number" step="0.1" name="rebotes" id="rebotes" value="<?php
+                echo $rebotes;
+            ?>">
+            <?php
+                if(enviadoGuardar()){
+                    if(!compStats("rebotes")){
+                        echo "<span style='color: red;'><-- valores incorrectos</span>";
+                    }
+                }
+            ?>
+        </p>
+        <p>
+            <label for="fecha">Fecha Debut: </label>
+            <input type="text" name="fecha" id="fecha" value="<?php
+                echo $fecha;
+            ?>">
+            <?php
+                if(enviadoGuardar()){
+                    if(!compFecha("fecha")){
+                        echo "<span style='color: red;'><-- Fecha incorrecta</span>";
+                    }
+                }
+            ?>
+        </p>
         <input type="submit" name="guardar" value="Guardar datos">
 
     </form>

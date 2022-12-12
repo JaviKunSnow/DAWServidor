@@ -9,15 +9,14 @@ require("../funcionesBD.php");
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" href="../../../CSS/estilos.css">
+    <link rel="stylesheet" href="../../../../CSS/estilos.css">
 </head>
 <body>
     <?php
-    include_once("../../../cabecera.html");
+    include_once("../../../../cabecera.html");
     ?>
     <table border='1'>
         <tr>
-            <th>id</th>
             <th>Jugador</th>
             <th>Edad</th>
             <th>PPP</th>
@@ -29,12 +28,12 @@ require("../funcionesBD.php");
         </tr>
         <?php
         try {
-            $conexion = mysqli_connect($_SERVER["SERVER_ADDR"], "javier", PASS, BBDD);
+            $conexion = mysqli_connect($_SERVER["SERVER_ADDR"], USER, PASS, BBDD);
             $sql = 'select * from LosAngelesLakers';
 
             $resultado = mysqli_query($conexion, $sql);
 
-            while ($filas = mysqli_fetch_assoc($resultado)) {
+            while ($fila = mysqli_fetch_array($resultado)) {
                 echo "<tr>";
                 echo "<td>" . $fila["jugador"] . "</td>";
                 echo "<td>" . $fila["edad"] . "</td>";
@@ -72,6 +71,8 @@ require("../funcionesBD.php");
                 <p>Insertar datos</p>
             </a>
         </div>
+        <br>
+        <br>
         <h2>Ver codigo:</h2>
         <div class="cajalink2">
             <a href="verCodigo.php?valor=eligeFichero.php">
