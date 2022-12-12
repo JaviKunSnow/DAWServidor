@@ -70,12 +70,7 @@ console.log(porPrecioTotal);
 // array productos con pocas unidades
 
 function prodsWithLowUnits(arrayProductos, num){
-    let arrayProd=[];
-    arrayProductos.forEach(prod => {
-        if(num >= prod.unidades){
-            arrayProd.push(prod);
-        }
-    });
+    let arrayProd = arrayProductos.filter((producto) => producto.unidades > num);
     return arrayProd;
 }
 
