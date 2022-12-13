@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="periodico, informacion, noticias">
+    <meta name="author" content="Javier Andres Calleja">
+    <title>Periodico</title>
+    <link rel="stylesheet" href="css/estiloPrint.css" media="print">
+    <link rel="stylesheet" href="css/estiloMovil.css" media="screen">
+</head>
+<body>
+    <header>
+        <img src="imagenes/logo.jpg" width="200" height="70" />
+        <input type="search" name="buscador" id="buscador" placeholder="Articulo a buscar" />
+        <input type="button" class="btnbuscar" value="&#128269;" />
+        <input type="button" class="botones" value="Datos" />
+        <input type="button" class="botones" value="Carrito" />
+    </header>
+    <aside>
+        <a href="index.html">Inicio</a>
+        <a href="html/formulario.html">Formulario</a>
+        <a href="#">Destacadas</a>
+        <a href="#">Contacto</a>
+    </aside>
+    <main>
+        <section>
+            <article>
+                <img src="imagenes/noticia1.jpeg" height="200" width="300">
+                <h2>La crisis energética</h2>
+                <p>Francia no descarta ahora el Midcat.</p>
+            </article>
+            <article>
+                <img src="imagenes/noticia2.jpeg" height="200" width="300">
+                <h2>Medio ambiente</h2>
+                <p>Qué impacto tienen para el ecosistema las fugas de los gasoductos Nord Stream.</p>
+            </article>
+            <article>
+                <img src="imagenes/noticia3.jpeg" height="200" width="300">
+                <h2 class="rojo">Reunión PP-Vox</h2>
+                <p>Feijóo y Abascal coinciden en el diagnóstico de la situación pero no en la forma de afrontarla.</p>
+            </article>
+        </section>
+        <section>
+            <article>
+                <img src="imagenes/noticia4.jpeg" height="200" width="300">
+                <h2>Entrevista</h2>
+                <p class="amarillo">Federer explica la foto con Nadal: “Fue un gracias secreto”.</p>
+            </article>
+            <article>
+                <img src="imagenes/noticia5.jpeg" height="200" width="300">
+                <h2>Fallecimiento</h2>
+                <p>Muere Robert Cormier, actor de 'Heartland', a la edad de 33 años.</p>
+            </article>
+            <article>
+                <img src="imagenes/noticia6.jpeg" height="200" width="300">
+                <h2>Nuevas intenciones</h2>
+                <p>La última locura de Elon Musk: quiere comprar BTS, la banda de K-Pop más popular del mundo.</p>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <section>
+            <h2>DATOS DE CONTACTO</h2>
+            <p>Email: lavanguardia@gmail.com</p>
+            <p>Telefono: 123456789</p>
+        </section>
+        <section>
+            <form>
+                <p>Suscribete</p>
+                <label for="idNombre">Nombre:</label>
+                <input type="text" name="nombre" id="idNombre">
+                <br>
+                <label for="idCorreo">Correo:</label>
+                <input type="text" name="correo" id="idCorreo">
+            </form>
+        </section>
+        <section>
+            <p>Redes Sociales</p>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+            <a href="#">Facebook</a>
+        </section>
+    </footer>
+</body>
+</html>

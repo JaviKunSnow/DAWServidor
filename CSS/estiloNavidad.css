@@ -15,22 +15,28 @@
     otro: #941F48
 
   colores navidad:
-    color fondo: #fd9dff
-    color demas: #0f0e21  
-    color verde: #fd9dff
+    color fondo: #BD1725
+    color demas: #C3E2E4  
+    color verde: #BD1725
 
   colores navidad:
-    color fondo: #0C494A
-    color 2: #2F7D81  
-    color 3: #C3E2E4
+    color fondo: #C3E2E4
+    color fondo2: #OC494A
+    color 2: #BD1725  
+    color 3: #BD1725
+    color 4: #2F7D81
 */
+
+header {
+  background-color: #0C494A;
+}
 
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: rgb(59, 55, 55);
+  background-color: #2F7D81;
 }
 
 li {
@@ -39,7 +45,7 @@ li {
 
 li a {
   display: inline-block;
-  color: #fd9dff;
+  color: #BD1725;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -50,8 +56,8 @@ li a:hover {
 }
 
 body {
-  background-color: #0f0e21;
-  color: white;
+  background-color: #C3E2E4;
+  color: #C3E2E4;
   font-family: Arial;
 }
 
@@ -60,108 +66,108 @@ body {
   text-shadow: 2px 2px 5px black;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 40px;
-  color: #fd9dff;
+  color: #BD1725;
 }
 
 .caja1 {
-  background-color: rgb(59, 55, 55);
+  background-color: #2F7D81;
   max-width: 400px;
   text-align: center;
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color:#fd9dff;
+  color:#BD1725;
   padding: 50px;
   float: left;
 }
 
 .caja2 {
-  background-color: rgb(59, 55, 55);
+  background-color: #2F7D81;
   max-width: 400px;
   text-align: center;
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color:white;
+  color:#C3E2E4;
   padding: 50px;
   float: left;
 }
 
 .caja3 {
-  background-color: rgb(59, 55, 55);
+  background-color: #2F7D81;
   max-width: 400px;
   text-align: center;
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color:#fd9dff;
+  color:#BD1725;
   padding: 50px;
   float: left;
 }
 
 .caja4 {
-  background-color: rgb(59, 55, 55);
+  background-color: #2F7D81;
   width: 1200px;
   height: 1100px;
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color: #fd9dff;
+  color: #BD1725;
   padding: 50px;
   float: left;
 }
 
 .caja5 {
-  background-color: rgb(59, 55, 55);
+  background-color: #2F7D81;
   width: 1200px;
   height: 1700px;
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color: #fd9dff;
+  color: #BD1725;
   padding: 50px;
   float: left;
 }
 
 .caja6 {
-  background-color: rgb(59, 55, 55);
+  background-color: #2F7D81;
   width: 300px;
   height: 700px;
   text-align: center;
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color:#fd9dff;
+  color:#BD1725;
   padding: 50px;
   float: left;
 }
 
 .caja7 {
-  background-color: rgb(59, 55, 55);
+  background-color: #2F7D81;
   max-width: 400px;
   text-align: center;
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color:#fd9dff;
+  color:#BD1725;
   padding: 50px;
   float: left;
 }
 
 .cajalink {
-  background-color: #0f0e21;
+  background-color: #C3E2E4;
   width: 200px;
   margin: auto;
-  border: 3px solid #fd9dff;
+  border: 3px solid #BD1725;
   padding: 1px;
   text-align: center;
 }
 
 .cajalink2 {
-  background-color: #0f0e21;
+  background-color: #C3E2E4;
   width: 200px;
   margin: 10px;
-  border: 3px solid #fd9dff;
+  border: 3px solid #BD1725;
   padding: 1px;
   text-align: center;
   float: left;
@@ -170,28 +176,28 @@ body {
 .cajalink a {
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
-  color: #fd9dff;
+  color: #BD1725;
 }
 
 .cajalink2 a {
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
-  color: #fd9dff;
+  color: #BD1725;
 }
 
 .botones {
-  background-color: #0f0e21;
+  background-color: #C3E2E4;
   width: 150px;
   margin: 10px;
-  border: 3px solid #fd9dff;
+  border: 3px solid #BD1725;
   padding: 1px;
-  color:#fd9dff;
+  color:#BD1725;
   text-align: center;
 }
 
 .lista {
   display: grid;
   font-family: Arial;
-  color: #fd9dff;
+  color: #BD1725;
 }
 

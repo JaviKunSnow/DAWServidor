@@ -20,50 +20,16 @@
     <?php
 
         if($_REQUEST["opc"] == "elm"){
-            try {
-                $conexion= mysqli_connect($_SERVER['SERVER_ADDR'],USER,PASS,BBDD);
-
-                $script = "delete from LosAngelesLakers where id='".$_REQUEST["numeroID"]."';";
-
-                mysqli_query($conexion, $script);
-                mysqli_close($conexion);
-            
-            } catch (Exception $ex) {
-                if ($ex->getCode()==1045){
-                    echo "Credenciales incorrectas";
-                }
-                if ($ex->getCode()==2002){
-                    echo "Acabado tiempo de conexión";
-                }       
-                if ($ex->getCode()==1049){
-                    echo "No existe la base de datos no existe";
-                }       
-            }  
+            eliminarDatos();
 
             header("Location: ./leeBD.php");
+
         } else if(enviadoGuardar() && compTodo()){
             if($_REQUEST["opc"] == "mod"){
-                try {
-                    $conexion= mysqli_connect($_SERVER['SERVER_ADDR'],USER,PASS,BBDD);
-
-                    $script = "update LosAngelesLakers set jugador='".$_REQUEST["jugador"]."', edad='".$_REQUEST["edad"]."', puntos='".$_REQUEST["puntos"]."', asistencias='".$_REQUEST["asistencias"]."', rebotes='".$_REQUEST["rebotes"]."', fechadebut='".$_REQUEST["fecha"]."' where id='".$_REQUEST["id"]."';";
+                modificarDatos();
                 
-                    mysqli_query($conexion, $script);
-                    mysqli_close($conexion);
-
-                } catch (Exception $ex) {
-                    if ($ex->getCode()==1045){
-                        echo "Credenciales incorrectas";
-                    }
-                    if ($ex->getCode()==2002){
-                        echo "Acabado tiempo de conexión";
-                    }       
-                    if ($ex->getCode()==1049){
-                        echo "No existe la base de datos no existe";
-                    }       
-                }
-                
-            header("Location: ./leeBD.php");
+                header("Location: ./leeBD.php");
+                exit();
 
             } else if($_REQUEST["opc"] == "ins"){
                 try {
