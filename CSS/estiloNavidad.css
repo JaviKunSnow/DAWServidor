@@ -1,6 +1,6 @@
 /* colores:
-    rosa palo: #fd9dff
-    negro azulado: #0f0e21
+    rosa palo: #BD1725
+    negro azulado: #2F7D81
 
   colores halloween 1:
     naranja: #ff7531
@@ -16,27 +16,21 @@
 
   colores navidad:
     color fondo: #BD1725
-    color demas: #C3E2E4  
+    color demas: #2F7D81  
     color verde: #BD1725
 
   colores navidad:
-    color fondo: #C3E2E4
-    color fondo2: #OC494A
-    color 2: #BD1725  
-    color 3: #BD1725
-    color 4: #2F7D81
+    color fondo: #0C494A
+    color 2: #2F7D81  
+    color 3: #C3E2E4
 */
-
-header {
-  background-color: #0C494A;
-}
 
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #2F7D81;
+  background-color: #0C494A;
 }
 
 li {
@@ -56,8 +50,8 @@ li a:hover {
 }
 
 body {
-  background-color: #C3E2E4;
-  color: #C3E2E4;
+  background-color: #2F7D81;
+  color: white;
   font-family: Arial;
 }
 
@@ -70,7 +64,7 @@ body {
 }
 
 .caja1 {
-  background-color: #2F7D81;
+  background-color: #0C494A;
   max-width: 400px;
   text-align: center;
   margin: 10px;
@@ -82,19 +76,19 @@ body {
 }
 
 .caja2 {
-  background-color: #2F7D81;
+  background-color: #0C494A;
   max-width: 400px;
   text-align: center;
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color:#C3E2E4;
+  color:white;
   padding: 50px;
   float: left;
 }
 
 .caja3 {
-  background-color: #2F7D81;
+  background-color: #0C494A;
   max-width: 400px;
   text-align: center;
   margin: 10px;
@@ -106,7 +100,7 @@ body {
 }
 
 .caja4 {
-  background-color: #2F7D81;
+  background-color: #0C494A;
   width: 1200px;
   height: 1100px;
   margin: 10px;
@@ -118,7 +112,7 @@ body {
 }
 
 .caja5 {
-  background-color: #2F7D81;
+  background-color: #0C494A;
   width: 1200px;
   height: 1700px;
   margin: 10px;
@@ -130,7 +124,7 @@ body {
 }
 
 .caja6 {
-  background-color: #2F7D81;
+  background-color: #0C494A;
   width: 300px;
   height: 700px;
   text-align: center;
@@ -143,7 +137,7 @@ body {
 }
 
 .caja7 {
-  background-color: #2F7D81;
+  background-color: #0C494A;
   max-width: 400px;
   text-align: center;
   margin: 10px;
@@ -155,7 +149,7 @@ body {
 }
 
 .cajalink {
-  background-color: #C3E2E4;
+  background-color: #2F7D81;
   width: 200px;
   margin: auto;
   border: 3px solid #BD1725;
@@ -163,8 +157,15 @@ body {
   text-align: center;
 }
 
+.cajalink:hover {
+  border: 3px solid #2F7D81;
+  background-color: #BD1725;
+  color: #2F7D81;
+}
+
+
 .cajalink2 {
-  background-color: #C3E2E4;
+  background-color: #2F7D81;
   width: 200px;
   margin: 10px;
   border: 3px solid #BD1725;
@@ -186,7 +187,7 @@ body {
 }
 
 .botones {
-  background-color: #C3E2E4;
+  background-color: #2F7D81;
   width: 150px;
   margin: 10px;
   border: 3px solid #BD1725;
