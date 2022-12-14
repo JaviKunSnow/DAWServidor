@@ -151,6 +151,7 @@ body {
 .cajalink {
   background-color: #2F7D81;
   width: 200px;
+  height: 50px;
   margin: auto;
   border: 3px solid #BD1725;
   padding: 1px;
@@ -162,7 +163,6 @@ body {
   background-color: #BD1725;
   color: #2F7D81;
 }
-
 
 .cajalink2 {
   background-color: #2F7D81;
