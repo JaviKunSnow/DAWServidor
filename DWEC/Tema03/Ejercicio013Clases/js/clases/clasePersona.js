@@ -10,7 +10,7 @@ Number.prototype.moneda = function() {
     return this.toLocaleString('de-DE', {style: 'currency', currency: 'EUR'});
 };
 
-class Persona {
+export class Persona {
     static get MAX_AFORO(){
         return 106;
     }
@@ -64,60 +64,3 @@ class Persona {
         return `${this.id}: \n\t\t ${this.nombre} ${this.apellido} \n\t\t edad: ${this.edad}`;
     }
 };
-
-let person1 = new Persona("paco", "gonzalez fernandez", 20);
-console.log(person1.toString());
-
-
-class Empleado extends Persona {
-
-    static idEmpleados = 200;
-
-    constructor(nombre, apellido, edad, sueldo){
-        super(nombre, apellido, edad);
-        super.id = ++Empleado.idEmpleados;
-        this._sueldo = sueldo;
-    }
-
-    get sueldo() {
-        return this._sueldo;
-    }
-
-    set sueldo(sueldo) {
-        this._sueldo = sueldo;
-    }
-
-    toString() {
-        return `Empleado ${super.toString()} \n\t\t Sueldo: ${this._sueldo.moneda()}`;
-    }
-}
-
-let person2 = new Empleado("pepe", "martinez duarte", 41, 20000);
-console.log(person2.toString());
-
-
-class Cliente extends Persona {
-
-    static idCliente = 300;
-
-    constructor(nombre, apellido, edad){
-        super(nombre, apellido, edad);
-        super.id = ++Cliente.idCliente;
-        this._fecha = this.fechaActual();
-    }
-
-    fechaActual() {
-        let hoy = new Date();
-        return hoy.toLocaleDateString("es-ES");
-    }
-
-    toString() {
-        return `Cliente ${super.toString()} \n\t\t Registro: ${this._fecha}`;
-    }
-}
-
-let person3 = new Cliente("marta", "diaz suarez", 22);
-console.log(person3.toString());
-
-let person4 = new Empleado(person1.nombre, person1.apellido, person1.edad, 10000);
-console.log(person4.toString());
