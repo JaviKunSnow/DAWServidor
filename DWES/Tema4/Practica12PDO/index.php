@@ -18,16 +18,13 @@ require("funcionesBD.php");
     <?php
 
        if(enviado()){
-            $conexion1 = mysqli_connect($_SERVER["SERVER_ADDR"],USER,PASS);
-            $script = crearBD();
-            mysqli_multi_query($conexion1, $script);
-            $conexion1->close();
+            crearBD();
         }
     ?>
     <form action="./index.php" method="post" enctype="multipart/form-data">
        <?php 
         try {
-            $conexion = mysqli_connect($_SERVER["SERVER_ADDR"], USER, PASS, BBDD);
+            $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
 
             ?>
 

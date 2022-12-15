@@ -32,25 +32,7 @@
                 exit();
 
             } else if($_REQUEST["opc"] == "ins"){
-                try {
-                    $conexion= mysqli_connect($_SERVER['SERVER_ADDR'],USER,PASS,BBDD);
-
-                    $script = "insert into `LosAngelesLakers` (`jugador`, `edad`, `puntos`, `asistencias`, `rebotes`, `fechadebut`) values ('".$_REQUEST["jugador"]."','".$_REQUEST["edad"]."','".$_REQUEST["puntos"]."','".$_REQUEST["asistencias"]."','".$_REQUEST["rebotes"]."','".$_REQUEST["fecha"]."');";
-                    
-                     mysqli_query($conexion, $script);
-                    mysqli_close($conexion);
-                    
-                } catch (Exception $ex) {
-                    if ($ex->getCode()==1045){
-                        echo "Credenciales incorrectas";
-                    }
-                    if ($ex->getCode()==2002){
-                        echo "Acabado tiempo de conexión";
-                    }       
-                    if ($ex->getCode()==1049){
-                        echo "No existe la base de datos no existe";
-                    }       
-                }
+                insertarDatos();
                     
                 header("Location: ./leeBD.php");
             }
@@ -59,13 +41,15 @@
     <?php
             try {
                     
-                $conexion= mysqli_connect($_SERVER['SERVER_ADDR'],USER,PASS,BBDD);
+                
                 
                 if ($_REQUEST["opc"] == "mod"){
-                    $sql="select * from LosAngelesLakers where id='". $_REQUEST["numeroID"] ."';";
-                    $resultado= mysqli_query($conexion,$sql);
 
-                    while($fila = mysqli_fetch_array($resultado)){
+                    $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+                    $sql="select * from LosAngelesLakers where id='". $_REQUEST["numeroID"] ."';";
+                    $resultado= $conexion->query($sql);
+
+                    while($fila = $resultado->fetch(PDO::FETCH_BOTH)){
                         $jugador = $fila["jugador"];
                         $edad = $fila["edad"];
                         $puntos = $fila["puntos"];
@@ -74,7 +58,6 @@
                         $fecha = $fila["fechadebut"];
                     }
                 }
-                    mysqli_close($conexion);
         
             } catch (Exception $ex) {
                 if ($ex->getCode()==1045){

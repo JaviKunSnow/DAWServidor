@@ -28,12 +28,12 @@ require("../funcionesBD.php");
         </tr>
         <?php
         try {
-            $conexion = mysqli_connect($_SERVER["SERVER_ADDR"], USER, PASS, BBDD);
+            $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
             $sql = 'select * from LosAngelesLakers';
 
-            $resultado = mysqli_query($conexion, $sql);
+            $resultado= $conexion->query($sql);
 
-            while ($fila = mysqli_fetch_array($resultado)) {
+            while ($fila = $resultado->fetch(PDO::FETCH_BOTH)) {
                 echo "<tr>";
                 echo "<td>" . $fila["jugador"] . "</td>";
                 echo "<td>" . $fila["edad"] . "</td>";
@@ -47,11 +47,9 @@ require("../funcionesBD.php");
             }
             echo "</table>";
 
-            $conexion->close();
         } catch (Exception $ex) {
             if ($ex->getCode() == 1049) {
                 echo "<span style='color: red;'>La base de datos no existe.</span>";
-                $conexion->close();
         ?>
                 <input type="submit" name="enviar" value="crear BD">
         <?
