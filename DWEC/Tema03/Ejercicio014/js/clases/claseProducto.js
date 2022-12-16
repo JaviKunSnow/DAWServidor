@@ -1,5 +1,3 @@
-
-
 Number.prototype.moneda = function() {
     return this.toLocaleString('de-DE', {style: 'currency', currency: 'EUR'});
 };
