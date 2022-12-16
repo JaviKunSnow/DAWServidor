@@ -1,3 +1,5 @@
+import { Persona } from './clasePersona.js';
+
 export class Cliente extends Persona {
 
     static idCliente = 300;
