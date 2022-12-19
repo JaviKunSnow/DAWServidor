@@ -1,6 +1,6 @@
 /* colores:
-    rosa palo: #BD1725
-    negro azulado: #2F7D81
+    rosa palo: #26A2F1
+    negro azulado: #26A2F1
 
   colores halloween 1:
     naranja: #ff7531
@@ -15,14 +15,14 @@
     otro: #941F48
 
   colores navidad:
-    color fondo: #BD1725
-    color demas: #2F7D81  
-    color verde: #BD1725
+    color fondo: #26A2F1
+    color demas: #26A2F1  
+    color verde: #26A2F1
 
   colores navidad:
-    color fondo: #0C494A
-    color 2: #2F7D81  
-    color 3: #C3E2E4
+    color fondo: #26A2F1
+    color 2: #26A2F1  
+    color 3: #70D6FC
 */
 
 ul {
@@ -30,7 +30,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #0C494A;
+  background-color: #70D6FC;
 }
 
 li {
@@ -39,7 +39,7 @@ li {
 
 li a {
   display: inline-block;
-  color: #BD1725;
+  color: #1864b6;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -50,7 +50,7 @@ li a:hover {
 }
 
 body {
-  background-color: #2F7D81;
+  background-color: rgb(8, 3, 32);
   color: white;
   font-family: Arial;
 }
@@ -60,23 +60,23 @@ body {
   text-shadow: 2px 2px 5px black;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 40px;
-  color: #BD1725;
+  color: #70D6FC;
 }
 
 .caja1 {
-  background-color: #0C494A;
+  background-color: #70D6FC;
   max-width: 400px;
   text-align: center;
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color:#BD1725;
+  color:#1D78D9;
   padding: 50px;
   float: left;
 }
 
 .caja2 {
-  background-color: #0C494A;
+  background-color: #70D6FC;
   max-width: 400px;
   text-align: center;
   margin: 10px;
@@ -88,117 +88,120 @@ body {
 }
 
 .caja3 {
-  background-color: #0C494A;
+  background-color: #70D6FC;
   max-width: 400px;
   text-align: center;
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color:#BD1725;
+  color:#1D78D9;
   padding: 50px;
   float: left;
 }
 
 .caja4 {
-  background-color: #0C494A;
+  background-color: #70D6FC;
   width: 1200px;
   height: 1100px;
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color: #BD1725;
+  color: #1D78D9;
   padding: 50px;
   float: left;
 }
 
 .caja5 {
-  background-color: #0C494A;
+  background-color: #70D6FC;
   width: 1200px;
   height: 1700px;
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color: #BD1725;
+  color: #1D78D9;
   padding: 50px;
   float: left;
 }
 
 .caja6 {
-  background-color: #0C494A;
+  background-color: #70D6FC;
   width: 300px;
   height: 700px;
   text-align: center;
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color:#BD1725;
+  color:#1D78D9;
   padding: 50px;
   float: left;
 }
 
 .caja7 {
-  background-color: #0C494A;
+  background-color: #70D6FC;
   max-width: 400px;
   text-align: center;
   margin: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color:#BD1725;
+  color:#1D78D9;
   padding: 50px;
   float: left;
 }
 
 .cajalink {
-  background-color: #2F7D81;
+  position: relative;
+  background-color: #26A2F1;
   width: 200px;
   height: 50px;
   margin: auto;
-  border: 3px solid #BD1725;
+  border: 3px solid #1D78D9;
   padding: 1px;
-  text-align: center;
 }
 
 .cajalink:hover {
-  border: 3px solid #2F7D81;
-  background-color: #BD1725;
-  color: #2F7D81;
+  background-color: #111;
+  color: #1D78D9;
 }
 
 .cajalink2 {
-  background-color: #2F7D81;
+  background-color: #26A2F1;
   width: 200px;
   margin: 10px;
-  border: 3px solid #BD1725;
+  border: 3px solid #1D78D9;
   padding: 1px;
   text-align: center;
   float: left;
 }
 
 .cajalink a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
-  color: #BD1725;
+  color: #1D78D9;
 }
 
 .cajalink2 a {
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
-  color: #BD1725;
+  color: #1D78D9;
 }
 
 .botones {
-  background-color: #2F7D81;
+  background-color: #26A2F1;
   width: 150px;
   margin: 10px;
-  border: 3px solid #BD1725;
+  border: 3px solid #1D78D9;
   padding: 1px;
-  color:#BD1725;
+  color: #1D78D9;
   text-align: center;
 }
 
 .lista {
   display: grid;
   font-family: Arial;
-  color: #BD1725;
+  color: #1D78D9;
 }
 

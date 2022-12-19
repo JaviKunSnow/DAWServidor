@@ -9,11 +9,11 @@ require("funcionesBD.php");
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" href="../../../CSS/estilos.css">
+    <link rel="stylesheet" href="../../../../CSS/estilos.css">
 </head>
 <body>
     <?php
-        include_once("../../../cabecera.html");
+        include_once("../../../../cabecera.html");
     ?>
     <?php
 
@@ -32,7 +32,7 @@ require("funcionesBD.php");
                 <a href="php/leeBD.php"><p>Leer datos</p></a>
             </div>
             <div class="cajalink2">
-                <a href="php/editaBD.php?opc=ins"><p>Insertar datos</p></a>
+                <a href="php/auth.php?opc=ins"><p>Insertar datos</p></a>
             </div> 
 
             <?php
@@ -56,10 +56,16 @@ require("funcionesBD.php");
     </form>
     <h2>Ver codigo:</h2>
         <div class="cajalink2">
-            <a href="verCodigo.php?valor=eligeFichero.php"><p>Ver codigo eligeFichero</p></a>
+            <a href="verCodigo.php?valor=index.php"><p>Ver codigo index.php</p></a>
         </div>
         <div class="cajalink2">
-            <a href="verCodigo.php?valor=editaFichero.php"><p>Ver codigo editaFichero</p></a>
+            <a href="verCodigo.php?valor=/php/leeBD.php"><p>Ver codigo leer BD</p></a>
+        </div>
+        <div class="cajalink2">
+            <a href="verCodigo.php?valor=/php/editaBD.php"><p>Ver codigo edita BD</p></a>
+        </div>
+        <div class="cajalink2">
+            <a href="verCodigo.php?valor=funcionesBD.php"><p>Ver codigo funciones BD</p></a>
         </div> 
 </body>
 </html>
