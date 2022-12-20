@@ -16,4 +16,13 @@ function esAdmin() {
     return false;
 }
 
+function esModerador() {
+    if(isset($_SESSION["perfil"])){
+        if($_SESSION["perfil"] == "P0002") {
+            return true;
+        }
+    }
+    return false;
+}
+
 ?>
