@@ -9,11 +9,11 @@ require("../funcionesBD.php");
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" href="../../../../../CSS/estilos.css">
+    <link rel="stylesheet" href="../../../../../../CSS/estilos.css">
 </head>
 <body>
     <?php
-    include_once("../../../../../cabecera.html");
+    include_once("../../../../../../cabecera.html");
     ?>
     <table border='1'>
         <tr>

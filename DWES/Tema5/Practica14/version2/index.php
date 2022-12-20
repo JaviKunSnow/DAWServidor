@@ -54,15 +54,19 @@ require("funcionesBD.php");
             }
         ?>
     </form>
+    <br><br><br>
     <h2>Ver codigo:</h2>
         <div class="cajalink2">
             <a href="verCodigo.php?valor=index.php"><p>Ver codigo index.php</p></a>
         </div>
         <div class="cajalink2">
-            <a href="verCodigo.php?valor=/php/leeBD.php"><p>Ver codigo leer BD</p></a>
+            <a href="verCodigo.php?valor=php/leeBD.php"><p>Ver codigo leer BD</p></a>
         </div>
         <div class="cajalink2">
-            <a href="verCodigo.php?valor=/php/editaBD.php"><p>Ver codigo edita BD</p></a>
+            <a href="verCodigo.php?valor=php/editaBD.php"><p>Ver codigo edita BD</p></a>
+        </div>
+        <div class="cajalink2">
+            <a href="verCodigo.php?valor=php/auth.php"><p>Ver codigo Auth</p></a>
         </div>
         <div class="cajalink2">
             <a href="verCodigo.php?valor=funcionesBD.php"><p>Ver codigo funciones BD</p></a>

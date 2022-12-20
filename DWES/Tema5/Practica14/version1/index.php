@@ -13,7 +13,7 @@ require("funcionesBD.php");
 </head>
 <body>
     <?php
-        include_once("../../../cabecera.html");
+        include_once("../../../../cabecera.html");
     ?>
     <?php
 
@@ -55,11 +55,23 @@ require("funcionesBD.php");
         ?>
     </form>
     <h2>Ver codigo:</h2>
-        <div class="cajalink2">
-            <a href="verCodigo.php?valor=eligeFichero.php"><p>Ver codigo eligeFichero</p></a>
+    <div class="cajalink2">
+            <a href="verCodigo.php?valor=index.php"><p>Ver codigo index.php</p></a>
         </div>
         <div class="cajalink2">
-            <a href="verCodigo.php?valor=editaFichero.php"><p>Ver codigo editaFichero</p></a>
-        </div> 
+            <a href="verCodigo.php?valor=php/leeBD.php"><p>Ver codigo leer BD</p></a>
+        </div>
+        <div class="cajalink2">
+            <a href="verCodigo.php?valor=php/editaBD.php"><p>Ver codigo edita BD</p></a>
+        </div>
+        <div class="cajalink2">
+            <a href="verCodigo.php?valor=admin/borrar.php"><p>Ver codigo borrar</p></a>
+        </div>
+        <div class="cajalink2">
+            <a href="verCodigo.php?valor=users/edita.php"><p>Ver codigo edita</p></a>
+        </div>
+        <div class="cajalink2">
+            <a href="verCodigo.php?valor=funcionesBD.php"><p>Ver codigo funciones BD</p></a>
+        </div>
 </body>
 </html>

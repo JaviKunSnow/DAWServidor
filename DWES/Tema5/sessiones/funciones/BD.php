@@ -9,7 +9,7 @@ function validaUser($user, $pass) {
         $sql_p = $conexion->prepare($sql);
         $pass_e = sha1($pass);
         $array = array($user, $pass_e);
-        $sql_p->execute();
+        $sql_p->execute($array);
 
         //si devuelve algo retorna true
         if($sql_p->rowCount() == 1){

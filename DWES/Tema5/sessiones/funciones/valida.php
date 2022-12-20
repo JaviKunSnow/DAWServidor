@@ -6,7 +6,7 @@ $user = $_REQUEST["user"];
 $pass = $_REQUEST["pass"];
 
 if(validaUser($user, $pass)){
-    if($_SESSION["perfil"] == "ADM1") {
+    if($_SESSION["perfil"] == "ADM01") {
         header("location: ../paginas/admin.php");
         exit();
     } else {

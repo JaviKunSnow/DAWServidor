@@ -8,7 +8,7 @@ if(!isset($_SERVER['PHP_AUTH_USER'])) {
 } else {
     if($_REQUEST["opc"] == "ins") {
         if($_SERVER['PHP_AUTH_USER'] == 'javier' && $_SERVER['PHP_AUTH_PW'] == 'javier' || $_SERVER['PHP_AUTH_USER'] == 'admin' && $_SERVER['PHP_AUTH_PW'] == 'javier') {
-            header('location: ./edita.php?opc='.$_REQUEST["opc"].'');
+            header('location: ./editaBD.php?opc='.$_REQUEST["opc"].'');
             exit();
         }
     } else if($_REQUEST["opc"] == "elm") {
@@ -18,7 +18,7 @@ if(!isset($_SERVER['PHP_AUTH_USER'])) {
         }
     } else if($_REQUEST["opc"] == "mod") {
         if($_SERVER['PHP_AUTH_USER'] == 'javier' && $_SERVER['PHP_AUTH_PW'] == 'javier' || $_SERVER['PHP_AUTH_USER'] == 'admin' && $_SERVER['PHP_AUTH_PW'] == 'javier') {
-            header('location: ./edita.php?opc='.$_REQUEST["opc"].'&numeroID='.$_REQUEST["numeroID"].'');
+            header('location: ./editaBD.php?opc='.$_REQUEST["opc"].'&numeroID='.$_REQUEST["numeroID"]);
             exit();
         }
     } else {
