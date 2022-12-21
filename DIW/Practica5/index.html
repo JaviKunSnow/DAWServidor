@@ -8,9 +8,31 @@
 </head>
 <body>
     <h1>Video</h1>
-    <video width="800" height="600" controls loop muted>
-        <source src="video/Dog - 104.mp4" type="video/mp4">
+    <video id="miVideo" width="800" height="600" controls preload>
+        <source label="1280x720" src="video/gallochulo.mp4" type="video/mp4">
+        <source label="640x360" src="video/gallopocho.mp4" type="video/mp4">
     </video>
+    <p>
+        <button id="idPlay">
+            <img src="icon/boton-de-play.png" width="30px" height="30px">
+        </button>
+        <button id="idPause">
+            <img src="icon/boton-de-pausa.png" width="30px" height="30px">
+        </button>
+        <button id="idRestart">
+            <img src="icon/stop.png" width="30px" height="30px">
+        </button>
+        <button id="idSonido">
+            <img src="icon/volume-mute.png" width="30px" height="30px">
+        </button>
+        <button id="idVelocidad">
+            <img src="icon/fast-forward.png" width="30px" height="30px">
+        </button>
+        <select name="resolucion" id="idResolucion">
+            <option value="1">1280x720</option>
+            <option value="2">640x360</option>
+        </select>
+    </p>
     <h1>audio</h1>
     <audio controls id="audio">
         <source src="audio/lofi-study-112191.mp3" type="audio/mp3">
