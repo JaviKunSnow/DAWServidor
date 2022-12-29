@@ -8,6 +8,12 @@
 </head>
 <body>
     <header>
+        <section>
+            <h1>testeo</h1>
+            <input type="button" class="btnbuscar" value="&#128269;"/>
+            <input type="button" class="botones" value="Datos"/>
+            <input type="button" class="botones" value="Carrito"/>
+        </section>
         <nav>
             
         </nav>
@@ -16,7 +22,7 @@
         
     </main>
     <footer>
-
+        <h1>testeo</h1>
     </footer>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<?
+<?php
 
 define('USER', 'javier');
 define('PASS', 'javier');

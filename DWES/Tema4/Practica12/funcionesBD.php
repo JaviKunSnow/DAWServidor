@@ -1,4 +1,4 @@
-<?
+<?php
 
 function enviado(){
     if(isset($_REQUEST["enviar"])){
