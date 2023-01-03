@@ -1,5 +1,33 @@
 <?php
 
+// sesiones
+
+function estaValidado() {
+    if(isset($_SESSION["validado"])){
+        return true;
+    }
+    return false;
+}
+
+function esAdmin() {
+    if(isset($_SESSION["perfil"])){
+        if($_SESSION["perfil"] == "ADM") {
+            return true;
+        }
+    }
+    return false;
+}
+
+function esModerador() {
+    if(isset($_SESSION["perfil"])){
+        if($_SESSION["perfil"] == "MOD") {
+            return true;
+        }
+    }
+    return false;
+}
+
+
 function enviado(){
     if(isset($_REQUEST["enviar"])){
         return true;
@@ -23,11 +51,11 @@ function crearBD(){
 
 // modificar BD
 
-function eliminarDatos(){
+function eliminarDProducto(){
     try {
         $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
 
-        $script = "delete from LosAngelesLakers where id='".$_REQUEST["numeroID"]."';";
+        $script = "delete from productos where id='".$_REQUEST["cod_producto"]."';";
         $consulta = $conexion->prepare($script);
         $consulta->execute();
     

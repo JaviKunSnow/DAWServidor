@@ -5,7 +5,7 @@
 body {
     background-color: lightgray;
     font-family: Arial, Helvetica, sans-serif;
-    display: grid;
+    
 }
 
 /* Header */
@@ -14,24 +14,19 @@ header {
     align-items: center;
     border-bottom: 1px solid black;
     padding: 5px;
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-area: 1 / 1 / 2 / 5;
 }
 
 header > section > img {
     padding: 10px;
     margin: 10px;
-    grid-area: 1 / 1 / 2 / 2;
 }
 
 header > section.login {
     padding: 10px;
     margin: 10px;
-    grid-area: 1 / 2 / 2 / 3;
 }
 
-header > a.botones {
+header > section.login > a.botones {
     position: relative;
     text-decoration: none;
     background-color: #26A2F1;
@@ -49,17 +44,39 @@ header > a.botones:hover {
 
 /* main */
 
-
 main {
-    display: grid;
-    grid-area: 3 / 1 / auto / auto;
+
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #70D6FC;
+}
+  
+li {
+    float: left;
+}
+  
+li a {
+    display: inline-block;
+    color: #1864b6;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+li a:hover {
+    background-color: #111;
 }
 
 main > section {
 
 }
 
-main > section > article {
+.caja {
         background-color: #70D6FC;
         max-width: 400px;
         text-align: center;
@@ -71,5 +88,16 @@ main > section > article {
         float: left;
 }
 
+.caja2 {
+    background-color: #70D6FC;
+        max-width: 500px;
+        text-align: center;
+        margin: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        color:#1D78D9;
+        padding: 50px;
+}
 
+/* footer */
 

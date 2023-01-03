@@ -9,11 +9,13 @@
 </head>
 <?php
 
+    session_start();
+
     require('./funciones/conexionBD.php');
     require('./funciones/funcionesBD.php');
 
     try {
-        $conexion = new PDO('mysql:host='. $_SERVER['SERVER_ADDR']. ';dbname=' .BBDD,USER,PASS);
+        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname=' .BBDD,USER,PASS);
 
         $consulta = $conexion->query('select * from Productos');
 
@@ -34,6 +36,7 @@
         }
         if ($ex->getCode() == 2002) {
             echo "<span style='color: red;'>Se acabo el tiempo de espera, no hemos podido establecer la conexion.</span>";
+            echo $ex->getMessage();
         }
     }
 
@@ -42,22 +45,31 @@
 <body>
     <header>
         <section>
-            <img src="" alt="">
+            <img src="img/nike.png" alt="logo">
         </section>
         <section class="login">
-            <a href="login/login.php" class="botones">Iniciar Sesion</a>
-            <a href="login/registro.php" class="botones">Registro</a>
+            <?php
+                if(estaValidado()){
+                    echo "<a href='#' class='botones'>".$_SESSION['nombre']."</a>";
+                    echo "<a href='login/logout.php' class='botones'>Cerrar Sesion</a>";
+                } else {
+                    ?>
+                    <a href="login/login.php" class="botones">Iniciar Sesion</a>
+                    <a href="login/registro.php" class="botones">Registro</a>
+                    <?
+                }
+            ?>
         </section>
-    </header>
-    <main>
         <nav>
             <ul>
-                <li><a href="#"></a>Inicio</li>
-                <li><a href="paginas/perfil.php"></a>Perfil</li>
-                <li><a href=""></a>Contacto</li>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="paginas/perfil.php">Perfil</a></li>
+                <li><a href="">Contacto</a></li>
             </ul>
         </nav>
-        <section>
+    </header>
+    <main>
+        <section class="caja">
             <?php
 
                 foreach($arrayZapa as $zapas) {
@@ -67,6 +79,11 @@
                             echo "<p>". $zapas['descripcion'] ."</p>";
                             echo "<p>Precio: ". $zapas['precio'] ."</p>";
                             echo "<input type='submit' name='comprar' value='Comprar'>";
+                            if(estaValidado()){
+                                if(esAdmin()) {
+                                    
+                                }
+                            }
                         echo "</article>";
                     }
                 }
@@ -74,8 +91,5 @@
             ?>
         </section>
     </main>
-    <footer>
-        <h1>testeo</h1>
-    </footer>
 </body>
 </html>
