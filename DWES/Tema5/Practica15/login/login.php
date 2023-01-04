@@ -14,7 +14,7 @@
     <main>
         <section class="caja2">
             <h2>Inicio sesion</h2>
-            <form action="./funciones/valida.php" method="post">
+            <form action="../funciones/validarBD.php" method="post">
                 <p>
                     <label for="user">Usuario: </label>
                     <input type="text" name="user" id="user">

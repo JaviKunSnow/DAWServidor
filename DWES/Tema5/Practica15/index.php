@@ -64,7 +64,16 @@
             <ul>
                 <li><a href="#">Inicio</a></li>
                 <li><a href="paginas/perfil.php">Perfil</a></li>
-                <li><a href="">Contacto</a></li>
+                <?php
+                    if(estaValidado()){
+                        if(esModerador() || esAdmin()) {
+                            echo "<a href='php/almacen.php' class='botones'>Almacen</a>";
+                            echo "<a href='php/ventas.php' class='botones'>Ventas</a>";
+                            echo "<a href='php/albaranes.php' class='botones'>Albaranes</a>";
+                        }
+                    }
+                ?>
+                <li><a href="#">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -78,12 +87,7 @@
                             echo "<h2>". $zapas['nombre'] ."</h2>";
                             echo "<p>". $zapas['descripcion'] ."</p>";
                             echo "<p>Precio: ". $zapas['precio'] ."</p>";
-                            echo "<input type='submit' name='comprar' value='Comprar'>";
-                            if(estaValidado()){
-                                if(esAdmin()) {
-                                    
-                                }
-                            }
+                            echo "<a href='' class='botones'>Comprar</a>";
                         echo "</article>";
                     }
                 }
