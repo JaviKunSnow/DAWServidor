@@ -17,7 +17,7 @@
     try {
         $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname=' .BBDD,USER,PASS);
 
-        $consulta = $conexion->query('select * from Productos');
+        $consulta = $conexion->query('select * from producto');
 
         $arrayZapa = array();
 
@@ -53,10 +53,8 @@
                     echo "<a href='#' class='botones'>".$_SESSION['nombre']."</a>";
                     echo "<a href='login/logout.php' class='botones'>Cerrar Sesion</a>";
                 } else {
-                    ?>
-                    <a href="login/login.php" class="botones">Iniciar Sesion</a>
-                    <a href="login/registro.php" class="botones">Registro</a>
-                    <?
+                    echo "<a href='login/login.php' class='botones'>Iniciar Sesion</a>";
+                    echo "<a href='login/registro.php' class='botones'>Registro</a>";
                 }
             ?>
         </section>
@@ -87,7 +85,7 @@
                             echo "<h2>". $zapas['nombre'] ."</h2>";
                             echo "<p>". $zapas['descripcion'] ."</p>";
                             echo "<p>Precio: ". $zapas['precio'] ."</p>";
-                            echo "<a href='' class='botones'>Comprar</a>";
+                            echo "<a href='php/compra.php?id=".$zapas['cod_producto']."' class='botones'>Comprar</a>";
                         echo "</article>";
                     }
                 }

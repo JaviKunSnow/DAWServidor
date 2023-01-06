@@ -25,7 +25,7 @@ require("../funciones/funcionesBD.php");
         </tr>
         <?php
         try {
-            $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+            $conexion = new PDO('mysql:host=localhost;dbname='.BBDD, USER, PASS);
             $sql = 'select * from productos';
 
             $resultado= $conexion->query($sql);
