@@ -45,7 +45,7 @@ function enviadoGuardar(){
 }
 
 function crearBD(){ 
-    $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'], USER, PASS);
+    $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'], USR, PAS);
     $script = file_get_contents("../sql/zapatillas.sql");
     $consulta = $conexion->prepare($script);
     $consulta->execute();
@@ -55,7 +55,7 @@ function crearBD(){
 
 function validaUser($user, $pass) {
     try {
-        $conexion = new PDO("mysql:host=".$_SERVER["SERVER_ADDR"].";dbname=".BBDD, USER, PASS);
+        $conexion = new PDO("mysql:host=".$_SERVER["SERVER_ADDR"].";dbname=".BD, USR, PAS);
         $sql = "select * from usuarios where nombre = ? and pass = ?";
         $sql_p = $conexion->prepare($sql);
         $pass_e = sha1($pass);
@@ -89,7 +89,7 @@ function validaUser($user, $pass) {
 
 function eliminarDProducto(){
     try {
-        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
 
         $script = "delete from productos where id='".$_REQUEST["cod_producto"]."';";
         $consulta = $conexion->prepare($script);
@@ -110,7 +110,7 @@ function eliminarDProducto(){
 
 function modificarDatos(){
     try {
-        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
 
         $script = "update LosAngelesLakers set jugador='".$_REQUEST["jugador"]."', edad='".$_REQUEST["edad"]."', puntos='".$_REQUEST["puntos"]."', asistencias='".$_REQUEST["asistencias"]."', rebotes='".$_REQUEST["rebotes"]."', fechadebut='".$_REQUEST["fecha"]."' where id='".$_REQUEST["id"]."';";
     
@@ -132,7 +132,7 @@ function modificarDatos(){
 
 function insertarDatos() {
     try {
-        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
 
         $script = "insert into `LosAngelesLakers` (`jugador`, `edad`, `puntos`, `asistencias`, `rebotes`, `fechadebut`) values ('".$_REQUEST["jugador"]."','".$_REQUEST["edad"]."','".$_REQUEST["puntos"]."','".$_REQUEST["asistencias"]."','".$_REQUEST["rebotes"]."','".$_REQUEST["fecha"]."');";
         
@@ -154,7 +154,7 @@ function insertarDatos() {
 
 function comprarProducto() {
     try {
-        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
 
         $script = "update producto SET stock = stock - 1 WHERE cod_producto = ".$_REQUEST["id"].";";
         
@@ -176,7 +176,7 @@ function comprarProducto() {
 
 function comprarProducto2() {
     try {
-        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
 
         $script = "update producto SET stock = stock - 1 WHERE cod_producto = ".$_REQUEST["id"].";";
         

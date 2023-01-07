@@ -15,7 +15,7 @@
     require('./funciones/funcionesBD.php');
 
     try {
-        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname=' .BBDD,USER,PASS);
+        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname=' .BD,USR,PAS);
 
         $consulta = $conexion->query('select * from producto');
 
@@ -65,9 +65,9 @@
                 <?php
                     if(estaValidado()){
                         if(esModerador() || esAdmin()) {
-                            echo "<a href='php/almacen.php' class='botones'>Almacen</a>";
-                            echo "<a href='php/ventas.php' class='botones'>Ventas</a>";
-                            echo "<a href='php/albaranes.php' class='botones'>Albaranes</a>";
+                            echo "<a href='php/leerBD.php?tabla=producto' class='botones'>Productos</a>";
+                            echo "<a href='php/leerBD.php?tabla=ventas' class='botones'>Ventas</a>";
+                            echo "<a href='php/leerBD.php?tabla=albaranes' class='botones'>Albaranes</a>";
                         }
                     }
                 ?>

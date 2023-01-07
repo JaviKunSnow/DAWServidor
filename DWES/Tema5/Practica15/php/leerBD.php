@@ -2,6 +2,8 @@
 
 require("../funciones/conexionBD.php");
 require("../funciones/funcionesBD.php");
+require("../funciones/tablasBD.php");
+require("../funciones/validarBD.php");
 
 ?>
 <!DOCTYPE html>
@@ -12,7 +14,20 @@ require("../funciones/funcionesBD.php");
     <link rel="stylesheet" href="../style/estilos.css">
 </head>
 <body>
-    
+    <header>
+
+    </header>
+    <main>
+        <section>
+            <?php
+
+                if($_REQUEST["tabla"] == "producto") {
+                    tablaProducto();
+                }
+
+            ?>
+        </section>
+    </main>
         <div class="cajalink2">
             <a href="editaBD.php?opc=ins">
                 <p>Insertar datos</p>
