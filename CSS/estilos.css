@@ -149,12 +149,20 @@ body {
 }
 
 .cajalink {
+  position: relative;
   background-color: #0f0e21;
   width: 200px;
+  height: 50px;
   margin: auto;
   border: 3px solid #fd9dff;
   padding: 1px;
-  text-align: center;
+  color: #fd9dff;
+}
+
+.cajalink:hover {
+  background-color: #fd9dff;
+  border: 3px solid #0f0e21;
+  color: #0f0e21;
 }
 
 .cajalink2 {
@@ -168,9 +176,17 @@ body {
 }
 
 .cajalink a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
   color: #fd9dff;
+}
+
+.cajalink a:hover {
+  color: #0f0e21;
 }
 
 .cajalink2 a {

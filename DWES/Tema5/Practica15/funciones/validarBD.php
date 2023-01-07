@@ -1,6 +1,6 @@
 <?php
 
-require("./BD.php");
+require("./funcionesBD.php");
 
 $user = $_REQUEST["user"];
 $pass = $_REQUEST["pass"];
