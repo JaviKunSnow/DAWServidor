@@ -50,9 +50,9 @@ insert into perfil (codigo, descripcion) values ('ADM','Administrador');
 insert into perfil (codigo, descripcion) values ('MOD','Moderador');
 insert into perfil (codigo, descripcion) values ('USR','Usuario normal');
 
-insert into usuarios (usuario, clave, fechanac, perfil) values ('user1', 'Rodolfo Mateos','356a192b7913b04c54574d18c28d46e6395428ab', 'user1@gmail.com', '1998-10-05', 'ADM');
-insert into usuarios (usuario, clave, fechanac, perfil) values ('user2', 'Paco Juarez','356a192b7913b04c54574d18c28d46e6395428ab', 'user2@gmail.com', '1998-10-05', 'MOD');
-insert into usuarios (usuario, clave, fechanac, perfil) values ('user3', 'Juan Francisco','356a192b7913b04c54574d18c28d46e6395428ab', 'user3@gmail.com', '1998-10-05', 'USR');
+insert into usuarios (usuario, nombre, clave, correo, fechanac, perfil) values ('user1', 'Rodolfo Mateos','356a192b7913b04c54574d18c28d46e6395428ab', 'user1@gmail.com', '1998-10-05', 'ADM');
+insert into usuarios (usuario, nombre, clave, correo, fechanac, perfil) values ('user2', 'Paco Juarez','356a192b7913b04c54574d18c28d46e6395428ab', 'user2@gmail.com', '1998-10-05', 'MOD');
+insert into usuarios (usuario, nombre, clave, correo, fechanac, perfil) values ('user3', 'Juan Francisco','356a192b7913b04c54574d18c28d46e6395428ab', 'user3@gmail.com', '1998-10-05', 'USR');
 
 insert into producto (nombre, descripcion, precio, stock) values ('Nike Air Force 1', 'un modelo original de baloncesto', '119.99', '3'); 
 insert into producto (nombre, descripcion, precio, stock) values ('Nike Air Max Excee', 'rinden homenaje a un clásico con un nuevo enfoque', '119.99', '3');

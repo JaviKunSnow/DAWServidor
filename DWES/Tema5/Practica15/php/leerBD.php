@@ -23,6 +23,10 @@ require("../funciones/validarBD.php");
 
                 if($_REQUEST["tabla"] == "producto") {
                     tablaProducto();
+                } else if($_REQUEST["tabla"] == "ventas") {
+                    tablaVentas();
+                } else if($_REQUEST["tabla"] == "albaranes") {
+                    tablaAlbaranes();
                 }
 
             ?>

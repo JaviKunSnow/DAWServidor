@@ -16,7 +16,7 @@ function tablaVentas() {
         echo "</tr>";
         try {
             $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-            $sql = 'select * from ventas;';
+            $sql = 'select * from ventas';
 
             $resultado= $conexion->query($sql);
 
@@ -35,8 +35,50 @@ function tablaVentas() {
                 echo "</tr>";
             }
             echo "</table>";
-            echo "<br>";
-            echo "<a href='./editaBD.php?opc=ins'>Insertar datos</a>";
+
+        } catch (Exception $ex) {
+            if ($ex->getCode() == 1049) {
+                echo "<span style='color: red;'>La base de datos no existe.</span>";
+            }
+            if ($ex->getCode() == 1045) {
+                echo "<span style='color: red;'>El nombre de usuario o la contraseña no es correcto.</span>";
+            }
+            if ($ex->getCode() == 2002) {
+                echo "<span style='color: red;'>Se acabo el tiempo de espera, no hemos podido establecer la conexion.</span>";
+            }
+        }
+}
+
+function tablaAlbaranes() {
+    echo "<h1>ALBARANES</h1>";
+    echo "<table border='1'>";
+    echo "<tr>";
+        echo "<th>ID</th>";
+        echo "<th>Fecha albaran</th>";   
+        echo "<th>Codigo producto</th>";    
+        echo "<th>Cantidad</th>";
+        echo "<th>Usuario</th>";
+        echo "</tr>";
+        try {
+            $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+            $sql = 'select * from albaranes';
+
+            $resultado= $conexion->query($sql);
+
+            while ($fila = $resultado->fetch(PDO::FETCH_BOTH)) {
+                echo "<tr>";
+                echo "<td>" . $fila["id_albaran"] . "</td>";
+                echo "<td>" . $fila["fechaalb"] . "</td>";
+                echo "<td>" . $fila["cod_producto"] . "</td>";
+                echo "<td>" . $fila["cantidad"] . "</td>";
+                echo "<td>" . $fila["usuario"] . "</td>";
+                if(estaValidado() && esAdmin()) {
+                    echo "<td><a href='./editaBD.php?opc=mod&numeroID=" . $fila["id_albaran"] . "'>Modificar</a></td>";
+                    echo "<td><a href='./editaBD.php?opc=elm&numeroID=" . $fila["id_albaran"] . "'>Borrar</a></td>";
+                }
+                echo "</tr>";
+            }
+            echo "</table>";
 
         } catch (Exception $ex) {
             if ($ex->getCode() == 1049) {
@@ -52,7 +94,7 @@ function tablaVentas() {
 }
 
 function tablaProducto() {
-    echo "<h1>VENTA</h1>";
+    echo "<h1>PRODUCTOS</h1>";
     echo "<table border='1'>";
     echo "<tr>";
         echo "<th>codigo producto</th>";
@@ -63,7 +105,7 @@ function tablaProducto() {
         echo "</tr>";
         try {
             $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
-            $sql = 'select * from ventas;';
+            $sql = 'select * from producto';
 
             $resultado= $conexion->query($sql);
 
@@ -81,8 +123,6 @@ function tablaProducto() {
                 echo "</tr>";
             }
             echo "</table>";
-            echo "<br>";
-            echo "<a href='./editaBD.php?opc=ins'>Insertar datos</a>";
 
         } catch (Exception $ex) {
             if ($ex->getCode() == 1049) {

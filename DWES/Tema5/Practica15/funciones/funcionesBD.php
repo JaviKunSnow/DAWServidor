@@ -44,6 +44,12 @@ function enviadoGuardar(){
     return false;
 }
 
+function existe($nombre){
+    if (isset($_REQUEST[$nombre]))
+        return true;
+    return false;
+}
+
 function crearBD(){ 
     $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'], USR, PAS);
     $script = file_get_contents("../sql/zapatillas.sql");
@@ -87,7 +93,22 @@ function validaUser($user, $pass) {
 
 }
 
-function eliminarDProducto(){
+function nuevoUsuario() {
+    try {
+        $conexion = new PDO("mysql:host=".$_SERVER["SERVER_ADDR"].";dbname=".BD, USR, PAS);
+        $script = "insert into usuarios (usuario, clave, fechanac, perfil);";
+        $consulta = $conexion->prepare($script);
+        $array = array("usuario" => $_REQUEST["user"], "nombre" => $_REQUEST["nombre"], "clave" => sha1($_REQUEST["pass"]), "correo" => $_REQUEST["email"], "fechanac" => $_REQUEST["fecha"], "perfil" => $_REQUEST["perfil"]);
+        $consulta->execute($array);
+
+    } catch (Exception $ex) {
+        print_r($ex);
+        unset($conexion);
+    }
+}
+
+
+function eliminarProducto(){
     try {
         $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
 
@@ -106,50 +127,6 @@ function eliminarDProducto(){
             echo "No existe la base de datos no existe";
         }       
     }  
-}
-
-function modificarDatos(){
-    try {
-        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
-
-        $script = "update LosAngelesLakers set jugador='".$_REQUEST["jugador"]."', edad='".$_REQUEST["edad"]."', puntos='".$_REQUEST["puntos"]."', asistencias='".$_REQUEST["asistencias"]."', rebotes='".$_REQUEST["rebotes"]."', fechadebut='".$_REQUEST["fecha"]."' where id='".$_REQUEST["id"]."';";
-    
-        $consulta = $conexion->prepare($script);
-        $consulta->execute();
-
-    } catch (Exception $ex) {
-        if ($ex->getCode()==1045){
-            echo "Credenciales incorrectas";
-        }
-        if ($ex->getCode()==2002){
-            echo "Acabado tiempo de conexión";
-        }       
-        if ($ex->getCode()==1049){
-            echo "No existe la base de datos no existe";
-        }       
-    }
-}
-
-function insertarDatos() {
-    try {
-        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
-
-        $script = "insert into `LosAngelesLakers` (`jugador`, `edad`, `puntos`, `asistencias`, `rebotes`, `fechadebut`) values ('".$_REQUEST["jugador"]."','".$_REQUEST["edad"]."','".$_REQUEST["puntos"]."','".$_REQUEST["asistencias"]."','".$_REQUEST["rebotes"]."','".$_REQUEST["fecha"]."');";
-        
-        $consulta = $conexion->prepare($script);
-        $consulta->execute();
-        
-    } catch (Exception $ex) {
-        if ($ex->getCode()==1045){
-            echo "Credenciales incorrectas";
-        }
-        if ($ex->getCode()==2002){
-            echo "Acabado tiempo de conexión";
-        }       
-        if ($ex->getCode()==1049){
-            echo "No existe la base de datos no existe";
-        }       
-    }
 }
 
 function comprarProducto() {
@@ -174,11 +151,11 @@ function comprarProducto() {
     }
 }
 
-function comprarProducto2() {
+function ticketVenta() {
     try {
         $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
 
-        $script = "update producto SET stock = stock - 1 WHERE cod_producto = ".$_REQUEST["id"].";";
+        $script = "insert into ventas (usuario, fechacomp, cod_producto, cantidad, precio_total) values ('".$_SESSION['nombre']."','".date('Y M D')."','".$_REQUEST["id"]."','1','".$_REQUEST['precio']."')";
         
         $consulta = $conexion->prepare($script);
         $consulta->execute();
@@ -205,17 +182,17 @@ function vacio($nombre){
     return false;
 }
 
-function compEdad($edad){
-    $patron = '/^(\d{2})$/';
-    if(preg_match($patron, $_REQUEST[$edad]) == 1){
+function compPass($pass){
+    $patron = '/^.{8}[A-Z]{1}[a-z]{1}[0-9]{1}$/';
+    if(preg_match($patron, $_REQUEST[$pass]) == 1){
         return true;
     }
     return false;
 }
 
-function compStats($stats){
-    $patron = '/^(\d{1,2}\.\d{1})$/';
-    if(preg_match($patron, $_REQUEST[$stats]) == 1){
+function compMail($mail){
+    $patron = '/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/';
+    if(preg_match($patron, $_REQUEST[$mail]) == 1){
         return true;
     }
     return false;
@@ -230,23 +207,13 @@ function compFecha($fecha){
     return false;
 }
 
-function compLongitud($nombre){
-    if(isset($_REQUEST[$nombre])){
-        $i = $_REQUEST[$nombre];
-        if(strlen($i) <= 60){
-            return true;
-        }
-    }
-    return false;
-}
-
 function compTodo() {
-    if(!vacio("jugador") && compLongitud("jugador")){
-        if(!vacio("edad") && compEdad("edad")){
-            if(!vacio("puntos") && compStats("puntos")){
-                if(!vacio("asistencias") && compStats("asistencias")){
-                    if(!vacio("rebotes") && compStats("rebotes")){
-                        if(!vacio("fecha") && compFecha("fecha")){
+    if(!vacio("user")){
+        if(!vacio("nombre")){
+            if(!vacio("pass") && compPass("pass")){
+                if(!vacio("mail") && compMail("mail")){
+                    if(!vacio("fecha") && compFecha("fecha")){
+                        if(existe("perfil") && $_REQUEST["perfil"] != 0){
                             return true;
                         }
                     }
