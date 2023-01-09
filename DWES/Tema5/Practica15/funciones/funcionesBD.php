@@ -2,8 +2,6 @@
 
 // sesiones
 
-require("conexionBD.php");
-
 function estaValidado() {
     if(isset($_SESSION["validado"])){
         return true;
@@ -52,7 +50,7 @@ function existe($nombre){
 
 function crearBD(){ 
     $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'], USR, PAS);
-    $script = file_get_contents("../sql/zapatillas.sql");
+    $script = file_get_contents("./sql/zapatillas.sql");
     $consulta = $conexion->prepare($script);
     $consulta->execute();
 }

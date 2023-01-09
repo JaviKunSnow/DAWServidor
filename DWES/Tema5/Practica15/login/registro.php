@@ -9,8 +9,8 @@
 </head>
 <?php
 
-    require('./funciones/conexionBD.php');
-    require('./funciones/funcionesBD.php');
+    require('../funciones/conexionBD.php');
+    require('../funciones/funcionesBD.php');
 
 
 ?>
@@ -29,7 +29,7 @@
 
         ?>
             <h2>Registro</h2>
-            <form action="./funciones/valida.php" method="post">
+            <form action="./registro.php" method="post">
                 <p>
                     <label for="user">Usuario: </label>
                     <input type="text" name="user" id="user">

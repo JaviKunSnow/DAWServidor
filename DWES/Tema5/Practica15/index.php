@@ -13,7 +13,6 @@
 
     require('./funciones/conexionBD.php');
     require('./funciones/funcionesBD.php');
-
     try {
         $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname=' .BD,USR,PAS);
 
