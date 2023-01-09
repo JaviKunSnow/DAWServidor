@@ -23,6 +23,7 @@
         <?php
 
         if(compTodo()) {
+            nuevoUsuario();
             echo "<h2>Registro completado!</h2>";
             echo "<a href='login.php' class='botones'>Iniciar sesion</a>";
         } else {
