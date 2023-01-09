@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/estilos.css">
-    <title>Document</title>
+    <title>Inicio</title>
 </head>
 <?php
 
@@ -44,7 +44,7 @@
 <body>
     <header>
         <section>
-            <img src="img/nike.png" alt="logo">
+            <img src="img/nike.png" alt="logo" width="100px" height="50px">
         </section>
         <section class="login">
             <?php
@@ -57,29 +57,30 @@
                 }
             ?>
         </section>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="paginas/perfil.php">Perfil</a></li>
-                <?php
-                    if(estaValidado()){
-                        if(esModerador() || esAdmin()) {
-                            echo "<a href='php/leerBD.php?tabla=producto' class='botones'>Productos</a>";
-                            echo "<a href='php/leerBD.php?tabla=ventas' class='botones'>Ventas</a>";
-                            echo "<a href='php/leerBD.php?tabla=albaranes' class='botones'>Albaranes</a>";
-                        }
-                    }
-                ?>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </nav>
     </header>
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="paginas/perfil.php">Perfil</a></li>
+            <?php
+                if(estaValidado()){
+                    if(esModerador() || esAdmin()) {
+                        echo "<a href='php/leerBD.php?tabla=producto' class='botones'>Productos</a>";
+                        echo "<a href='php/leerBD.php?tabla=ventas' class='botones'>Ventas</a>";
+                        echo "<a href='php/leerBD.php?tabla=albaranes' class='botones'>Albaranes</a>";
+                    }
+                }
+            ?>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
     <main>
             <?php
 
                 foreach($arrayZapa as $zapas) {
                     if($zapas['stock'] != 0){
                         echo "<section class='caja'>";
+                            echo "<img src='img/".$zapas['foto']."' width='200px' height='200px'>";
                             echo "<h2>". $zapas['nombre'] ."</h2>";
                             echo "<p>". $zapas['descripcion'] ."</p>";
                             echo "<p>Precio: ". $zapas['precio'] ."</p>";
@@ -90,5 +91,16 @@
 
             ?>
     </main>
+    <footer>
+        <section>
+            <img src="img/nike.png" alt="logo" width="100px" height="50px">
+        </section>
+        <section>
+            
+        </section>
+        <section>
+            
+        </section>
+    </footer>
 </body>
 </html>

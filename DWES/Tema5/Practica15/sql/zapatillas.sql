@@ -13,6 +13,7 @@ create table usuarios (
     correo varchar(75) NOT NULL,
     fechanac date NOT NULL,
     perfil CHAR(3) NOT NULL,
+    index (perfil),
 	foreign key (perfil) references perfil (codigo)
 ) engine=innodb;
 
@@ -20,6 +21,7 @@ create table producto (
     cod_producto int primary key auto_increment,
     nombre VARCHAR(20) NOT NULL,
     descripcion VARCHAR(50) NOT NULL,
+    foto VARCHAR(40) NOT NULL,
     precio float(6) NOT NULL,
     stock int NOT NULL
 ) engine=innodb;
@@ -53,7 +55,7 @@ insert into usuarios (usuario, nombre, pass, correo, fechanac, perfil) values ('
 insert into usuarios (usuario, nombre, pass, correo, fechanac, perfil) values ('user2', 'Paco Juarez','356a192b7913b04c54574d18c28d46e6395428ab', 'user2@gmail.com', '1998-10-05', 'MOD');
 insert into usuarios (usuario, nombre, pass, correo, fechanac, perfil) values ('user3', 'Juan Francisco','356a192b7913b04c54574d18c28d46e6395428ab', 'user3@gmail.com', '1998-10-05', 'USR');
 
-insert into producto (nombre, descripcion, precio, stock) values ('Nike Air Force 1', 'un modelo original de baloncesto', '119.99', '3'); 
-insert into producto (nombre, descripcion, precio, stock) values ('Nike Air Max Excee', 'rinden homenaje a un clásico con un nuevo enfoque', '119.99', '3');
-insert into producto (nombre, descripcion, precio, stock) values ('Jordan Luka 1', 'Diseñadas para el 77', '109.99', '3');
-insert into producto (nombre, descripcion, precio, stock) values ('Air Jordan Legacy 312 Low', 'rinden homenaje al legado de Michael Jordan', '139.99', '3');
+insert into producto (nombre, descripcion, foto, precio, stock) values ('Nike Air Force 1', 'un modelo original de baloncesto', 'airforce1.webp', '119.99', '3'); 
+insert into producto (nombre, descripcion, foto, precio, stock) values ('Nike Air Max Excee', 'rinden homenaje a un clásico con un nuevo enfoque', 'airmaxexcee.webp', '119.99', '3');
+insert into producto (nombre, descripcion, foto, precio, stock) values ('Jordan Luka 1', 'Diseñadas para el 77', 'luka1.webp', '109.99', '3');
+insert into producto (nombre, descripcion, foto, precio, stock) values ('Air Jordan Legacy 312 Low', 'rinden homenaje al legado de Michael Jordan', 'airjordanlegacy.webp', '139.99', '3');

@@ -1,8 +1,5 @@
 <?php
 
-require("conexionBD.php");
-require("validarBD.php");
-
 function tablaVentas() {
     echo "<h1>VENTA</h1>";
     echo "<table border='1'>";
@@ -15,7 +12,7 @@ function tablaVentas() {
         echo "<th>Precio total</th>";
         echo "</tr>";
         try {
-            $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+            $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
             $sql = 'select * from ventas';
 
             $resultado= $conexion->query($sql);
@@ -60,7 +57,7 @@ function tablaAlbaranes() {
         echo "<th>Usuario</th>";
         echo "</tr>";
         try {
-            $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+            $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
             $sql = 'select * from albaranes';
 
             $resultado= $conexion->query($sql);
@@ -104,7 +101,7 @@ function tablaProducto() {
         echo "<th>Stock</th>";
         echo "</tr>";
         try {
-            $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BBDD, USER, PASS);
+            $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
             $sql = 'select * from producto';
 
             $resultado= $conexion->query($sql);

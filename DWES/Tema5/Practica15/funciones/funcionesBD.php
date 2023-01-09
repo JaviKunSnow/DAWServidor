@@ -72,7 +72,10 @@ function validaUser($user, $pass) {
             $_SESSION['validado'] = true;
             $row = $sql_p->fetch();
             $_SESSION['user'] = $user;
+            $_SESSION['pass'] = $pass;
             $_SESSION['nombre'] = $row['nombre'];
+            $_SESSION['correo'] = $row['correo'];
+            $_SESSION['fecha'] = $row['fechanac'];
             $_SESSION['perfil'] = $row['perfil'];
             unset($conexion);
             return true;
@@ -94,7 +97,21 @@ function validaUser($user, $pass) {
 function nuevoUsuario() {
     try {
         $conexion = new PDO("mysql:host=".$_SERVER["SERVER_ADDR"].";dbname=".BD, USR, PAS);
-        $script = "insert into usuarios (usuario, clave, fechanac, perfil);";
+        $script = "insert into usuarios (usuario, nombre, clave, correo, fechanac, perfil);";
+        $consulta = $conexion->prepare($script);
+        $array = array("usuario" => $_REQUEST["user"], "nombre" => $_REQUEST["nombre"], "clave" => sha1($_REQUEST["pass"]), "correo" => $_REQUEST["email"], "fechanac" => $_REQUEST["fecha"], "perfil" => $_REQUEST["perfil"]);
+        $consulta->execute($array);
+
+    } catch (Exception $ex) {
+        print_r($ex);
+        unset($conexion);
+    }
+}
+
+function actualizarUsuario() {
+    try {
+        $conexion = new PDO("mysql:host=".$_SERVER["SERVER_ADDR"].";dbname=".BD, USR, PAS);
+        $script = "update usuarios set usuario=usuario, nombre=nombre, clave=clave, correo=correo, fechanac=fechanac, perfil=perfil;";
         $consulta = $conexion->prepare($script);
         $array = array("usuario" => $_REQUEST["user"], "nombre" => $_REQUEST["nombre"], "clave" => sha1($_REQUEST["pass"]), "correo" => $_REQUEST["email"], "fechanac" => $_REQUEST["fecha"], "perfil" => $_REQUEST["perfil"]);
         $consulta->execute($array);
@@ -206,13 +223,15 @@ function compFecha($fecha){
 }
 
 function compTodo() {
-    if(!vacio("user")){
-        if(!vacio("nombre")){
-            if(!vacio("pass") && compPass("pass")){
-                if(!vacio("mail") && compMail("mail")){
-                    if(!vacio("fecha") && compFecha("fecha")){
-                        if(existe("perfil") && $_REQUEST["perfil"] != 0){
-                            return true;
+    if(enviado()) {
+        if(!vacio("user")){
+            if(!vacio("nombre")){
+                if(!vacio("pass") && compPass("pass")){
+                    if(!vacio("mail") && compMail("mail")){
+                        if(!vacio("fecha") && compFecha("fecha")){
+                            if(existe("perfil") && $_REQUEST["perfil"] != 0){
+                                return true;
+                            }
                         }
                     }
                 }
