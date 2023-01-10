@@ -84,7 +84,11 @@
                             echo "<h2>". $zapas['nombre'] ."</h2>";
                             echo "<p>". $zapas['descripcion'] ."</p>";
                             echo "<p>Precio: ". $zapas['precio'] ."</p>";
-                            echo "<a href='php/compra.php?id=".$zapas['cod_producto']."&precio=".$zapas['precio']."' class='botones'>Comprar</a>";
+                            if(estaValidado()){
+                                echo "<a href='php/compra.php?id=".$zapas['cod_producto']."&precio=".$zapas['precio']."' class='botones'>Comprar</a>";
+                            } else {
+                                echo "<a href='login/login.php' class='botones'>Comprar</a>";
+                            }
                         echo "</section>";
                     }
                 }

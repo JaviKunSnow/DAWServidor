@@ -19,7 +19,7 @@ create table usuarios (
 
 create table producto (
     cod_producto int primary key auto_increment,
-    nombre VARCHAR(20) NOT NULL,
+    nombre VARCHAR(40) NOT NULL,
     descripcion VARCHAR(50) NOT NULL,
     foto VARCHAR(40) NOT NULL,
     precio float(6) NOT NULL,
