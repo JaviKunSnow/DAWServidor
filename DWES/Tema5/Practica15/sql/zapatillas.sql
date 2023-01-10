@@ -28,7 +28,7 @@ create table producto (
 
 create table ventas (
     id_venta int primary key auto_increment,
-    usuario CHAR NOT NULL,
+    usuario CHAR(40) NOT NULL,
     fechacomp date NOT NULL,
     cod_producto int NOT NULL,
     cantidad int NOT NULL,

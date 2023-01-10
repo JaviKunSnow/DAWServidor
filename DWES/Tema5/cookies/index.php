@@ -1,6 +1,7 @@
 <?php
 
 require './funciones/funcionesBD.php';
+require './funciones/funcionesCookies.php';
 require './seguro/conexion.php';
 
 ?>
@@ -25,7 +26,7 @@ require './seguro/conexion.php';
                     echo "<article class='card'>";
                         echo "<img src='webroot/".$producto['baja']."'<(img>";
                         echo "<p>".$producto['nombre']."</p>";
-                        echo "<a href='verProducto.html?producto=".$producto['codigo']."'>Comprar</a>";
+                        echo "<a href='verProducto.php?producto=".$producto['codigo']."'>Ver</a>";
                     echo "</article>";
                 }
 
@@ -34,6 +35,11 @@ require './seguro/conexion.php';
         </section>
         <section class="vistos">
             <h3>Vistos</h3>
+            <?
+                //mostramos los ultimos vistos
+                mostrarUltimos();
+
+            ?>
         </section>
     </main>
 </body>

@@ -1,7 +1,17 @@
 <?php
 
 require './funciones/funcionesBD.php';
+require './funciones/funcionesCookies.php';
 require './seguro/conexion.php';
+
+
+if(!isset($_REQUEST['producto'])){
+    header('location: ./index.php');
+    exit;
+} else {
+    $id = $_REQUEST['producto'];
+    productoVisto($id);
+}
 
 ?>
 <!DOCTYPE html>
@@ -20,7 +30,14 @@ require './seguro/conexion.php';
             <h3>Productos</h3>
             <?php
 
-                
+                $producto = findById($id);
+                $producto = $producto[0];
+                echo "<article class='card'>";
+                    echo "<img src='webroot/".$producto['baja']."'<(img>";
+                    echo "<p>".$producto['nombre']."</p>";
+                    echo "<p>".$producto['descripcion']."</p>";
+                echo "</article>";
+
 
             ?>
         </section>

@@ -24,8 +24,8 @@ function findById($id){
         $devuelve = $preparada->execute(array($id));
         if($devuelve) {
             unset($conexion);
-            $devuelve->fecthAll();
-            
+            $producto = $preparada->fetchAll();
+            return $producto;
         } else {
             return false;
         }

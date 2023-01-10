@@ -1,3 +1,9 @@
+<?php
+
+require('../funciones/conexionBD.php');
+require('../funciones/funcionesBD.php');
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

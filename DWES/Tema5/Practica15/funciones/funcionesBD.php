@@ -1,5 +1,7 @@
 <?php
 
+
+
 // sesiones
 
 function estaValidado() {
@@ -60,7 +62,7 @@ function crearBD(){
 function validaUser($user, $pass) {
     try {
         $conexion = new PDO("mysql:host=".$_SERVER["SERVER_ADDR"].";dbname=".BD, USR, PAS);
-        $sql = "select * from usuarios where nombre = ? and pass = ?";
+        $sql = "select * from usuarios where usuario = ? and pass = ?";
         $sql_p = $conexion->prepare($sql);
         $pass_e = sha1($pass);
         $array = array($user, $pass_e);
@@ -170,8 +172,9 @@ function ticketVenta() {
     try {
         $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
 
-        $script = "insert into ventas (usuario, fechacomp, cod_producto, cantidad, precio_total) values ('".$_SESSION['nombre']."','".date('Y M D')."','".$_REQUEST["id"]."','1','".$_REQUEST['precio']."')";
-        
+        session_start();
+        $script = "insert into ventas (usuario, fechacomp, cod_producto, cantidad, precio_total) values ('".$_SESSION['user']."','".date('Y-m-d')."','".$_REQUEST["id"]."','1','".$_REQUEST['precio']."')";
+    
         $consulta = $conexion->prepare($script);
         $consulta->execute();
         

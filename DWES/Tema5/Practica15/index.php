@@ -49,7 +49,7 @@
         <section class="login">
             <?php
                 if(estaValidado()){
-                    echo "<a href='#' class='botones'>".$_SESSION['nombre']."</a>";
+                    echo "<a href='#' class='botones'>".$_SESSION['user']."</a>";
                     echo "<a href='login/logout.php' class='botones'>Cerrar Sesion</a>";
                 } else {
                     echo "<a href='login/login.php' class='botones'>Iniciar Sesion</a>";
@@ -61,13 +61,13 @@
     <nav>
         <ul>
             <li><a href="#">Inicio</a></li>
-            <li><a href="paginas/perfil.php">Perfil</a></li>
             <?php
                 if(estaValidado()){
+                    echo "<li><a href='php/perfil.php'>Perfil</a></li>";
                     if(esModerador() || esAdmin()) {
-                        echo "<a href='php/leerBD.php?tabla=producto' class='botones'>Productos</a>";
-                        echo "<a href='php/leerBD.php?tabla=ventas' class='botones'>Ventas</a>";
-                        echo "<a href='php/leerBD.php?tabla=albaranes' class='botones'>Albaranes</a>";
+                        echo "<li><a href='php/leerBD.php?tabla=producto'>Productos</a></li>";
+                        echo "<li><a href='php/leerBD.php?tabla=ventas'>Ventas</a></li>";
+                        echo "<li><a href='php/leerBD.php?tabla=albaranes'>Albaranes</a></li>";
                     }
                 }
             ?>
@@ -91,7 +91,7 @@
 
             ?>
     </main>
-    <footer>
+    <!--<footer>
         <section>
             <img src="img/nike.png" alt="logo" width="100px" height="50px">
         </section>
@@ -101,6 +101,6 @@
         <section>
             
         </section>
-    </footer>
+    </footer>-->
 </body>
 </html>

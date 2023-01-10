@@ -11,7 +11,7 @@
 
     require('../funciones/conexionBD.php');
     require('../funciones/funcionesBD.php');
-
+    session_start();
 
 ?>
 <body>
@@ -122,7 +122,7 @@
                     <label for="email">Correo Electronico: </label>
                     <input type="text" name="email" id="email" value="<?php
                     if (!enviado() && vacio("mail")) {
-                        echo $_SESSION["mail"];
+                        echo $_SESSION["correo"];
                     }
                     ?>">
                     <?php
@@ -170,7 +170,7 @@
                     }
             ?>
                 </p>
-                <input type="submit" value="enviar" name="guardar cambios">
+                <input type="submit" value="Guardar cambios" name="enviar">
             </form>
         </section>
         <?php
