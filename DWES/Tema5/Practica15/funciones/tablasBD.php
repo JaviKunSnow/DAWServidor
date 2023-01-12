@@ -2,14 +2,18 @@
 
 function tablaVentas() {
     echo "<h1>VENTA</h1>";
-    echo "<table border='1'>";
-    echo "<tr>";
+    echo "<table class='table table-striped table-light table-responsive align-middle' border='1'>";
+    echo "<tr class='table-dark'>";
         echo "<th>id</th>";
         echo "<th>Usuario</th>";   
         echo "<th>Fecha compra</th>";    
         echo "<th>Codigo producto</th>";
         echo "<th>Cantidad</th>";
         echo "<th>Precio total</th>";
+        if(estaValidado() && esAdmin()) {
+            echo "<th>Modificar</th>";
+            echo "<th>Eliminar</th>";
+        }
         echo "</tr>";
         try {
             $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
@@ -26,8 +30,8 @@ function tablaVentas() {
                 echo "<td>" . $fila["cantidad"] . "</td>";
                 echo "<td>" . $fila["precio_total"] . "</td>";
                 if(estaValidado() && esAdmin()) {
-                    echo "<td><a href='./editaBD.php?opc=mod&numeroID=" . $fila["id_venta"] . "'>Modificar</a></td>";
-                    echo "<td><a href='./editaBD.php?opc=elm&numeroID=" . $fila["id_venta"] . "'>Borrar</a></td>";
+                    echo "<td><a class='btn btn-warning me-2' href='./editaBD.php?opc=mod&numeroID=" . $fila["id_venta"] . "'>Modificar</a></td>";
+                    echo "<td><a class='btn btn-warning me-2' href='./editaBD.php?opc=elm&numeroID=" . $fila["id_venta"] . "'>Borrar</a></td>";
                 }
                 echo "</tr>";
             }
@@ -48,13 +52,17 @@ function tablaVentas() {
 
 function tablaAlbaranes() {
     echo "<h1>ALBARANES</h1>";
-    echo "<table border='1'>";
-    echo "<tr>";
+    echo "<table class='table table-striped table-light table-responsive align-middle' border='1'>";
+    echo "<tr class='table-dark'>";
         echo "<th>ID</th>";
         echo "<th>Fecha albaran</th>";   
         echo "<th>Codigo producto</th>";    
         echo "<th>Cantidad</th>";
         echo "<th>Usuario</th>";
+        if(estaValidado() && esAdmin()) {
+            echo "<th>Modificar</th>";
+            echo "<th>Eliminar</th>";
+        }
         echo "</tr>";
         try {
             $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
@@ -70,8 +78,8 @@ function tablaAlbaranes() {
                 echo "<td>" . $fila["cantidad"] . "</td>";
                 echo "<td>" . $fila["usuario"] . "</td>";
                 if(estaValidado() && esAdmin()) {
-                    echo "<td><a href='./editaBD.php?opc=mod&numeroID=" . $fila["id_albaran"] . "'>Modificar</a></td>";
-                    echo "<td><a href='./editaBD.php?opc=elm&numeroID=" . $fila["id_albaran"] . "'>Borrar</a></td>";
+                    echo "<td><a class='btn btn-warning me-2' href='./editaBD.php?opc=mod&numeroID=" . $fila["id_albaran"] . "'>Modificar</a></td>";
+                    echo "<td><a class='btn btn-warning me-2' href='./editaBD.php?opc=elm&numeroID=" . $fila["id_albaran"] . "'>Borrar</a></td>";
                 }
                 echo "</tr>";
             }
@@ -92,13 +100,17 @@ function tablaAlbaranes() {
 
 function tablaProducto() {
     echo "<h1>PRODUCTOS</h1>";
-    echo "<table border='1'>";
-    echo "<tr>";
+    echo "<table class='table table-striped table-light table-responsive align-middle' border='1'>";
+    echo "<tr class='table-dark'>";
         echo "<th>codigo producto</th>";
         echo "<th>nombre</th>";   
         echo "<th>Descripcion</th>";    
         echo "<th>Precio</th>";
         echo "<th>Stock</th>";
+        if(estaValidado() && esAdmin()) {
+            echo "<th>Modificar</th>";
+            echo "<th>Eliminar</th>";
+        }
         echo "</tr>";
         try {
             $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
@@ -114,8 +126,8 @@ function tablaProducto() {
                 echo "<td>" . $fila["precio"] . "</td>";
                 echo "<td>" . $fila["stock"] . "</td>";
                 if(estaValidado() && esAdmin()) {
-                    echo "<td><a href='./editaBD.php?opc=mod&numeroID=" . $fila["cod_producto"] . "'>Modificar</a></td>";
-                    echo "<td><a href='./editaBD.php?opc=elm&numeroID=" . $fila["cod_producto"] . "'>Borrar</a></td>";
+                    echo "<td><a class='btn btn-warning me-2' href='./editaBD.php?opc=mod&numeroID=" . $fila["cod_producto"] . "'>Modificar</a></td>";
+                    echo "<td><a class='btn btn-warning me-2' href='./editaBD.php?opc=elm&numeroID=" . $fila["cod_producto"] . "'>Borrar</a></td>";
                 }
                 echo "</tr>";
             }
