@@ -36,6 +36,8 @@ function tablaVentas() {
                 echo "</tr>";
             }
             echo "</table>";
+            echo "<br>";
+            echo "<a class='btn btn-dark ml-2' href='./editaBD.php?opc=ins&tabla=".$_REQUEST["tabla"]."'>Insertar</a>";
 
         } catch (Exception $ex) {
             if ($ex->getCode() == 1049) {
