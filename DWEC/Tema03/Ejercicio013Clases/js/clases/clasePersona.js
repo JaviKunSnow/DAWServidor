@@ -61,6 +61,6 @@ export class Persona {
     }
 
     toString(){
-        return `${this.id}: \n\t\t ${this.nombre} ${this.apellido} \n\t\t edad: ${this.edad}`;
+        return `${this.id}: ${this.nombre}: ${this.precio.moneda()}`;
     }
 };
