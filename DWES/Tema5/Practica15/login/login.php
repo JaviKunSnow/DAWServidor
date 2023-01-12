@@ -20,7 +20,7 @@ require('../funciones/funcionesBD.php');
         <section class="container">
             <section class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <img src="img/nike.png" class="bi me-2" width="40" height="32"></img>
+                    <img src="../img/logo.jpg" class="bi me-2" width="60" height="40"></img>
                 </a>
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="#" class="nav-link px-2 text-warning">Inicio</a></li>
@@ -53,7 +53,7 @@ require('../funciones/funcionesBD.php');
     </header>
     <main class="form-signin w-100 m-auto text-center">
             <form action="../funciones/validarBD.php" method="post">
-                <img class="mb-4" src="../img/logo.png" alt="" width="100" height="80">
+                <img class="mb-4" src="../img/logosinfondo.svg" alt="" width="100" height="80">
                 <h1 class="h3 mb-3 fw-normal">Iniciar Sesion</h1>
                 <section class="form-floating">
                     <input type="text" class="form-control" name="user" id="user" placeholder="name@example.com">
@@ -70,7 +70,7 @@ require('../funciones/funcionesBD.php');
     <footer class="d-flex flex-wrap justify-content-between align-items-center p-3 py-3 bg-dark fixed-bottom">
         <div class="col-md-4 d-flex align-items-center">
             <a href="/" class="mb-3 me-2 mb-md-0 text-light text-decoration-none lh-1">
-                <img src="../img/logo.png" class="bi me-2" width="60" height="32"></img>
+                <img src="../img/logo.jpg" class="bi me-2" width="70" height="32"></img>
             </a>
             <span class="mb-3 mb-md-0 text-light">&copy; 2023 Company, Inc</span>
         </div>
