@@ -169,12 +169,56 @@ function comprarProducto() {
     }
 }
 
+function nuevoProducto() {
+    try {
+        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
+
+        $script = "insert into producto (nombre, descripcion, foto, precio, stock) values ('".$_REQUEST["nombreP"]."', '".$_REQUEST["desc"]."', '".$_FILES['fichero']['name']."', '".$_REQUEST["precioP"]."', '".$_REQUEST["stockP"]."');";
+        
+        $consulta = $conexion->prepare($script);
+        $consulta->execute();
+        
+    } catch (Exception $ex) {
+        if ($ex->getCode()==1045){
+            echo "Credenciales incorrectas";
+        }
+        if ($ex->getCode()==2002){
+            echo "Acabado tiempo de conexión";
+        }       
+        if ($ex->getCode()==1049){
+            echo "No existe la base de datos no existe";
+        }       
+    }
+}
+
+function actualizarProducto() {
+    try {
+        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
+
+        $script = "update producto SET descripcion=".$_REQUEST["desc"].",stock=".$_REQUEST["stockP"]."  WHERE cod_producto = ".$_REQUEST["cod_producto"].";";
+        
+        $consulta = $conexion->prepare($script);
+        $consulta->execute();
+        
+    } catch (Exception $ex) {
+        if ($ex->getCode()==1045){
+            echo "Credenciales incorrectas";
+        }
+        if ($ex->getCode()==2002){
+            echo "Acabado tiempo de conexión";
+        }       
+        if ($ex->getCode()==1049){
+            echo "No existe la base de datos no existe";
+        }       
+    }
+}
+
 function ticketVenta() {
     try {
         $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
 
         session_start();
-        $script = "insert into ventas (usuario, fechacomp, cod_producto, cantidad, precio_total) values ('".$_SESSION['user']."','".date('Y-m-d')."','".$_REQUEST["id"]."','1','".$_REQUEST['precio']."')";
+        $script = "insert into ventas (usuario, fechacomp, cod_producto, cantidad, precio_total) values ('".$_SESSION['user']."','".date('Y-m-d')."','".$_REQUEST["cod_producto"]."','1','".$_REQUEST['precio']."')";
     
         $consulta = $conexion->prepare($script);
         $consulta->execute();
@@ -191,6 +235,117 @@ function ticketVenta() {
         }       
     }
 }
+
+function actualizarVenta() {
+    try {
+        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
+
+        $script = "update venta SET usuario=".$_REQUEST["userV"].",fechacomp=".$_REQUEST["fecha"].",cod_producto=".$_REQUEST["cod_producto"].",cantidad=".$_REQUEST["stockV"]."  WHERE id_venta = ".$_REQUEST["numeroID"].";";
+        
+        $consulta = $conexion->prepare($script);
+        $consulta->execute();
+        
+    } catch (Exception $ex) {
+        if ($ex->getCode()==1045){
+            echo "Credenciales incorrectas";
+        }
+        if ($ex->getCode()==2002){
+            echo "Acabado tiempo de conexión";
+        }       
+        if ($ex->getCode()==1049){
+            echo "No existe la base de datos no existe";
+        }       
+    }
+}
+
+function eliminarVenta() {
+    try {
+        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
+
+        $script = "delete * from venta WHERE id_venta = ".$_REQUEST["numeroID"].";";
+        
+        $consulta = $conexion->prepare($script);
+        $consulta->execute();
+        
+    } catch (Exception $ex) {
+        if ($ex->getCode()==1045){
+            echo "Credenciales incorrectas";
+        }
+        if ($ex->getCode()==2002){
+            echo "Acabado tiempo de conexión";
+        }       
+        if ($ex->getCode()==1049){
+            echo "No existe la base de datos no existe";
+        }       
+    }
+}
+
+function ticketAlbaran() {
+    try {
+        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
+
+        $script = "insert into albaran (fechaalb, cod_producto, cantidad, usuario) values ('".date('Y-m-d')."', '".$_REQUEST["cod_producto"]."', '".$_REQUEST["stockP"]."', '".$_SESSION["user"]."');";
+        
+        $consulta = $conexion->prepare($script);
+        $consulta->execute();
+        
+    } catch (Exception $ex) {
+        if ($ex->getCode()==1045){
+            echo "Credenciales incorrectas";
+        }
+        if ($ex->getCode()==2002){
+            echo "Acabado tiempo de conexión";
+        }       
+        if ($ex->getCode()==1049){
+            echo "No existe la base de datos no existe";
+        }       
+    }
+}
+
+function actualizarAlbaran() {
+    try {
+        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
+
+        $script = "update venta SET usuario=".$_REQUEST["userA"].",fechaalb=".$_REQUEST["fecha"].",cod_producto=".$_REQUEST["cod_producto"].",cantidad=".$_REQUEST["stockA"]."  WHERE id_albaran = ".$_REQUEST["numeroID"].";";
+        
+        $consulta = $conexion->prepare($script);
+        $consulta->execute();
+        
+    } catch (Exception $ex) {
+        if ($ex->getCode()==1045){
+            echo "Credenciales incorrectas";
+        }
+        if ($ex->getCode()==2002){
+            echo "Acabado tiempo de conexión";
+        }       
+        if ($ex->getCode()==1049){
+            echo "No existe la base de datos no existe";
+        }       
+    }
+}
+
+function eliminarAlbaran() {
+    try {
+        $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
+
+        $script = "delete * from venta WHERE id_albaran = ".$_REQUEST["numeroID"].";";
+        
+        $consulta = $conexion->prepare($script);
+        $consulta->execute();
+        
+    } catch (Exception $ex) {
+        if ($ex->getCode()==1045){
+            echo "Credenciales incorrectas";
+        }
+        if ($ex->getCode()==2002){
+            echo "Acabado tiempo de conexión";
+        }       
+        if ($ex->getCode()==1049){
+            echo "No existe la base de datos no existe";
+        }       
+    }
+}
+
 
 // expresiones regulares
 
@@ -224,6 +379,11 @@ function compFecha($fecha){
         return true;
     }
     return false;
+}
+
+function subirImagen(){
+    $ruta = '../img/'. $_FILES['fichero']['name'];
+    move_uploaded_file($_FILES['fichero']['tmp_name'], $ruta);
 }
 
 function compTodo() {

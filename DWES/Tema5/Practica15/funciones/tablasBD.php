@@ -30,14 +30,12 @@ function tablaVentas() {
                 echo "<td>" . $fila["cantidad"] . "</td>";
                 echo "<td>" . $fila["precio_total"] . "</td>";
                 if(estaValidado() && esAdmin()) {
-                    echo "<td><a class='btn btn-warning me-2' href='./editaBD.php?opc=mod&numeroID=" . $fila["id_venta"] . "'>Modificar</a></td>";
-                    echo "<td><a class='btn btn-warning me-2' href='./editaBD.php?opc=elm&numeroID=" . $fila["id_venta"] . "'>Borrar</a></td>";
+                    echo "<td><a class='btn btn-warning me-2' href='./editaBD.php?opc=mod&numeroID=" . $fila["id_venta"] . "&tabla=".$_REQUEST["tabla"]."'>Modificar</a></td>";
+                    echo "<td><a class='btn btn-warning me-2' href='./editaBD.php?opc=elm&numeroID=" . $fila["id_venta"] . "&tabla=".$_REQUEST["tabla"]."'>Borrar</a></td>";
                 }
                 echo "</tr>";
             }
             echo "</table>";
-            echo "<br>";
-            echo "<a class='btn btn-dark ml-2' href='./editaBD.php?opc=ins&tabla=".$_REQUEST["tabla"]."'>Insertar</a>";
 
         } catch (Exception $ex) {
             if ($ex->getCode() == 1049) {
@@ -80,8 +78,8 @@ function tablaAlbaranes() {
                 echo "<td>" . $fila["cantidad"] . "</td>";
                 echo "<td>" . $fila["usuario"] . "</td>";
                 if(estaValidado() && esAdmin()) {
-                    echo "<td><a class='btn btn-warning me-2' href='./editaBD.php?opc=mod&numeroID=" . $fila["id_albaran"] . "'>Modificar</a></td>";
-                    echo "<td><a class='btn btn-warning me-2' href='./editaBD.php?opc=elm&numeroID=" . $fila["id_albaran"] . "'>Borrar</a></td>";
+                    echo "<td><a class='btn btn-warning me-2' href='./editaBD.php?opc=mod&numeroID=" . $fila["id_albaran"] . "&tabla=".$_REQUEST["tabla"]."'>Modificar</a></td>";
+                    echo "<td><a class='btn btn-warning me-2' href='./editaBD.php?opc=elm&numeroID=" . $fila["id_albaran"] . "&tabla=".$_REQUEST["tabla"]."'>Borrar</a></td>";
                 }
                 echo "</tr>";
             }
@@ -131,11 +129,13 @@ function tablaProducto() {
                     echo "<td><input type='number' name='num' id='num'>";
                     echo "<a class='btn btn-warning me-2' href='./editaBD.php?opc=add&numeroID=" . $fila["cod_producto"] . "&numero=num'>Añadir</a>";
                     echo "</td>";
-                    echo "<td><a class='btn btn-warning me-2' href='./editaBD.php?opc=mod&numeroID=" . $fila["cod_producto"] . "'>Modificar</a></td>";
+                    echo "<td><a class='btn btn-warning me-2' href='./editaBD.php?opc=mod&numeroID=" . $fila["cod_producto"] . "&tabla=".$_REQUEST["tabla"]."'>Modificar</a></td>";
                 }
                 echo "</tr>";
             }
             echo "</table>";
+            echo "<br>";
+            echo "<a class='btn btn-dark ml-2' href='./editaBD.php?opc=ins&tabla=".$_REQUEST["tabla"]."'>Insertar</a>";
 
         } catch (Exception $ex) {
             if ($ex->getCode() == 1049) {

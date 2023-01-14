@@ -3,6 +3,7 @@
 require("../funciones/conexionBD.php");
 require("../funciones/funcionesBD.php");
 require("../funciones/tablasBD.php");
+require("../funciones/formularios.php");
 
 session_start();
 ?>
@@ -73,11 +74,11 @@ session_start();
             <?php
 
                 if($_REQUEST["tabla"] == "producto") {
-                    tablaProducto();
+                    formularioProducto();
                 } else if($_REQUEST["tabla"] == "ventas") {
-                    tablaVentas();
+                    formularioVentas();
                 } else if($_REQUEST["tabla"] == "albaranes") {
-                    tablaAlbaranes();
+                    formularioAlbaranes();
                 }
 
             ?>
