@@ -9,7 +9,7 @@ create table perfil (
 create table usuarios (
     usuario CHAR(40) primary key,
     nombre VARCHAR(60) NOT NULL,
-    pass CHAR(40) NOT NULL,
+    pass CHAR(200) NOT NULL,
     correo varchar(75) NOT NULL,
     fechanac date NOT NULL,
     perfil CHAR(3) NOT NULL,

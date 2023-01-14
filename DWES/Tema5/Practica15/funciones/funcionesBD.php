@@ -99,10 +99,11 @@ function validaUser($user, $pass) {
 function nuevoUsuario() {
     try {
         $conexion = new PDO("mysql:host=".$_SERVER["SERVER_ADDR"].";dbname=".BD, USR, PAS);
-        $script = "insert into usuarios (usuario, nombre, clave, correo, fechanac, perfil);";
+        $passCifrada = sha1($_REQUEST["pass"]);
+        $script = "insert into usuarios (usuario, nombre, pass, correo, fechanac, perfil) values ('".$_REQUEST["user"]."', '".$_REQUEST["nombre"]."', '".$passCifrada."', '".$_REQUEST["mail"]."', '".$_REQUEST["fecha"]."', '".$_REQUEST["perfil"]."')";
         $consulta = $conexion->prepare($script);
-        $array = array("usuario" => $_REQUEST["user"], "nombre" => $_REQUEST["nombre"], "clave" => sha1($_REQUEST["pass"]), "correo" => $_REQUEST["email"], "fechanac" => $_REQUEST["fecha"], "perfil" => $_REQUEST["perfil"]);
-        $consulta->execute($array);
+        //$array = array("usuario" => $_REQUEST["user"], "nombre" => $_REQUEST["nombre"], "pass" => sha1($_REQUEST["pass"]), "correo" => $_REQUEST["mail"], "fechanac" => $_REQUEST["fecha"], "perfil" => $_REQUEST["perfil"]);
+        $consulta->execute();
 
     } catch (Exception $ex) {
         print_r($ex);
@@ -113,9 +114,9 @@ function nuevoUsuario() {
 function actualizarUsuario() {
     try {
         $conexion = new PDO("mysql:host=".$_SERVER["SERVER_ADDR"].";dbname=".BD, USR, PAS);
-        $script = "update usuarios set usuario=usuario, nombre=nombre, clave=clave, correo=correo, fechanac=fechanac, perfil=perfil;";
+        $script = "update usuarios set usuario=usuario, nombre=nombre, pass=pass, correo=correo, fechanac=fechanac, perfil=perfil;";
         $consulta = $conexion->prepare($script);
-        $array = array("usuario" => $_REQUEST["user"], "nombre" => $_REQUEST["nombre"], "clave" => sha1($_REQUEST["pass"]), "correo" => $_REQUEST["email"], "fechanac" => $_REQUEST["fecha"], "perfil" => $_REQUEST["perfil"]);
+        $array = array("usuario" => $_REQUEST["user"], "nombre" => $_REQUEST["nombre"], "pass" => sha1($_REQUEST["pass"]), "correo" => $_REQUEST["email"], "fechanac" => $_REQUEST["fecha"], "perfil" => $_REQUEST["perfil"]);
         $consulta->execute($array);
 
     } catch (Exception $ex) {

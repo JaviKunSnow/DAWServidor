@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../style/form.css">
     <title>Registro</title>
 </head>
 <?php
@@ -15,7 +16,7 @@
 
 
 ?>
-<body>
+<body class="bg-warning">
     <header class="p-3 text-bg-dark fixed-top">
         <section class="container">
             <section class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -23,15 +24,15 @@
                     <img src="img/nike.png" class="bi me-2" width="40" height="32"></img>
                 </a>
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-warning">Inicio</a></li>
-                    <li><a href="tienda.php" class="nav-link px-2 text-white">Tienda</a></li>
+                    <li><a href="../index.php" class="nav-link px-2 text-warning">Inicio</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Tienda</a></li>
                     <?php
                         if(estaValidado()){
-                            echo "<li><a href='php/perfil.php'>Perfil</a></li>";
+                            echo "<li><a href='../php/perfil.php'>Perfil</a></li>";
                             if(esModerador() || esAdmin()) {
-                                echo "<li><a href='php/leerBD.php?tabla=producto' class='nav-link px-2 text-white'>Productos</a></li>";
-                                echo "<li><a href='php/leerBD.php?tabla=ventas' class='nav-link px-2 text-white'>Ventas</a></li>";
-                                echo "<li><a href='php/leerBD.php?tabla=albaranes' class='nav-link px-2 text-white'>Albaranes</a></li>";
+                                echo "<li><a href='../php/leerBD.php?tabla=producto' class='nav-link px-2 text-white'>Productos</a></li>";
+                                echo "<li><a href='../php/leerBD.php?tabla=ventas' class='nav-link px-2 text-white'>Ventas</a></li>";
+                                echo "<li><a href='../php/leerBD.php?tabla=albaranes' class='nav-link px-2 text-white'>Albaranes</a></li>";
                             }
                         }
                     ?>
@@ -41,116 +42,148 @@
                     <?php
                         if(estaValidado()){
                             echo "<a href='#' class='btn btn-outline-light me-2'>".$_SESSION['user']."</a>";
-                            echo "<a href='login/logout.php' class='btn btn-warning'>Cerrar Sesion</a>";
+                            echo "<a href='logout.php' class='btn btn-warning'>Cerrar Sesion</a>";
                         } else {
-                            echo "<a href='login/login.php' class='btn btn-outline-light me-2'>Iniciar Sesion</a>";
-                            echo "<a href='login/registro.php' class='btn btn-warning'>Registro</a>";
+                            echo "<a href='login.php' class='btn btn-outline-light me-2'>Iniciar Sesion</a>";
+                            echo "<a href='registro.php' class='btn btn-warning'>Registro</a>";
                         }
                     ?>
                 </section>
             </section>
         </section>
     </header>
-    <main>
-        <section class="caja2">
-        <?php
+    <?php
 
         if(compTodo()) {
             nuevoUsuario();
-            echo "<h2>Registro completado!</h2>";
-            echo "<a href='login.php' class='botones'>Iniciar sesion</a>";
+            ?>
+            <section class="container p-3 bg-dark text-light text-center" style="width: 400px; height: 200px; paddint-top: 100px;">
+                <h2>Cuenta creada!</h2>
+                <a href="login.php" class="btn btn-warning">Iniciar Sesion</a>
+            </section>
+            <?
         } else {
 
         ?>
-            <h2>Registro</h2>
-            <form action="./registro.php" method="post">
-                <p>
-                    <label for="user">Usuario: </label>
-                    <input type="text" name="user" id="user">
-                    <?php
+    <main class="my-form" style="paddint-top: 100px;">
+    <section class="container">
+        <section class="row justify-content-center justify-items-center">
+            <section class="col-md-8">
+                    <section class="card">
+                        <section class="card-header text-center">REGISTRO</section>
+                        <section class="card-body bg-dark text-white">
+                            <form action="registro.php" method="post">
+                                <section class="form-group row mb-2">
+                                    <label for="full_name" class="col-md-4 col-form-label text-md-right">Usuario:</label>
+                                    <section class="col-md-6">
+                                        <input type="text" name="user" id="user" class="form-control">
+                                    </section>
+                                    <?php
 
-                    if(enviado()) {
-                        if(vacio("user")){
-                            echo "<span style='color: red;'><-- Rellene el nombre de usuario</span>";
-                        }
-                    }
+                                    if(enviado()) {
+                                        if(vacio("user")){
+                                            echo "<span style='color: red;'><-- Rellene el nombre de usuario</span>";
+                                        }
+                                    }
 
-                    ?>
-                </p>
-                <p>
-                    <label for="user">Nombre: </label>
-                    <input type="text" name="nombre" id="nombre">
-                    <?php
+                                    ?>
+                                </section>
 
-                    if(enviado()) {
-                        if(vacio("nombre")){
-                            echo "<span style='color: red;'><-- Rellene el nombre</span>";
-                        }
-                    }
+                                <section class="form-group row mb-2">
+                                    <label for="email_address" class="col-md-4 col-form-label text-md-right">E-mail:</label>
+                                    <section class="col-md-6">
+                                        <input type="text" name="mail" id="mail" class="form-control">
+                                    </section>
+                                    <?php
 
-                    ?>
-                </p>
-                <p>
-                    <label for="pass">Contraseña: </label>
-                    <input type="password" name="pass" id="pass">
-                    <?php
+                                    if(enviado()) {
+                                        if(vacio("mail")){
+                                            echo "<span style='color: red;'><-- Rellene el correo electronico</span>";
+                                        } else if(!compMail("mail")) {
+                                            echo "<span style='color: red;'><-- El correo electronico no cumple los requisitos</span>";
+                                        }
+                                    }
 
-                    if(enviado()) {
-                        if(vacio("user")){
-                            echo "<span style='color: red;'><-- Rellene la contraseña</span>";
-                        } else if(!compPass("pass")) {
-                            echo "<span style='color: red;'><-- La contraseña no cumple los requisitos</span>";
-                        }
-                    }
+                                    ?>
+                                </section>
 
-                    ?>
-                </p>
-                <p>
-                    <label for="email">Correo Electronico: </label>
-                    <input type="text" name="email" id="email">
-                    <?php
+                                <section class="form-group row mb-2">
+                                    <label for="user_name" class="col-md-4 col-form-label text-md-right">Nombre:</label>
+                                    <section class="col-md-6">
+                                        <input type="text" name="nombre" id="nombre" class="form-control">
+                                    </section>
+                                    <?php
 
-                    if(enviado()) {
-                        if(vacio("email")){
-                            echo "<span style='color: red;'><-- Rellene el correo electronico</span>";
-                        } else if(!compMail("email")) {
-                            echo "<span style='color: red;'><-- El correo electronico no cumple los requisitos</span>";
-                        }
-                    }
+                                    if(enviado()) {
+                                        if(vacio("nombre")){
+                                            echo "<span style='color: red;'><-- Rellene el nombre</span>";
+                                        }
+                                    }
 
-                    ?>
-                </p>
-                <p>
-                    <label for="fecha">Fecha: </label>
-                    <input type="text" name="fecha" id="fecha">
-                    <?php
+                                    ?>
+                                </section>
 
-                    if(enviado()) {
-                        if(vacio("fecha")){
-                            echo "<span style='color: red;'><-- Rellene la fecha</span>";
-                        } else if(!compFecha("fecha")) {
-                            echo "<span style='color: red;'><-- La fecha no es correcta</span>";
-                        }
-                    }
+                                <section class="form-group row mb-2">
+                                    <label for="phone_number" class="col-md-4 col-form-label text-md-right">Contraseña:</label>
+                                    <section class="col-md-6">
+                                        <input type="password" id="pass" name="pass" class="form-control">
+                                    </section>
+                                    <?php
 
-                    ?>
-                </p>
-                <p>
-                    <label for="selector">Elige una opción</label>
-                    <select name="perfil" id="selector">
-                        <option value="0">Seleccione una opción</option>
-                        <option value="ADM">Administrador</option>
-                        <option value="MOD">Moderador</option>
-                        <option value="NOR">Usuario normal</option>
-                    </select>
-                    <?php
-                    if(existe("perfil") && $_REQUEST["perfil"] == 0){
-                        echo "<span style='color: red;'><-- La fecha no es correcta</span>";
-                    }
-            ?>
-        </p>
-                <input type="submit" value="enviar" name="enviar">
-            </form>
+                                    if(enviado()) {
+                                        if(vacio("pass")){
+                                            echo "<span style='color: red;'><-- Rellene la contraseña</span>";
+                                        } else if(!compPass("pass")) {
+                                            echo "<span style='color: red;'><-- La contraseña no cumple los requisitos</span>";
+                                        }
+                                    }
+
+                                    ?>
+                                </section>
+
+                                <section class="form-group row mb-2">
+                                    <label for="present_address" class="col-md-4 col-form-label text-md-right">Fecha de nacimiento:</label>
+                                    <section class="col-md-6">
+                                        <input type="text" name="fecha" id="fecha" class="form-control">
+                                    </section>
+                                    <?php
+
+                                    if(enviado()) {
+                                        if(vacio("fecha")){
+                                            echo "<span style='color: red;'><-- Rellene la fecha</span>";
+                                        } else if(!compFecha("fecha")) {
+                                            echo "<span style='color: red;'><-- La fecha no es correcta</span>";
+                                        }
+                                    }
+
+                                    ?>
+                                </section>
+
+                                <section class="form-group row mb-2">
+                                    <label for="permanent_address" class="col-md-4 col-form-label text-md-right">Elige una opcion de perfil:</label>
+                                    <section class="col-md-6">
+                                    <select name="perfil" id="selector">
+                                        <option value="0">Seleccione una opción</option>
+                                        <option value="ADM">Administrador</option>
+                                        <option value="MOD">Moderador</option>
+                                        <option value="NOR">Usuario normal</option>
+                                    </select>
+                                    </section>
+                                    <?php
+                                    if(existe("perfil") && $_REQUEST["perfil"] == 0){
+                                        echo "<span style='color: red;'><-- No has elegido tipo de perfil</span>";
+                                    }
+                                    ?>
+                                </section>
+                                    <section class="col-md-6 offset-md-4">
+                                        <input type="submit" name="enviar" value="Registro" class="btn btn-outline-warning">
+                                    </section>
+                                </section>
+                            </form>
+                        </section>
+                    </section>
+                </section>
+            </section>
         </section>
         <?php
 
@@ -159,12 +192,12 @@
         ?>
     </main>
     <footer class="d-flex flex-wrap justify-content-between align-items-center p-3 py-3 bg-dark fixed-bottom">
-        <div class="col-md-4 d-flex align-items-center">
+        <section class="col-md-4 d-flex align-items-center">
             <a href="/" class="mb-3 me-2 mb-md-0 text-light text-decoration-none lh-1">
-                <img src="img/nike.png" class="bi me-2" width="60" height="32"></img>
+                <img src="../img/logo.jpg" class="bi me-2" width="60" height="32"></img>
             </a>
             <span class="mb-3 mb-md-0 text-light">&copy; 2023 Company, Inc</span>
-        </div>
+        </section>
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
             <li class="ms-3">
                 <a class="text-light" href="#">

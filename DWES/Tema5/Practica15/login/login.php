@@ -23,15 +23,15 @@ require('../funciones/funcionesBD.php');
                     <img src="../img/logo.jpg" class="bi me-2" width="60" height="40"></img>
                 </a>
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-warning">Inicio</a></li>
-                    <li><a href="tienda.php" class="nav-link px-2 text-white">Tienda</a></li>
+                    <li><a href="../index.php" class="nav-link px-2 text-warning">Inicio</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Tienda</a></li>
                     <?php
                         if(estaValidado()){
-                            echo "<li><a href='php/perfil.php'>Perfil</a></li>";
+                            echo "<li><a href='../php/perfil.php'>Perfil</a></li>";
                             if(esModerador() || esAdmin()) {
-                                echo "<li><a href='php/leerBD.php?tabla=producto' class='nav-link px-2 text-white'>Productos</a></li>";
-                                echo "<li><a href='php/leerBD.php?tabla=ventas' class='nav-link px-2 text-white'>Ventas</a></li>";
-                                echo "<li><a href='php/leerBD.php?tabla=albaranes' class='nav-link px-2 text-white'>Albaranes</a></li>";
+                                echo "<li><a href='../php/leerBD.php?tabla=producto' class='nav-link px-2 text-white'>Productos</a></li>";
+                                echo "<li><a href='../php/leerBD.php?tabla=ventas' class='nav-link px-2 text-white'>Ventas</a></li>";
+                                echo "<li><a href='../php/leerBD.php?tabla=albaranes' class='nav-link px-2 text-white'>Albaranes</a></li>";
                             }
                         }
                     ?>
@@ -41,10 +41,10 @@ require('../funciones/funcionesBD.php');
                     <?php
                         if(estaValidado()){
                             echo "<a href='#' class='btn btn-outline-light me-2'>".$_SESSION['user']."</a>";
-                            echo "<a href='login/logout.php' class='btn btn-warning'>Cerrar Sesion</a>";
+                            echo "<a href='logout.php' class='btn btn-warning'>Cerrar Sesion</a>";
                         } else {
-                            echo "<a href='login/login.php' class='btn btn-outline-light me-2'>Iniciar Sesion</a>";
-                            echo "<a href='login/registro.php' class='btn btn-warning'>Registro</a>";
+                            echo "<a href='login.php' class='btn btn-outline-light me-2'>Iniciar Sesion</a>";
+                            echo "<a href='registro.php' class='btn btn-warning'>Registro</a>";
                         }
                     ?>
                 </section>

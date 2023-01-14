@@ -25,11 +25,11 @@ session_start();
                     <img src="../img/logo.png" class="bi me-2" width="40" height="32"></img>
                 </a>
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-white">Inicio</a></li>
-                    <li><a href="tienda.php" class="nav-link px-2 text-white">Tienda</a></li>
+                    <li><a href="../index.php" class="nav-link px-2 text-white">Inicio</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Tienda</a></li>
                     <?php
                         if(estaValidado()){
-                            echo "<li><a href='php/perfil.php' class='nav-link px-2 text-white'>Perfil</a></li>";
+                            echo "<li><a href='perfil.php' class='nav-link px-2 text-white'>Perfil</a></li>";
                             if(esModerador() || esAdmin()) {
                                 echo "<li><a href='leerBD.php?tabla=producto' class='nav-link px-2 ";
                                 if($_REQUEST['tabla'] == "producto"){
@@ -58,10 +58,10 @@ session_start();
                     <?php
                         if(estaValidado()){
                             echo "<a href='#' class='btn btn-outline-light me-2'>".$_SESSION['user']."</a>";
-                            echo "<a href='login/logout.php' class='btn btn-warning'>Cerrar Sesion</a>";
+                            echo "<a href='../login/logout.php' class='btn btn-warning'>Cerrar Sesion</a>";
                         } else {
-                            echo "<a href='login/login.php' class='btn btn-outline-light me-2'>Iniciar Sesion</a>";
-                            echo "<a href='login/registro.php' class='btn btn-warning'>Registro</a>";
+                            echo "<a href='../login/login.php' class='btn btn-outline-light me-2'>Iniciar Sesion</a>";
+                            echo "<a href='../login/registro.php' class='btn btn-warning'>Registro</a>";
                         }
                     ?>
                 </section>
@@ -86,7 +86,7 @@ session_start();
     <footer class="d-flex flex-wrap justify-content-between align-items-center p-3 py-3 bg-dark fixed-bottom">
         <div class="col-md-4 d-flex align-items-center">
             <a href="/" class="mb-3 me-2 mb-md-0 text-light text-decoration-none lh-1">
-                <img src="img/nike.png" class="bi me-2" width="60" height="32"></img>
+                <img src="../img/logo.jpg" class="bi me-2" width="60" height="32"></img>
             </a>
             <span class="mb-3 mb-md-0 text-light">&copy; 2023 Company, Inc</span>
         </div>

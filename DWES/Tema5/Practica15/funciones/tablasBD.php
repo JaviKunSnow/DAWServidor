@@ -128,8 +128,10 @@ function tablaProducto() {
                 echo "<td>" . $fila["precio"] . "</td>";
                 echo "<td>" . $fila["stock"] . "</td>";
                 if(estaValidado() && esAdmin()) {
+                    echo "<td><input type='number' name='num' id='num'>";
+                    echo "<a class='btn btn-warning me-2' href='./editaBD.php?opc=add&numeroID=" . $fila["cod_producto"] . "&numero=num'>Añadir</a>";
+                    echo "</td>";
                     echo "<td><a class='btn btn-warning me-2' href='./editaBD.php?opc=mod&numeroID=" . $fila["cod_producto"] . "'>Modificar</a></td>";
-                    echo "<td><a class='btn btn-warning me-2' href='./editaBD.php?opc=elm&numeroID=" . $fila["cod_producto"] . "'>Borrar</a></td>";
                 }
                 echo "</tr>";
             }
