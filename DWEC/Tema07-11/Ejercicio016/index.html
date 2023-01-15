@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <fieldset style="width: 400px;">
+            <h4>Configuracion de la pagina:</h4>
+            <p>
+                <label for="id">fuente de texto: </label>
+                <select name="texto" id="texto">
+                    <option value="Arial">Arial</option>
+                    <option value="Helvetica">Helvetica</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                  </select>
+            </p>
+            <p>
+                <label for="id">color de fondo: </label>
+                <select name="color" id="color">
+                    <option value="white">Blanco</option>
+                    <option value="red">Rojo</option>
+                    <option value="blue">Azul</option>
+                    <option value="black">Negro</option>
+                  </select>
+            </p>
+            <p>
+                <label for="nombre">numero de decimales: </label>
+                <input type="number" name="decimales" id="decimales" required>
+            </p>
+        </fieldset>
+        <fieldset style="height: 200px; width: 400px;">
+            <h4>Productos:</h4>
+            <p>
+                <label for="id">id: </label>
+                <input type="number" name="id" id="id" required disabled>
+            </p>
+            <p>
+                <label for="nombre">Nombre: </label>
+                <input type="text" name="nombre" id="nombre" required disabled>
+            </p>
+            <p>
+                <label for="precio">Precio: </label>
+                <input type="number" step="0.01" name="precio" id="precio" required disabled>
+            </p>
+            <p>
+                <input type="button" name="reset" id="reset" value="Restablecer">
+                <input type="button" name="crear" id="crear" value="Crear">
+                <input type="button" name="consultar" id="consultar" value="Consultar">
+                <input type="button" name="modificar" id="modificar" value="modificar">
+                <input type="button" name="eliminar" id="eliminar" value="eliminar">
+            </p>
+        </fieldset>
+        <fieldset style="width: 400px;">
+            <h4>lista productos:</h4>
+            <div id="caja">
+
+            </div>
+            <p>
+                <input type="button" name="limpiar" id="limpiar" value="Limpiar Vista">
+                <input type="button" name="eliminarTodo" id="eliminarTodo" value="Eliminar Todo">
+                
+            </p>
+        </fieldset>
+        <fieldset style="width: 400px;">
+            <h4>filtrar lista:</h4>
+            <p>
+                <label for="id">Numero filtro Min: </label>
+                <input type="number" name="filtro1" id="filtro1" required disabled>
+            </p>
+            <p>
+                <label for="nombre">Numero filtro Max: </label>
+                <input type="number" name="filtro2" id="filtro2" required disabled>
+            </p>
+            <p>
+                <input type="button" name="limpiar" id="limpiar" value="Limpiar Vista">
+                <input type="button" name="ordenar" id="ordenar" value="ordenar Lista">
+            </p>
+        </fieldset>
+        <fieldset style="width: 400px;">
+            <h4>lista filtrada:</h4>
+            <div id="caja2">
+
+            </div>
+        </fieldset>
+    </form>
+    <script type="module" src="js/almacen.js"></script>
+</body>
+</html>
