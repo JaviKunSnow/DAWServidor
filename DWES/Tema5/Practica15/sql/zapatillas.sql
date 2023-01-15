@@ -42,7 +42,7 @@ create table albaranes (
     fechaalb date NOT NULL,
     cod_producto int NOT NULL,
     cantidad int NOT NULL,
-    usuario CHAR NOT NULL,
+    usuario CHAR(40) NOT NULL,
     foreign key (cod_producto) references producto (cod_producto),
     foreign key (usuario) references usuarios (usuario)
 ) engine=innodb;

@@ -131,26 +131,27 @@
             <section class='row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3'>
             <?php
                 foreach($arrayZapa as $zapas) {
-                    if($zapas['stock'] != 0){
-                            echo "<section class='col'>";
-                                echo "<section class='card shadow-sm'>";
-                                    echo "<img src='img/".$zapas['foto']."' width='100%' height='450'>";
-                                    echo "<section class='card-body bg-dark'>";
-                                        echo "<h3 class='h3 text-light'>".$zapas['nombre']."</h3>";
-                                        echo "<p class='card-text text-light'>".$zapas['descripcion']."</p>";
-                                        echo "<section class='d-flex justify-content-between align-items-center'>";
-                                            echo "<section class='btn-group'>";
-                                                if(estaValidado()){
-                                                    echo "<a href='php/compra.php?id=".$zapas['cod_producto']."&precio=".$zapas['precio']."' class='btn btn-sm btn-outline-light'>Comprar</a>";
-                                                } else {
-                                                    echo "<a href='login/login.php' class='btn btn-sm btn-outline-warning'>Comprar</a>";
-                                                }
-                                            echo "</section>";
-                                            echo "<small class='text-light'>".$zapas['precio']."€</small>";
+                    if($zapas['stock'] <= 0){
+                    } else {
+                        echo "<section class='col'>";
+                            echo "<section class='card shadow-sm'>";
+                                echo "<img src='img/".$zapas['foto']."' width='100%' height='450'>";
+                                echo "<section class='card-body bg-dark'>";
+                                    echo "<h3 class='h3 text-light'>".$zapas['nombre']."</h3>";
+                                    echo "<p class='card-text text-light'>".$zapas['descripcion']."</p>";
+                                    echo "<section class='d-flex justify-content-between align-items-center'>";
+                                        echo "<section class='btn-group'>";
+                                            if(estaValidado()){
+                                                echo "<a href='php/compra.php?id=".$zapas['cod_producto']."&precio=".$zapas['precio']."' class='btn btn-sm btn-outline-light'>Comprar</a>";
+                                            } else {
+                                                echo "<a href='login/login.php' class='btn btn-sm btn-outline-warning'>Comprar</a>";
+                                            }
                                         echo "</section>";
+                                        echo "<small class='text-light'>".$zapas['precio']."€</small>";
                                     echo "</section>";
                                 echo "</section>";
                             echo "</section>";
+                        echo "</section>";
                     }
                 }
             ?>

@@ -22,14 +22,14 @@ session_start();
         <section class="container">
             <section class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <img src="../img/logo.png" class="bi me-2" width="40" height="32"></img>
+                    <img src="../img/logo.jpg" class="bi me-2" width="40" height="32"></img>
                 </a>
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-white">Inicio</a></li>
+                    <li><a href="../index.php" class="nav-link px-2 text-white">Inicio</a></li>
                     <li><a href="tienda.php" class="nav-link px-2 text-white">Tienda</a></li>
                     <?php
                         if(estaValidado()){
-                            echo "<li><a href='php/perfil.php' class='nav-link px-2 text-white'>Perfil</a></li>";
+                            echo "<li><a href='perfil.php' class='nav-link px-2 text-white'>Perfil</a></li>";
                             if(esModerador() || esAdmin()) {
                                 echo "<li><a href='leerBD.php?tabla=producto' class='nav-link px-2 ";
                                 if($_REQUEST['tabla'] == "producto"){
@@ -86,7 +86,7 @@ session_start();
     <footer class="d-flex flex-wrap justify-content-between align-items-center p-3 py-3 bg-dark fixed-bottom">
         <div class="col-md-4 d-flex align-items-center">
             <a href="/" class="mb-3 me-2 mb-md-0 text-light text-decoration-none lh-1">
-                <img src="img/nike.png" class="bi me-2" width="60" height="32"></img>
+                <img src="../img/logo.jpg" class="bi me-2" width="60" height="32"></img>
             </a>
             <span class="mb-3 mb-md-0 text-light">&copy; 2023 Company, Inc</span>
         </div>

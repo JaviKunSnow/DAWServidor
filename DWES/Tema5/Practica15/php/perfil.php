@@ -207,7 +207,7 @@
     <footer class="d-flex flex-wrap justify-content-between align-items-center p-3 py-3 bg-dark fixed-bottom">
         <div class="col-md-4 d-flex align-items-center">
             <a href="/" class="mb-3 me-2 mb-md-0 text-light text-decoration-none lh-1">
-                <img src="img/nike.png" class="bi me-2" width="60" height="32"></img>
+                <img src="../img/logo.jpg" class="bi me-2" width="60" height="32"></img>
             </a>
             <span class="mb-3 mb-md-0 text-light">&copy; 2023 Company, Inc</span>
         </div>

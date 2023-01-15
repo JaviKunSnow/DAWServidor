@@ -195,7 +195,7 @@ function actualizarProducto() {
     try {
         $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
 
-        $script = "update producto SET descripcion=".$_REQUEST["desc"].",stock=".$_REQUEST["stockP"]."  WHERE cod_producto = ".$_REQUEST["cod_producto"].";";
+        $script = "update producto SET descripcion='".$_REQUEST["desc"]."',stock='".$_REQUEST["stockP"]."'  WHERE cod_producto = ".$_REQUEST["cod_producto"].";";
         
         $consulta = $conexion->prepare($script);
         $consulta->execute();
@@ -218,7 +218,7 @@ function ticketVenta() {
         $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
 
         session_start();
-        $script = "insert into ventas (usuario, fechacomp, cod_producto, cantidad, precio_total) values ('".$_SESSION['user']."','".date('Y-m-d')."','".$_REQUEST["cod_producto"]."','1','".$_REQUEST['precio']."')";
+        $script = "insert into ventas (usuario, fechacomp, cod_producto, cantidad, precio_total) values ('".$_SESSION['user']."','".date('Y-m-d')."','".$_REQUEST["id"]."','1','".$_REQUEST['precio']."')";
     
         $consulta = $conexion->prepare($script);
         $consulta->execute();
@@ -240,7 +240,7 @@ function actualizarVenta() {
     try {
         $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
 
-        $script = "update venta SET usuario=".$_REQUEST["userV"].",fechacomp=".$_REQUEST["fecha"].",cod_producto=".$_REQUEST["cod_producto"].",cantidad=".$_REQUEST["stockV"]."  WHERE id_venta = ".$_REQUEST["numeroID"].";";
+        $script = "update ventas SET usuario='".$_REQUEST["userV"]."',fechacomp='".$_REQUEST["fecha"]."',cod_producto='".$_REQUEST["cod_producto"]."',cantidad='".$_REQUEST["stockV"]."'  WHERE id_venta = ".$_REQUEST["numeroID"].";";
         
         $consulta = $conexion->prepare($script);
         $consulta->execute();
@@ -262,7 +262,7 @@ function eliminarVenta() {
     try {
         $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
 
-        $script = "delete * from venta WHERE id_venta = ".$_REQUEST["numeroID"].";";
+        $script = "delete from ventas WHERE id_venta=".$_REQUEST["numeroID"].";";
         
         $consulta = $conexion->prepare($script);
         $consulta->execute();
@@ -284,7 +284,7 @@ function ticketAlbaran() {
     try {
         $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
 
-        $script = "insert into albaran (fechaalb, cod_producto, cantidad, usuario) values ('".date('Y-m-d')."', '".$_REQUEST["cod_producto"]."', '".$_REQUEST["stockP"]."', '".$_SESSION["user"]."');";
+        $script = "insert into albaranes (fechaalb, cod_producto, cantidad, usuario) values ('".date('Y-m-d')."', '".$_REQUEST["cod_producto"]."', '".$_REQUEST["stockP"]."', '".$_SESSION["user"]."');";
         
         $consulta = $conexion->prepare($script);
         $consulta->execute();
@@ -306,7 +306,7 @@ function actualizarAlbaran() {
     try {
         $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
 
-        $script = "update venta SET usuario=".$_REQUEST["userA"].",fechaalb=".$_REQUEST["fecha"].",cod_producto=".$_REQUEST["cod_producto"].",cantidad=".$_REQUEST["stockA"]."  WHERE id_albaran = ".$_REQUEST["numeroID"].";";
+        $script = "update albaranes SET usuario='".$_REQUEST["userA"]."',fechaalb='".$_REQUEST["fecha"]."',cod_producto='".$_REQUEST["cod_producto"]."',cantidad='".$_REQUEST["stockA"]."'  WHERE id_albaran = ".$_REQUEST["numeroID"].";";
         
         $consulta = $conexion->prepare($script);
         $consulta->execute();
@@ -328,7 +328,7 @@ function eliminarAlbaran() {
     try {
         $conexion = new PDO('mysql:host='.$_SERVER['SERVER_ADDR'].';dbname='.BD, USR, PAS);
 
-        $script = "delete * from venta WHERE id_albaran = ".$_REQUEST["numeroID"].";";
+        $script = "delete from albaranes WHERE id_albaran = ".$_REQUEST["numeroID"].";";
         
         $consulta = $conexion->prepare($script);
         $consulta->execute();

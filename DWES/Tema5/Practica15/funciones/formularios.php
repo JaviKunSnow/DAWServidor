@@ -72,12 +72,9 @@ function formularioProducto() {
                                     <section class="form-group row mb-2">
                                         <label for="email_address" class="col-md-4 col-form-label text-md-right">Descripcion:</label>
                                         <section class="col-md-6">
-                                            <textarea name="desc" id="desc" rows="10" cols="30"><?php
-                                                if($_REQUEST["opc"] == "mod") {
-                                                    echo $descripcion;
-                                                }
-                                            ?>
-                                            </textarea>
+                                            <input type="text" name="desc" id="desc" class="form-control" value="<?php
+                                                echo $descripcion;
+                                            ?>">
                                         </section>
                                     </section>
     
