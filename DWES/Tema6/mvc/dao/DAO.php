@@ -2,11 +2,11 @@
 
 interface DAO {
 
-    public function findAll();
-    public function findById($id);
-    public function insert($objeto);
-    public function update($objeto);
-    public function delete($objeto);
+    public static function findAll();
+    public static function findById($id);
+    public static function insert($objeto);
+    public static function update($objeto);
+    public static function delete($objeto);
 
 }
 
