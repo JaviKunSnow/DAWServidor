@@ -20,14 +20,16 @@ require_once("./dao/usuarioDAO.php");
 
 // controladores
 $controladores = array(
-    'login' => 'loginController.php'
+    'login' => './controlador/loginController.php',
+    'user' => './controlador/userController.php'
 );
 
 
 // vistas
 $vistas = array(
     'home' => 'homeView.php',
-    'login' => 'loginView.php'
+    'login' => 'loginView.php',
+    'user' => 'UserView.php'
 );
 
 ?>
