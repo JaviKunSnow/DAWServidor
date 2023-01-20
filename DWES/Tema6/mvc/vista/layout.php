@@ -34,6 +34,7 @@
             <?php
                 if(!estaValidado()) {?>
                     <input type="submit" name="login" value="login" class="btn btn-outline-light me-2">
+                    <input type="submit" name="registro" value="registrarse" class="btn btn-outline-light me-2">
                 <?} else {?>
                     <h2><? echo $_SESSION['user'] ?></h2>
                     <input type="submit" name="perfil" value= "mi perfil" class="btn btn-outline-light me-2">

@@ -36,7 +36,11 @@ class UsuarioDAO extends FactoryBD implements DAO {
             array_push($datos, $obj);
         }
         $devuelve = parent::ejecuta($sql,$datos);
-
+        if($devuelve->rowCount() == 0) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public static function update($objeto) {
