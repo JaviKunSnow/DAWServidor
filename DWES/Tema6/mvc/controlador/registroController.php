@@ -4,7 +4,7 @@ if(isset($_REQUEST["guardar"])) {
     // VALIDACIONES 
     // $_SESSION['ERROR'] con el motivo de que no valida
 
-    $usuario = new Usuario($_REQUEST["user"], sha1($_REQUEST["pass"]),$_REQUEST["nombre"], $_REQUEST["correo"], 'POOO1');
+    $usuario = new Usuario($_REQUEST["user"], $_REQUEST["nombre"], sha1($_REQUEST["pass"]), $_REQUEST["correo"], 'USR');
     if(UsuarioDAO::insert($usuario)) {
         $_SESSION['controlador'] = $controladores['home'];
         $_SESSION['vista'] = $vistas['home'];

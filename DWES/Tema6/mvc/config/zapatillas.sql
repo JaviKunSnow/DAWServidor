@@ -50,9 +50,9 @@ insert into perfil (codigo, descripcion) values ('ADM','Administrador');
 insert into perfil (codigo, descripcion) values ('MOD','Moderador');
 insert into perfil (codigo, descripcion) values ('USR','Usuario normal');
 
-insert into usuarios (usuario, nombre, pass, correo, fechanac, perfil) values ('user1', 'Rodolfo Mateos','356a192b7913b04c54574d18c28d46e6395428ab', 'user1@gmail.com', 'ADM');
-insert into usuarios (usuario, nombre, pass, correo, fechanac, perfil) values ('user2', 'Paco Juarez','356a192b7913b04c54574d18c28d46e6395428ab', 'user2@gmail.com', 'MOD');
-insert into usuarios (usuario, nombre, pass, correo, fechanac, perfil) values ('user3', 'Juan Francisco','356a192b7913b04c54574d18c28d46e6395428ab', 'user3@gmail.com', 'USR');
+insert into usuarios (usuario, nombre, pass, correo, perfil) values ('user1', 'Rodolfo Mateos','356a192b7913b04c54574d18c28d46e6395428ab', 'user1@gmail.com', 'ADM');
+insert into usuarios (usuario, nombre, pass, correo, perfil) values ('user2', 'Paco Juarez','356a192b7913b04c54574d18c28d46e6395428ab', 'user2@gmail.com', 'MOD');
+insert into usuarios (usuario, nombre, pass, correo, perfil) values ('user3', 'Juan Francisco','356a192b7913b04c54574d18c28d46e6395428ab', 'user3@gmail.com', 'USR');
 
 insert into producto (nombre, descripcion, foto, precio, stock) values ('Nike Air Force 1', 'El fulgor sigue vivo en las Nike Air Force 1 07, un modelo original de baloncesto con sus ya característicos revestimientos con costuras duraderas', 'airforce1.webp', '119.99', '3'); 
 insert into producto (nombre, descripcion, foto, precio, stock) values ('Nike Air Max Excee', 'Inspiradas en las Nike Air Max 90, las Nike Air Max Excee rinden homenaje a un clásico con un nuevo enfoque.', 'airmaxexcee.webp', '119.99', '3');

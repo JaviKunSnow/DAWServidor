@@ -8,7 +8,7 @@ class UsuarioDAO extends FactoryBD implements DAO {
         $devuelve = parent::ejecuta($sql,$datos);
         $arrayUsuarios = array();
         while($obj = $devuelve->fetchObject()){
-            $usuario = new Usuario($obj->usuario, $obj->clave, $obj->nombre, $obj->correo, $obj->perfil);
+            $usuario = new Usuario($obj->usuario, $obj->nombre, $obj->clave, $obj->correo, $obj->perfil);
             array_push($arrayUsuarios, $usuario);
         }
         
@@ -21,7 +21,7 @@ class UsuarioDAO extends FactoryBD implements DAO {
         $devuelve = parent::ejecuta($sql,$datos);
         $obj = $devuelve->fetchObject();
         if($obj){
-            $usuario = new Usuario($obj->usuario, $obj->clave, $obj->nombre, $obj->correo, $obj->perfil);
+            $usuario = new Usuario($obj->usuario, $obj->nombre, $obj->clave, $obj->correo, $obj->perfil);
             return $usuario;
         } else {
             return null;
@@ -44,7 +44,7 @@ class UsuarioDAO extends FactoryBD implements DAO {
     }
 
     public static function update($objeto) {
-        $sql = "update usuarios set clave = ?, nombre = ?, correo = ?, perfil = ? where usuario = ?;";
+        $sql = "update usuarios set pass = ?, nombre = ?, correo = ?, perfil = ? where usuario = ?;";
         $datos = array($objeto->clave, $objeto->nombre, $objeto->correo, $objeto->perfil, $objeto->usuario);
         $devuelve = parent::ejecuta($sql,$datos);
         if($devuelve->rowCount() == 0) {
@@ -66,13 +66,13 @@ class UsuarioDAO extends FactoryBD implements DAO {
     }
 
     public static function valida($user, $pass) {
-        $sql = "select * from usuarios where usuario = ? and clave = ?;";
+        $sql = "select * from usuarios where usuario = ? and pass = ?;";
         $passh = sha1($pass);
         $datos = array($user, $passh);
         $devuelve = parent::ejecuta($sql,$datos);
         $obj = $devuelve->fetchObject();
         if($obj){
-            $usuario = new Usuario($obj->usuario, $obj->clave, $obj->nombre, $obj->correo, $obj->perfil);
+            $usuario = new Usuario($obj->usuario, $obj->nombre, $obj->clave, $obj->correo, $obj->perfil);
             return $usuario;
         } else {
             return null;

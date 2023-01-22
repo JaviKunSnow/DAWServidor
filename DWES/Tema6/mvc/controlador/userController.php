@@ -11,7 +11,7 @@ if(isset($_REQUEST["perfil"])) {
 } else if(isset($_REQUEST["guardar"])){
     $usuario = UsuarioDAO::findById($_SESSION['user']);
     $usuario->nombre = $_REQUEST["nombre"];
-    $usuario->clave = $_REQUEST["pass"];
+    $usuario->pass = $_REQUEST["pass"];
     $usuario->correo = $_REQUEST["correo"];
     $usuario->perfil = $_REQUEST["perfil"];
     $_SESSION['vista'] = $vistas['user'];

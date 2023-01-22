@@ -2,20 +2,20 @@
 
 class Producto {
 
-    private $codProd;
+    private $cod_producto;
     private $nombre;
     private $descripcion;
+    private $foto;
     private $precio;
     private $stock;
-    private $img;
 
-    public function __construct($codProd, $nombre, $descripcion, $precio, $stock, $img) {
-        $this->codProd = $codProd;
+    public function __construct($cod_producto, $nombre, $descripcion, $foto, $precio, $stock) {
+        $this->cod_producto = $cod_producto;
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
+        $this->foto = $foto;
         $this->precio = $precio;
         $this->stock = $stock;
-        $this->img = $img;
 
     }
 

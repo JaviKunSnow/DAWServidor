@@ -1,6 +1,6 @@
 <?php
 
-if($_REQUEST["registro"]) {
+if(isset($_REQUEST["registro"])) {
     $_SESSION['controlador'] = $controladores['registro'];
     $_SESSION['vista'] = $vistas["registro"];
 } else {

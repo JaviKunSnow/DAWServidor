@@ -9,7 +9,7 @@ public static function findAll() {
     $devuelve = parent::ejecuta($sql,$datos);
     $arrayProductos = array();
     while($obj = $devuelve->fetchObject()){
-        $producto = new Producto($obj->codProd, $obj->nombre, $obj->descripcion, $obj->precio, $obj->stock, $obj->img);
+        $producto = new Producto($obj->cod_producto, $obj->nombre, $obj->descripcion, $obj->foto, $obj->precio, $obj->stock);
         array_push($arrayProductos, $producto);
     }
     
@@ -17,12 +17,12 @@ public static function findAll() {
 }
 
 public static function findById($id) {
-    $sql = "select * from producto where codProd = ?;";
+    $sql = "select * from producto where cod_producto = ?;";
     $datos = array($id);
     $devuelve = parent::ejecuta($sql,$datos);
     $obj = $devuelve->fetchObject();
     if($obj){
-        $producto = new Producto($obj->codProd, $obj->nombre, $obj->descripcion, $obj->precio, $obj->stock, $obj->img);
+        $producto = new Producto($obj->cod_producto, $obj->nombre, $obj->descripcion, $obj->foto, $obj->precio, $obj->stock);
         return $producto;
     } else {
         return null;
@@ -45,8 +45,8 @@ public static function insert($objeto) {
 }
 
 public static function update($obj) {
-    $sql = "update producto set nombre = ?, descripcion = ?, precio = ?, stock = ?, img = ?  where codProd = ?;";
-    $datos = array($obj->nombre, $obj->descripcion, $obj->precio, $obj->stock, $obj->img);
+    $sql = "update producto set nombre = ?, descripcion = ?, foto = ?, precio = ?, stock = ?  where cod_producto = ?;";
+    $datos = array($obj->nombre, $obj->descripcion, $obj->foto, $obj->precio, $obj->stock, $obj->cod_producto);
     $devuelve = parent::ejecuta($sql,$datos);
     if($devuelve->rowCount() == 0) {
         return false;
@@ -56,7 +56,7 @@ public static function update($obj) {
 }
 
 public static function delete($id) {
-    $sql = "delete from producto where codProd = ?;";
+    $sql = "delete from producto where cod_producto = ?;";
     $datos = array($id);
     $devuelve = parent::ejecuta($sql,$datos);
     if($devuelve->rowCount() == 0) {
