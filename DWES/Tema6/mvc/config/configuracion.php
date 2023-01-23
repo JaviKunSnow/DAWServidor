@@ -26,7 +26,8 @@ $controladores = array(
     'user' => './controlador/userController.php',
     'registro' => './controlador/registroController.php',
     'home' => './controlador/homeController.php',
-    'producto' => './controlador/productoController.php'
+    'producto' => './controlador/productoController.php',
+    'admin' => './controlador/adminController.php'
 );
 
 
@@ -36,7 +37,9 @@ $vistas = array(
     'login' => 'loginView.php',
     'user' => 'UserView.php',
     'registro' => 'registroView.php',
-    'producto' => 'verProductoView.php'
+    'producto' => 'verProductoView.php',
+    'admin' => 'adminView.php',
+    'listaProd' => 'listaProductosView.php'
 );
 
 ?>

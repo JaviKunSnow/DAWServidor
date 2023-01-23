@@ -9,7 +9,7 @@ function estaValidado() {
 
 function esAdmin() {
     if(isset($_SESSION["perfil"])){
-        if($_SESSION["perfil"] == "ADM01") {
+        if($_SESSION["perfil"] == "ADM") {
             return true;
         }
     }
@@ -18,7 +18,7 @@ function esAdmin() {
 
 function esModerador() {
     if(isset($_SESSION["perfil"])){
-        if($_SESSION["perfil"] == "P0002") {
+        if($_SESSION["perfil"] == "MOD") {
             return true;
         }
     }
