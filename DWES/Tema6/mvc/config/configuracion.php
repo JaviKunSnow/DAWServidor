@@ -37,7 +37,7 @@ $vistas = array(
     'login' => 'loginView.php',
     'user' => 'UserView.php',
     'registro' => 'registroView.php',
-    'producto' => 'verProductoView.php',
+    'producto' => './vista/verProductoView.php',
     'admin' => 'adminView.php',
     'listaProd' => 'listaProductosView.php'
 );

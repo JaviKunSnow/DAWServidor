@@ -24,6 +24,7 @@
                             <td scope="row"><?echo $value->precio?></td>
                             <td scope="row"><?echo $value->stock?></td>
                             <form action="./index.php" method="post">
+                                <input type="hidden" name="cod_producto">
                                 <td><input type="submit" name="verProducto" value="Ver"></td>
                                 <td><input type="submit" name="editarProducto" value="Editar"></td>
                                 <td><input type="submit" name="borrarProducto" value="Borrar"></td>
@@ -34,4 +35,7 @@
             ?>
         </tbody>
     </table>
+    <form action="./index.php" method="post">
+        <input type="submit" name="nuevoP" value="Nuevo producto">
+    </form>
 </div>
