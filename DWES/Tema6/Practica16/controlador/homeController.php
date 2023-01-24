@@ -1,0 +1,5 @@
+<?php
+
+$arrayProductos = ProductoDAO::findAll();
+
+?>

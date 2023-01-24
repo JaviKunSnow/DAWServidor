@@ -1,10 +1,7 @@
 <?php
 
-if(isset($_REQUEST["perfil"])) {
-    $_SESSION['accion'] = 'ver';
-    $usuario = UsuarioDAO::findById($_SESSION['user']);
-    $_SESSION['vista'] = $vistas['user'];
-} else if(isset($_REQUEST["editar"])) {
+
+if(isset($_REQUEST["editar"])) {
     $_SESSION['accion'] = 'editar';
     $usuario = UsuarioDAO::findById($_SESSION['user']);
     $_SESSION['vista'] = $vistas['user'];
