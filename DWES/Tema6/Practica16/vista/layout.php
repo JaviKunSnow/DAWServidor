@@ -17,31 +17,38 @@
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                     <img src="webroot/img/logo.jpg" class="bi me-2" width="60" height="40"></img>
                 </a>
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-warning">Inicio</a></li>
-                    <li><a href="tienda.php" class="nav-link px-2 text-white">Tienda</a></li>
-                    <?php
-                        if(estaValidado()){
-                            echo "<li><a href='php/perfil.php' class='nav-link px-2 text-white'>Perfil</a></li>";
-                            if(esModerador() || esAdmin()) {
-                                echo "<li><a href='php/leerBD.php?tabla=producto' class='nav-link px-2 text-white'>Productos</a></li>";
-                                echo "<li><a href='php/leerBD.php?tabla=ventas' class='nav-link px-2 text-white'>Ventas</a></li>";
-                                echo "<li><a href='php/leerBD.php?tabla=albaranes' class='nav-link px-2 text-white'>Albaranes</a></li>";
+                <form class="col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" action="" method="post">
+                <ul class="nav">
+                    <input type="submit" name="home" value="Inicio">
+                        <li><a href="tienda.php" class="nav-link px-2 text-white">Tienda</a></li>
+                        <?php
+                            if(estaValidado()){
+                                echo "<li><a href='php/perfil.php' class='nav-link px-2 text-white'>Perfil</a></li>";
+                                if(esModerador() || esAdmin()) {
+                                    echo "<li><a href='php/leerBD.php?tabla=producto' class='nav-link px-2 text-white'>Productos</a></li>";
+                                    echo "<li><a href='php/leerBD.php?tabla=ventas' class='nav-link px-2 text-white'>Ventas</a></li>";
+                                    echo "<li><a href='php/leerBD.php?tabla=albaranes' class='nav-link px-2 text-white'>Albaranes</a></li>";
+                                }
                             }
-                        }
-                    ?>
-                    <li><a href="#" class="nav-link px-2 text-white">Contacto</a></li>
-                </ul>
+                        ?>
+                        <li><a href="#" class="nav-link px-2 text-white">Contacto</a></li>
+                    </ul>
+                </form>
                 <section class="text-end">
-                    <?php
-                        if(estaValidado()){
-                            echo "<a href='#' class='btn btn-outline-light me-2'>".$_SESSION['user']."</a>";
-                            echo "<a href='login/logout.php' class='btn btn-warning'>Cerrar Sesion</a>";
-                        } else {
-                            echo "<a href='login/login.php' class='btn btn-outline-light me-2'>Iniciar Sesion</a>";
-                            echo "<a href='login/registro.php' class='btn btn-warning'>Registro</a>";
-                        }
-                    ?>
+                    <form action="./index.php" method="post">
+                        <?php
+                            if(estaValidado()){?>
+                            
+                                <input type="submit" class='btn btn-outline-light me-2' name="miPerfil" value="<?echo $_SESSION['user']?>">
+                                <input type="submit" class='btn btn-warning' name="logout" value="cerrar sesion">
+                            <?
+                            } else {?>
+                                <input type="submit" class='btn btn-outline-light me-2' name="login" value="iniciar sesion">
+                                <input type="submit" class='btn btn-warning' name="registro" value="registro">
+                            <?
+                            }
+                        ?>
+                    </form>
                 </section>
             </section>
         </section>
