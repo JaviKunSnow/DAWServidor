@@ -19,19 +19,21 @@
                 </a>
                 <form class="col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" action="" method="post">
                 <ul class="nav">
-                    <input type="submit" name="home" value="Inicio">
-                        <li><a href="tienda.php" class="nav-link px-2 text-white">Tienda</a></li>
+                    <input type="submit" class="btn text-white" name="home" value="Inicio">
+                    <input type="submit" class="btn text-white" name="home" value="Tienda">
                         <?php
-                            if(estaValidado()){
-                                echo "<li><a href='php/perfil.php' class='nav-link px-2 text-white'>Perfil</a></li>";
-                                if(esModerador() || esAdmin()) {
-                                    echo "<li><a href='php/leerBD.php?tabla=producto' class='nav-link px-2 text-white'>Productos</a></li>";
-                                    echo "<li><a href='php/leerBD.php?tabla=ventas' class='nav-link px-2 text-white'>Ventas</a></li>";
-                                    echo "<li><a href='php/leerBD.php?tabla=albaranes' class='nav-link px-2 text-white'>Albaranes</a></li>";
+                            if(estaValidado()){?>
+
+                                <input type="submit" class="btn text-white" name="miPerfil" value="Perfil">
+                                <?
+                                if(esModerador() || esAdmin()) {?>
+
+                                    <input type="submit" class="btn text-white" name="admin" value="Administracion">
+                                    <?
                                 }
                             }
                         ?>
-                        <li><a href="#" class="nav-link px-2 text-white">Contacto</a></li>
+                        <input type="submit" class="btn text-white" name="home" value="Contacto">
                     </ul>
                 </form>
                 <section class="text-end">

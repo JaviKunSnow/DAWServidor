@@ -11,7 +11,7 @@ if(!isset($_SESSION['pagina'])){
     $_SESSION['pagina'] = 'home';
     $_SESSION['vista'] = $vistas['home'];
     require_once($_SESSION['controlador']);
-} else if(isset($_SESSION['login'])) {
+} else if(isset($_REQUEST['login'])) {
     $_SESSION['controlador'] = $controladores['login'];
     $_SESSION['pagina'] = 'login';
     $_SESSION['vista'] = $vistas['login'];
