@@ -1,0 +1,57 @@
+{
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "teclado",
+      "desc": "teclado guapo"
+    },
+    {
+      "id": 2,
+      "nombre": "camara",
+      "desc": "caamara guapa"
+    },
+    {
+      "id": 3,
+      "nombre": "raton",
+      "desc": "raton guapo"
+    },
+    {
+      "nombre": "tele 3",
+      "desc": "otra tele mas",
+      "id": 4
+    },
+    {
+      "nombre": "sdfsdf",
+      "desc": "sfsfsd",
+      "id": 5
+    },
+    {
+      "nombre": "tu puta madre",
+      "desc": "sdfdgbvdg",
+      "id": 6
+    },
+    {
+      "id": 8
+    },
+    {
+      "nombre": "teclado",
+      "desc": "un teclado",
+      "id": 9
+    },
+    {
+      "id": 10,
+      "nombre": "sadasdasd",
+      "desc": "asdasdasd"
+    },
+    {
+      "id": 11,
+      "nombre": "sdsf",
+      "desc": "dsfsdf"
+    },
+    {
+      "id": 12,
+      "nombre": "sdfdsfgds",
+      "desc": "sfsdfs"
+    }
+  ]
+}

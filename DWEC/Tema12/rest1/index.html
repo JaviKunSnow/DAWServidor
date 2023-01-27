@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="peliculas">
+        <div class="mb-3">
+          <label for="pelicula" class="form-label">Name</label>
+          <input type="text" name="nombre" id="nombre" class="form-control" aria-describedby="helpId">
+          <label for="director" class="form-label">Director: </label>
+          <input type="text" name="director" id="director" class="form-control" aria-describedby="helpId">
+          <label for="genero" class="form-label">Clasificacion: </label>
+          <input type="text" name="clasificacion" id="clasificacion" class="form-control" aria-describedby="helpId">
+          <button type="submit" name="enviar" id="enviar">enviar</button>
+        </div>
+    </form>
+    <form id="pelicula">
+        <div class="mb-3">
+          <label for="pelicula" class="form-label">ID de pelicula: </label>
+          <input type="text" name="id" id="id" class="form-control" aria-describedby="helpId">
+          <button type="submit" name="enviado" id="enviado">enviar ID</button>
+        </div>
+    </form>
+    <script src="js/rest1.js"></script>
+</body>
+</html>
