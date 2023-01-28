@@ -1,0 +1,34 @@
+{
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "teclado",
+      "desc": "teclado guapo"
+    },
+    {
+      "id": 2,
+      "nombre": "camara",
+      "desc": "caamara guapa"
+    },
+    {
+      "id": 3,
+      "nombre": "raton",
+      "desc": "raton guapo"
+    },
+    {
+      "nombre": "tele 3",
+      "desc": "otra tele mas",
+      "id": 4
+    },
+    {
+      "nombre": "sdfsdf",
+      "desc": "sfsfsd",
+      "id": 5
+    },
+    {
+      "nombre": "tu puta madre",
+      "desc": "sdfdgbvdg",
+      "id": 6
+    }
+  ]
+}
