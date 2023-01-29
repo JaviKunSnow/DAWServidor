@@ -70,19 +70,62 @@ window.addEventListener('load', function() {
 function nuevoProd(prod) {
     return new Promise((resolve, eject) => {
         peticion.open('POST', `${SERVER}`, true);
-        peticion.send(JSON.stringify(prod));
-    
-        console.log(JSON.stringify(prod));
+        peticion.setRequestHeader('Content-Type', 'application/json');
+
         peticion.addEventListener('load', function() {
-            if(peticion.status === 201) {
-                resolve(JSON.parse(peticion.responseText));
+            if(peticion.status === 200) {
+                resolve(peticion.response);
                 
             } else {
                 eject('error: ' + peticion.status);
             }
         })
+
+        peticion.send(JSON.stringify(prod));
     })
 }
+
+// modificar producto
+
+window.addEventListener('load', function() {
+    document.getElementById('modProduct').addEventListener('submit', (event) => {
+        event.preventDefault();
+        const id = document.getElementById("idMod").value;
+        const form = {
+            nombre: document.getElementById("nombreMod").value,
+            desc: document.getElementById("descMod").value,
+        }
+        
+        modProd(id,form)
+        .then((datos) => {
+            alert("datos modificados");
+            console.log(datos);
+        })
+        .catch((error) => {
+            console.error(error);
+        })
+        
+    })
+});
+
+function modProd(id,prod) {
+    return new Promise((resolve, eject) => {
+        peticion.open('PATCH', `${SERVER}/${id}`, true);
+        peticion.setRequestHeader('Content-Type', 'application/json');
+        
+        peticion.addEventListener('load', function() {
+            if(peticion.status === 200) {
+                resolve(peticion.response);
+                
+            } else {
+                eject('error: ' + peticion.status);
+            }
+        })
+
+        peticion.send(JSON.stringify(prod));
+    })
+}
+
 // listar todos los productos
 function listarProd() {
     return new Promise((resolve, eject) => {
