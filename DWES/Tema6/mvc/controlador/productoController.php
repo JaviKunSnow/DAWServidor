@@ -1,4 +1,5 @@
 <?
+
 if(isset($_REQUEST['borrar'])) {
     $_SESSION['producto'] = $_REQUEST['cod_producto'];
     $producto = ProductoDAO::delete($_SESSION['producto']);
