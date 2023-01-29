@@ -1,4 +1,6 @@
-const SERVER = "http://192.168.2.206:3000/productos";
+//const SERVER = "http://192.168.2.206:3000/productos";
+
+const SERVER = "http://192.168.1.110:3000/productos";
 
 const peticion = new XMLHttpRequest();
 
@@ -22,9 +24,7 @@ window.addEventListener('load', function() {
                 return response.json();
             })
             .then((datos) => {
-                if(document.getElementById("lista").innerHTML != "") {
-                    document.getElementById("lista").innerHTML = "";
-                }
+                document.getElementById("lista").innerHTML = "";
 
                 for(object in datos) {
                     let li = document.createElement("li");
@@ -73,6 +73,43 @@ window.addEventListener('load', function() {
     })
 });
 
+//modificar productos
+
+window.addEventListener('load', function() {
+    document.getElementById('modProduct').addEventListener('submit', (event) => {
+        event.preventDefault();
+        
+        const form = {
+            nombre: document.getElementById("nombreMod").value,
+            desc: document.getElementById("descMod").value,
+        }
+                fetch(`${SERVER}/${document.getElementById("idMod").value}`, {
+                    method: 'PATCH',
+                    body: JSON.stringify(form),
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if(!response.ok) {
+                        throw `Error ${response.status} de la BD: ${response.statusText}`;
+                    }
+                    return response.json();
+                })
+                .then(datos => {
+                    alert("datos modificados");
+                    console.log(datos);
+                })
+    
+                .catch(error => {
+                    alert(`Error en la peticion: ${error.message}`);
+                })
+
+        }
+    )
+});
+
+//listar productos
 window.addEventListener('load', function() {
     document.getElementById('listarProduct').addEventListener('submit', (event) => {
         event.preventDefault();
@@ -90,9 +127,7 @@ window.addEventListener('load', function() {
                 return response.json();
             })
             .then((datos) => {
-                if(document.getElementById("tabla").innerHTML != "") {
-                    document.getElementById("tabla").innerHTML = "";
-                }
+                document.getElementById("tabla").innerHTML = "";
 
                 datos.forEach(element => {
                     let tr = document.createElement("tr");

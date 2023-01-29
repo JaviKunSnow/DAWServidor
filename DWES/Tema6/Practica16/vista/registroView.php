@@ -18,7 +18,7 @@
                     <section class="card">
                         <section class="card-header text-center">REGISTRO</section>
                         <section class="card-body bg-dark text-white">
-                            <form action="registro.php" method="post">
+                            <form action="./index.php" method="post">
                                 <section class="form-group row mb-2">
                                     <label for="full_name" class="col-md-4 col-form-label text-md-right">Usuario:</label>
                                     <section class="col-md-6">
@@ -70,7 +70,7 @@
                                 </section>
 
                                 <section class="form-group row mb-2">
-                                    <label for="phone_number" class="col-md-4 col-form-label text-md-right">Contraseña:</label>
+                                    <label for="password" class="col-md-4 col-form-label text-md-right">Contraseña:</label>
                                     <section class="col-md-6">
                                         <input type="password" id="pass" name="pass" class="form-control">
                                     </section>
@@ -88,7 +88,7 @@
                                 </section>
 
                                 <section class="form-group row mb-2">
-                                    <label for="present_address" class="col-md-4 col-form-label text-md-right">Fecha de nacimiento:</label>
+                                    <label for="fecha" class="col-md-4 col-form-label text-md-right">Fecha de nacimiento:</label>
                                     <section class="col-md-6">
                                         <input type="text" name="fecha" id="fecha" class="form-control">
                                     </section>
@@ -122,7 +122,7 @@
                                     ?>
                                 </section>
                                     <section class="col-md-6 offset-md-4">
-                                        <input type="submit" name="enviar" value="Registro" class="btn btn-outline-warning">
+                                        <input type="submit" name="registrar" value="Registro" class="btn btn-outline-warning">
                                     </section>
                                 </section>
                             </form>

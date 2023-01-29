@@ -8,7 +8,7 @@ class UsuarioDAO extends FactoryBD implements DAO {
         $devuelve = parent::ejecuta($sql,$datos);
         $arrayUsuarios = array();
         while($obj = $devuelve->fetchObject()){
-            $usuario = new Usuario($obj->usuario, $obj->nombre, $obj->pass, $obj->correo, $obj->perfil);
+            $usuario = new Usuario($obj->usuario, $obj->nombre, $obj->pass, $obj->correo, $obj->fechanac, $obj->perfil);
             array_push($arrayUsuarios, $usuario);
         }
         
@@ -21,7 +21,7 @@ class UsuarioDAO extends FactoryBD implements DAO {
         $devuelve = parent::ejecuta($sql,$datos);
         $obj = $devuelve->fetchObject();
         if($obj){
-            $usuario = new Usuario($obj->usuario, $obj->nombre, $obj->pass, $obj->correo, $obj->perfil);
+            $usuario = new Usuario($obj->usuario, $obj->nombre, $obj->pass, $obj->correo, $obj->fechanac, $obj->perfil);
             return $usuario;
         } else {
             return null;
@@ -29,7 +29,7 @@ class UsuarioDAO extends FactoryBD implements DAO {
     }
 
     public static function insert($objeto) {
-        $sql = "insert into usuarios values (?, ?, ?, ?, ?);";
+        $sql = "insert into usuarios values (?, ?, ?, ?, ?, ?);";
         $objeto = (array)$objeto;
         $datos = array();
         foreach($objeto as $obj){
@@ -45,7 +45,7 @@ class UsuarioDAO extends FactoryBD implements DAO {
 
     public static function update($objeto) {
         $sql = "update usuarios set pass = ?, nombre = ?, correo = ?, perfil = ? where usuario = ?;";
-        $datos = array($objeto->pass, $objeto->nombre, $objeto->correo, $objeto->perfil, $objeto->usuario);
+        $datos = array($objeto->pass, $objeto->nombre, $objeto->correo, $objeto->perfil, $objeto->fechanac, $objeto->usuario);
         $devuelve = parent::ejecuta($sql,$datos);
         if($devuelve->rowCount() == 0) {
             return false;
@@ -72,7 +72,7 @@ class UsuarioDAO extends FactoryBD implements DAO {
         $devuelve = parent::ejecuta($sql,$datos);
         $obj = $devuelve->fetchObject();
         if($obj){
-            $usuario = new Usuario($obj->usuario, $obj->nombre, $obj->pass, $obj->correo, $obj->perfil);
+            $usuario = new Usuario($obj->usuario, $obj->nombre, $obj->pass, $obj->correo, $obj->fechanac, $obj->perfil);
             return $usuario;
         } else {
             return null;

@@ -7,8 +7,18 @@
     <title>Inicio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="webroot/css/form.css">
-    <link rel="stylesheet" href="webroot/css/signin.css">
+    <?
+        if($_SESSION['pagina'] == "home") {?>
+            <link rel="stylesheet" href="webroot/css/carousel.css">
+        <?
+        } else if($_SESSION['pagina'] == "login") {?>
+            <link rel="stylesheet" href="webroot/css/signin.css">
+        <?
+        } else if($_SESSION['pagina'] == "registro") {?>
+            <link rel="stylesheet" href="webroot/css/form.css">
+        <?
+        }
+    ?>
 </head>
 <body style="padding-bottom: 70px; padding-top: 70px;">
     <header class="p-3 text-bg-dark fixed-top">
@@ -17,7 +27,7 @@
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                     <img src="webroot/img/logo.jpg" class="bi me-2" width="60" height="40"></img>
                 </a>
-                <form class="col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" action="" method="post">
+                <form class="col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" action="./index.php" method="post">
                 <ul class="nav">
                     <input type="submit" class="btn text-white" name="home" value="Inicio">
                     <input type="submit" class="btn text-white" name="home" value="Tienda">
@@ -36,8 +46,8 @@
                         <input type="submit" class="btn text-white" name="home" value="Contacto">
                     </ul>
                 </form>
+                <form action="./index.php" method="post">
                 <section class="text-end">
-                    <form action="./index.php" method="post">
                         <?php
                             if(estaValidado()){?>
                             
