@@ -1,6 +1,6 @@
-//const SERVER = "http://192.168.2.206:3000/productos";
+const SERVER = "http://192.168.2.206:3000/productos";
 
-const SERVER = "http://192.168.1.110:3000/productos";
+//const SERVER = "http://192.168.1.110:3000/productos";
 
 const peticion = new XMLHttpRequest();
 
@@ -47,15 +47,15 @@ function getProd(id) {
 // nuevo producto
 
 window.addEventListener('load', function() {
-    document.getElementById('nuevoProduct').addEventListener('submit', (event) => {
+    document.getElementById('nuevoProduct').addEventListener('submit', async (event) => {
         event.preventDefault();
         const form = {
             id: '',
             nombre: document.getElementById("nombre").value,
-            desc: document.getElementById("desc").value,
+            desc: document.getElementById("desc").value
         }
         
-        nuevoProd(form)
+        await nuevoProd(form)
         .then((datos) => {
             alert("datos recibidos");
             console.log(datos);
@@ -67,8 +67,8 @@ window.addEventListener('load', function() {
     })
 });
 
-function nuevoProd(prod) {
-    return new Promise((resolve, eject) => {
+async function nuevoProd(prod) {
+    let promesa = await new Promise((resolve, eject) => {
         peticion.open('POST', `${SERVER}`, true);
         peticion.setRequestHeader('Content-Type', 'application/json');
 
@@ -83,6 +83,7 @@ function nuevoProd(prod) {
 
         peticion.send(JSON.stringify(prod));
     })
+    return await promesa;
 }
 
 // modificar producto
@@ -92,8 +93,8 @@ window.addEventListener('load', function() {
         event.preventDefault();
         const id = document.getElementById("idMod").value;
         const form = {
-            nombre: document.getElementById("nombreMod").value,
-            desc: document.getElementById("descMod").value,
+            id: id,
+            [document.getElementById("opcMod").value]: document.getElementById("datosMod").value
         }
         
         modProd(id,form)

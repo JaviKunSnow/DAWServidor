@@ -1,6 +1,6 @@
-//const SERVER = "http://192.168.2.206:3000/productos";
+const SERVER = "http://192.168.2.206:3000/productos";
 
-const SERVER = "http://192.168.1.110:3000/productos";
+//const SERVER = "http://192.168.1.110:3000/productos";
 
 const peticion = new XMLHttpRequest();
 
@@ -80,8 +80,7 @@ window.addEventListener('load', function() {
         event.preventDefault();
         
         const form = {
-            nombre: document.getElementById("nombreMod").value,
-            desc: document.getElementById("descMod").value,
+            [document.getElementById("opcMod").value]: document.getElementById("datosMod").value
         }
                 fetch(`${SERVER}/${document.getElementById("idMod").value}`, {
                     method: 'PATCH',

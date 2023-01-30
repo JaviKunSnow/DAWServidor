@@ -63,12 +63,17 @@
                 <input type="number" class="form-control" name="idMod" id="idMod">
             </section>
             <section class="input-group justify-content-center mb-3 p-1">
-                <label class="text-white input-group-text bg-info" for="nombre">nombre del producto: </label>
-                <input type="text" class="form-control" name="nombreMod" id="nombreMod">
+                <label class="text-white input-group-text bg-info" for="nombre">dato del producto: </label>
+                <input type="text" class="form-control" name="datosMod" id="datosMod">
             </section>
             <section class="input-group justify-content-center mb-3 p-1">
-                <label class="text-white input-group-text bg-info" for="id">descripcion de producto: </label>
-                <input type="text" class="form-control" name="descMod" id="descMod">
+                <div class="mb-3">
+                    <select class="form-select form-select-lg" name="opcMod" id="opcMod">
+                        <option selected>Seleccione una opcion</option>
+                        <option value="nombre">Nombre</option>
+                        <option value="desc">Descripcion</option>
+                    </select>
+                </div>
             </section>
             <section class="d-flex justify-content-center">
                 <button class="btn btn-outline-light " type="submit">
