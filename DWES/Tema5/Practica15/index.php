@@ -140,6 +140,7 @@
                                     echo "<h3 class='h3 text-light'>".$zapas['nombre']."</h3>";
                                     echo "<p class='card-text text-light'>".$zapas['descripcion']."</p>";
                                     echo "<section class='d-flex justify-content-between align-items-center'>";
+                                        echo "<small class='text-light'>".$zapas['precio']."€</small>";
                                         echo "<section class='btn-group'>";
                                             if(estaValidado()){
                                                 echo "<a href='php/compra.php?id=".$zapas['cod_producto']."&precio=".$zapas['precio']."' class='btn btn-sm btn-outline-light'>Comprar</a>";
@@ -147,7 +148,6 @@
                                                 echo "<a href='login/login.php' class='btn btn-sm btn-outline-warning'>Comprar</a>";
                                             }
                                         echo "</section>";
-                                        echo "<small class='text-light'>".$zapas['precio']."€</small>";
                                     echo "</section>";
                                 echo "</section>";
                             echo "</section>";
