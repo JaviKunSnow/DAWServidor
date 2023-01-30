@@ -24,17 +24,27 @@ class ConciertosControlador extends ControladorPadre {
 
     public function buscar() {
         $parametros = $this->parametros();
+        // recurso conciertos y nada despues
+        // conciertos y despues id
+        if(count(self::recurso()) == 2){
+            if(!$parametros) {
+                // listar
+                $lista = ConciertoDAO::findAll();
+                $data = json_encode($lista);
+                self::respuesta($data, array('Content-Type: application/json', 'HTTP/1.1 200 OK'));
+            }
+        }
     }
 
-    public static function insertar() {
+    public function insertar() {
 
     }
 
-    public static function modificar() {
+    public function modificar() {
 
     }
 
-    public static function borrar() {
+    public function borrar() {
 
     }
 

@@ -6,13 +6,7 @@ class ConciertoDAO extends FactoryBD implements DAO {
         $sql = "select * from concierto;";
         $datos = array();
         $devuelve = parent::ejecuta($sql,$datos);
-        $arrayConciertos = array();
-        while($obj = $devuelve->fetchObject()){
-            $concierto = new Concierto($obj->grupo, $obj->fecha, $obj->precio, $obj->lugar);
-            $concierto->id = $obj->id;
-            array_push($arrayConciertos, $concierto);
-        }
-        
+        $arrayConciertos = $devuelve->fetchAll(PDO::FETCH_ASSOC);
         return $arrayConciertos;
     }
     

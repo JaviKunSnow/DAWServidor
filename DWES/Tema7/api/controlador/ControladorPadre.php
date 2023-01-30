@@ -16,9 +16,10 @@ class ControladorPadre{
     }
 
     protected function parametros(){
-        $uri = $_SERVER['QUERY_STRING'];
-        $uri = explode('/',$uri);
-        return $uri;
+        //$uri = $_SERVER['QUERY_STRING'];
+        $par = $_GET;
+        //$uri = explode('/',$uri);
+        return $par;
     }
 
     public static function respuesta($datos, $httpHeaders = array()) {
