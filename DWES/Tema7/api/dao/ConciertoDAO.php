@@ -14,14 +14,36 @@ class ConciertoDAO extends FactoryBD implements DAO {
         $sql = "select * from concierto where id= ? ;";
         $datos = array($id);
         $devuelve = parent::ejecuta($sql,$datos);
-        $obj = $devuelve->fetchObject();
+        $obj = $devuelve->fetch(PDO::FETCH_ASSOC);
         if($obj){
-            $concierto = new Concierto($obj->grupo, $obj->fecha, $obj->precio, $obj->lugar);
-            $concierto->id = $obj->id;
-            return $concierto;
+            return $obj;
         } else {
             return null;
         }
+    }
+
+    public static function findByDate($date) {
+        $sql = "select * from concierto where fecha > ?;";
+        $datos = array($date);
+        $devuelve = parent::ejecuta($sql,$datos);
+        $arrayConciertos = $devuelve->fetchAll(PDO::FETCH_ASSOC);
+        return $arrayConciertos;
+    }
+
+    public static function findOrderByDate($date) {
+        $sql = "select * from concierto order by fecha ".$date.";";
+        $datos = array();
+        $devuelve = parent::ejecuta($sql, $datos);
+        $arrayConciertos = $devuelve->fetchAll(PDO::FETCH_ASSOC);
+        return $arrayConciertos;
+    }
+
+    public static function findByDateOrder($date, $order) {
+        $sql = "select * from concierto where fecha > ".$date." order by fecha ".$order.";";
+        $datos = array();
+        $devuelve = parent::ejecuta($sql, $datos);
+        $arrayConciertos = $devuelve->fetchAll(PDO::FETCH_ASSOC);
+        return $arrayConciertos;
     }
     
     public static function insert($objeto) {
@@ -60,6 +82,8 @@ class ConciertoDAO extends FactoryBD implements DAO {
             return true;
         }
     }
+
+
 }
 
 ?>

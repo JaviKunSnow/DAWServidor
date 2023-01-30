@@ -26,13 +26,39 @@ class ConciertosControlador extends ControladorPadre {
         $parametros = $this->parametros();
         // recurso conciertos y nada despues
         // conciertos y despues id
-        if(count(self::recurso()) == 2){
+        $recurso = self::recurso();
+        if(count($recurso) == 2){
             if(!$parametros) {
                 // listar
                 $lista = ConciertoDAO::findAll();
                 $data = json_encode($lista);
                 self::respuesta($data, array('Content-Type: application/json', 'HTTP/1.1 200 OK'));
+            } else {
+                if(isset($_GET['fecha']) && isset($_GET['ordenF'])) {
+                    $concierto = ConciertoDAO::findByDate($_GET['fecha'], $_GET['ordenF']);
+                    $data = json_encode($concierto);
+                    self::respuesta($data, array('Content-Type: application/json', 'HTTP/1.1 200 OK'));
+                } else if(isset($_GET['fecha'])){
+                    $concierto = ConciertoDAO::findByDate($_GET['fecha']);
+                    $data = json_encode($concierto);
+                    self::respuesta($data, array('Content-Type: application/json', 'HTTP/1.1 200 OK'));
+                } else if(isset($_GET['ordenF'])) {
+                    if($_GET['ordenF'] != "ASC" && $_GET['ordenF'] != "DESC") {
+                        self::respuesta('',array('HTTP/1.1 400 El filtro de fecha debe ser ASC o DESC'));
+                    } else {
+                        $concierto = ConciertoDAO::findOrderByDate($_GET['ordenF']);
+                        $data = json_encode($concierto);
+                        self::respuesta($data, array('Content-Type: application/json', 'HTTP/1.1 200 OK'));
+                    }
+                } else {
+                    self::respuesta('',array('HTTP/1.1 404 No se ha utilizado el filtro correcto'));
+                }
             }
+        } else if(count($recurso) == 3) {
+                // listar
+                $concierto = ConciertoDAO::findById($recurso[2]);
+                $data = json_encode($concierto);
+                self::respuesta($data, array('Content-Type: application/json', 'HTTP/1.1 200 OK'));
         }
     }
 
