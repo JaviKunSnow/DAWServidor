@@ -30,8 +30,8 @@ class ConciertoDAO extends FactoryBD implements DAO {
         return $arrayConciertos;
     }
 
-    public static function findOrderByDate($date) {
-        $sql = "select * from concierto order by fecha ".$date.";";
+    public static function findOrderByDate($order) {
+        $sql = "select * from concierto order by fecha ".$order.";";
         $datos = array();
         $devuelve = parent::ejecuta($sql, $datos);
         $arrayConciertos = $devuelve->fetchAll(PDO::FETCH_ASSOC);
@@ -39,7 +39,7 @@ class ConciertoDAO extends FactoryBD implements DAO {
     }
 
     public static function findByDateOrder($date, $order) {
-        $sql = "select * from concierto where fecha > ".$date." order by fecha ".$order.";";
+        $sql = "select * from concierto where fecha > '".$date."' order by fecha ".$order.";";
         $datos = array();
         $devuelve = parent::ejecuta($sql, $datos);
         $arrayConciertos = $devuelve->fetchAll(PDO::FETCH_ASSOC);
@@ -47,12 +47,13 @@ class ConciertoDAO extends FactoryBD implements DAO {
     }
     
     public static function insert($objeto) {
-        $sql = "insert into concierto values (null,?,?,?,?)";
+        $sql = "insert into concierto values (?,?,?,?,?)";
         $objeto = (array)$objeto;
         $datos = array();
         foreach($objeto as $obj){
             array_push($datos, $obj);
         }
+        $datos[0] = null;
         $devuelve = parent::ejecuta($sql,$datos);
         if($devuelve->rowCount() == 0) {
             return false;
@@ -63,7 +64,7 @@ class ConciertoDAO extends FactoryBD implements DAO {
     
     public static function update($obj) {
         $sql = "update concierto set grupo = ?, fecha = ?, precio = ?, lugar = ? where id = ?;";
-        $datos = array($obj->id, $obj->grupo, $obj->fecha, $obj->precio, $obj->lugar, $obj->id);
+        $datos = array($obj->grupo, $obj->fecha, $obj->precio, $obj->lugar, $obj->id);
         $devuelve = parent::ejecuta($sql,$datos);
         if($devuelve->rowCount() == 0) {
             return false;
@@ -83,7 +84,24 @@ class ConciertoDAO extends FactoryBD implements DAO {
         }
     }
 
+    public static function patch($id, $obj) {
 
+        $datos = array($obj);
+        foreach($datos as $campo => $objeto) {
+            foreach($objeto as $camp => $valor) {
+                    $campos[] = ''.$camp.' = ?';
+                    $valores[] = $valor;
+            }
+
+        }
+        $sql = "update concierto set ".join(', ', $campos)." where id = ".$id.";";
+        $devuelve = parent::ejecuta($sql,$valores);
+        if($devuelve->rowCount() == 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }
 
 ?>
