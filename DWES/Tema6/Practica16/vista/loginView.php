@@ -1,7 +1,7 @@
 <main class="form-signin w-100 m-auto text-center">
     <section class="container bg-dark p-2 rounded">
         <section class="form-signin w-100 m-auto text-center text-white">
-            <form action="../funciones/validarBD.php" method="post">
+            <form action="./index.php" method="post">
                 <img class="mb-4" src="webroot/img/logo.jpg" alt="" width="140" height="100">
                 <h1 class="h3 mb-3 fw-normal">Iniciar Sesion</h1>
                 <section class="form-floating p-1 text-dark">

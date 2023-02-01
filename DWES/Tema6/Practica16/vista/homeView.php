@@ -61,7 +61,7 @@
                                     <h3 class='h3 text-light'><? echo $producto->nombre ?></h3>
                                     <p class='card-text text-light'><? echo $producto->descripcion ?></p>
                                     <section class='d-flex justify-content-between align-items-center'>
-                                        <small class='text-white'><? echo $producto->precio ?></small>
+                                        <small class='text-white'><? echo $producto->precio ?>€</small>
                                         <section class='btn-group'>
                                             <form action="" method="post">
                                                 <input type="submit" href="" name="comprar" class='btn btn-sm btn-outline-warning' value="Comprar">
