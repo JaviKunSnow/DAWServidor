@@ -55,7 +55,8 @@ window.addEventListener('load', function() {
             desc: document.getElementById("desc").value
         }
         
-        await nuevoProd(form)
+        const promesa = await nuevoProd(form);
+        promesa
         .then((datos) => {
             alert("datos recibidos");
             console.log(datos);

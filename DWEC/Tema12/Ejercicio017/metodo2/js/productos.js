@@ -5,57 +5,50 @@ const SERVER = "http://192.168.2.206:3000/productos";
 const peticion = new XMLHttpRequest();
 
 window.addEventListener('load', function() {
-    document.getElementById('addProduct').addEventListener('submit', (event) => {
+    document.getElementById('addProduct').addEventListener('submit', async (event) => {
         event.preventDefault();
         let id = document.getElementById("id").value;
         if(isNaN(id) || id.trim() == '') {
             alert('introduce un numero');
         } else {
-            fetch(`${SERVER}/${id}`, {
-                method: 'GET',
-                headers: {
-                    'content-type': 'application/json'
-                }
-            })
-            .then((response) => {
-                if(!response.ok) {
-                    throw `Error ${response.status} de la BD: ${response.statusText}`;
-                }
-                return response.json();
-            })
-            .then((datos) => {
-                document.getElementById("lista").innerHTML = "";
+            const add = await getProd(id);
 
-                for(object in datos) {
-                    let li = document.createElement("li");
-                    li.className = "list-group-item";
-                    li.appendChild(document.createTextNode(`${object}: ${datos[object]}`));
-                    document.getElementById("lista").appendChild(li);
-                }
-            })
+            document.getElementById("lista").innerHTML = "";
 
-            .catch((error) => {
-                alert(`Error en la peticion: ${error.message}`);
-            })
+            for(object in add) {
+                let li = document.createElement("li");
+                li.className = "list-group-item";
+                li.appendChild(document.createTextNode(`${object}: ${add[object]}`));
+                document.getElementById("lista").appendChild(li);
+            }
         }
     })
 });
 
+async function getProd(id) {
+    const datos = await fetch(`${SERVER}/${id}`, {
+        method: 'GET',
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+
+    if (!datos.ok) {
+        throw `error${dato1.status} ${dato1.statusText}`;
+    }
+
+    return datos.json();
+}
+
 window.addEventListener('load', function() {
-    document.getElementById('nuevoProduct').addEventListener('submit', (event) => {
+    document.getElementById('nuevoProduct').addEventListener('submit', async (event) => {
         event.preventDefault();
         const form = {
             id: '',
             nombre: document.getElementById("nombre").value,
             desc: document.getElementById("desc").value,
         }
-            fetch(`${SERVER}`, {
-                method: 'POST',
-                body: JSON.stringify(form),
-                headers: {
-                    'content-type': 'application/json'
-                }
-            })
+            await 
             .then(response => {
                 if(!response.ok) {
                     throw `Error ${response.status} de la BD: ${response.statusText}`;
@@ -73,16 +66,28 @@ window.addEventListener('load', function() {
     })
 });
 
+async function nuevoProd(prod) {
+    const datos = fetch(`${SERVER}`, {
+        method: 'POST',
+        body: JSON.stringify(form),
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+
+    
+}
+
 //modificar productos
 
 window.addEventListener('load', function() {
-    document.getElementById('modProduct').addEventListener('submit', (event) => {
+    document.getElementById('modProduct').addEventListener('submit', async (event) => {
         event.preventDefault();
         
         const form = {
             [document.getElementById("opcMod").value]: document.getElementById("datosMod").value
         }
-                fetch(`${SERVER}/${document.getElementById("idMod").value}`, {
+                await fetch(`${SERVER}/${document.getElementById("idMod").value}`, {
                     method: 'PATCH',
                     body: JSON.stringify(form),
                     headers: {
@@ -110,10 +115,10 @@ window.addEventListener('load', function() {
 
 //listar productos
 window.addEventListener('load', function() {
-    document.getElementById('listarProduct').addEventListener('submit', (event) => {
+    document.getElementById('listarProduct').addEventListener('submit', async (event) => {
         event.preventDefault();
 
-            fetch(`${SERVER}`, {
+            await fetch(`${SERVER}`, {
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json'
