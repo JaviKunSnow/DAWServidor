@@ -36,13 +36,13 @@ $controladores = array(
 
 // vistas
 $vistas = array(
-    'home' => 'homeView.php',
-    'login' => 'loginView.php',
-    'user' => 'UserView.php',
-    'registro' => 'registroView.php',
+    'home' => './vista/homeView.php',
+    'login' => './vista/loginView.php',
+    'user' => './vista/UserView.php',
+    'registro' => './vista/registroView.php',
     'producto' => './vista/verProductoView.php',
-    'admin' => 'adminView.php',
-    'listaProd' => 'listaProductosView.php'
+    'admin' => './vista/adminView.php',
+    'listaProd' => './vista/listaProductosView.php'
 );
 
 ?>

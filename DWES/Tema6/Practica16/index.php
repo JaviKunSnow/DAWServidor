@@ -49,7 +49,7 @@ if(isset($_REQUEST['home'])){
             $_SESSION['controlador'] = $controladores['user'];
             $_SESSION['pagina'] = 'user';
             $_SESSION['vista'] = $vistas['user'];
-
+            require_once($_SESSION['controlador']);
         } else {
 
             require_once($_SESSION['controlador']);
@@ -57,7 +57,6 @@ if(isset($_REQUEST['home'])){
         }
     }
 }
-
 
 require_once('./vista/layout.php');
 ?>
