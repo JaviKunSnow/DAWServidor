@@ -43,38 +43,27 @@ async function getProd(id) {
 window.addEventListener('load', function() {
     document.getElementById('nuevoProduct').addEventListener('submit', async (event) => {
         event.preventDefault();
-        const form = {
+        const prod = {
             id: '',
             nombre: document.getElementById("nombre").value,
             desc: document.getElementById("desc").value,
         }
-            await 
-            .then(response => {
-                if(!response.ok) {
-                    throw `Error ${response.status} de la BD: ${response.statusText}`;
-                }
-                return response.json();
-            })
-            .then(datos => {
-                alert("datos recibidos");
-                console.log(datos);
-            })
+            const recibido = await nuevoProd(prod);
 
-            .catch(error => {
-                alert(`Error en la peticion: ${error.message}`);
-            })
+            alert("recibido");
+            
     })
 });
 
 async function nuevoProd(prod) {
-    const datos = fetch(`${SERVER}`, {
+    const datos = await fetch(`${SERVER}`, {
         method: 'POST',
-        body: JSON.stringify(form),
+        body: JSON.stringify(prod),
         headers: {
             'content-type': 'application/json'
         }
     })
-
+    return await datos.json();
     
 }
 
@@ -84,34 +73,30 @@ window.addEventListener('load', function() {
     document.getElementById('modProduct').addEventListener('submit', async (event) => {
         event.preventDefault();
         
-        const form = {
+        const id = document.getElementById("idMod").value;
+        const prod = {
             [document.getElementById("opcMod").value]: document.getElementById("datosMod").value
         }
-                await fetch(`${SERVER}/${document.getElementById("idMod").value}`, {
-                    method: 'PATCH',
-                    body: JSON.stringify(form),
-                    headers: {
-                        'content-type': 'application/json'
-                    }
-                })
-                .then(response => {
-                    if(!response.ok) {
-                        throw `Error ${response.status} de la BD: ${response.statusText}`;
-                    }
-                    return response.json();
-                })
-                .then(datos => {
-                    alert("datos modificados");
-                    console.log(datos);
-                })
-    
-                .catch(error => {
-                    alert(`Error en la peticion: ${error.message}`);
-                })
 
+        const recibido = await modProd(id, prod);
+
+        if(recibido != null) {
+            alert("datos modificados");
         }
-    )
+    });
 });
+
+async function modProd(id, prod){
+    const datos = await fetch(`${SERVER}/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify(prod),
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+
+    return await datos.json();
+}
 
 //listar productos
 window.addEventListener('load', function() {

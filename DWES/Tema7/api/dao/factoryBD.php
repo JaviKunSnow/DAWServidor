@@ -6,13 +6,18 @@ Class FactoryBD {
 
         try {
 
-            $con = new PDO("mysql:host=".$_SERVER["SERVER_ADDR"].";dbname=".BBDD, USER, PASS);
+            $con = new PDO("mysql:host=".HOST.";dbname=".BBDD, USER, PASS);
+            $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $preparada = $con->prepare($sql);
             $preparada->execute($datos);
 
         } catch (Exception $e) {
             $preparada = null;
-            echo $e;
+            if($e->getCode() == 2002 || $e->getCode() == 1049){
+                ControladorPadre::respuesta('', array('HTTP/1.1 500 Server Error'));
+            } else {
+                ControladorPadre::respuesta('', array('HTTP/1.1 400 Alguno de los parametros esta mal'.$$e->getMessage()));
+            }
             
         } finally {
             unset($con);

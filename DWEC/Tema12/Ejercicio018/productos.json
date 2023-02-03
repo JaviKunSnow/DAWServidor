@@ -1,0 +1,50 @@
+{
+  "productos": [
+    {
+      "id": 1,
+      "name": "Teclado",
+      "descrip": "Teclado mecánico Cherry ps/2",
+      "cat": 1
+    },
+    {
+      "id": 2,
+      "name": "Moninor Ph-21",
+      "descrip": "Monitor Phillips SVGA 21 \"",
+      "cat": 1
+    },
+    {
+      "id": 3,
+      "name": "Ratón Logi-Laser",
+      "descrip": "Tatón Láser Logitech Pro USB",
+      "cat": 1
+    },
+    {
+      "name": "Monitor",
+      "descrip": "Monitor 32 LG pulgadas",
+      "id": 4,
+      "cat": 1
+    },
+    {
+      "id": 5,
+      "name": "Vaca",
+      "descrip": "Ternera Morucha cárdena",
+      "cat": 2
+    },
+    {
+      "id": 6,
+      "name": "Iberito",
+      "descrip": "Cerdo colorao de 137 kgs",
+      "cat": 2
+    }
+  ],
+  "categorias": [
+    {
+      "id": 1,
+      "name": "INFORMÁTICA"
+    },
+    {
+      "id": 2,
+      "name": "GANADERÍA"
+    }
+  ]
+}
