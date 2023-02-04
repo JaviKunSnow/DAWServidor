@@ -40,9 +40,10 @@ $vistas = array(
     'login' => './vista/loginView.php',
     'user' => './vista/UserView.php',
     'registro' => './vista/registroView.php',
-    'producto' => './vista/verProductoView.php',
+    'comprar' => './vista/verProductoView.php',
     'admin' => './vista/adminView.php',
-    'listaProd' => './vista/listaProductosView.php'
+    'productos' => './vista/productosView.php',
+    'albaran' => './vista/albaranView.php'
 );
 
 ?>
