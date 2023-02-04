@@ -16,6 +16,12 @@ function esAdmin() {
     return false;
 }
 
+function existe($nombre){
+    if (isset($_REQUEST[$nombre]))
+        return true;
+    return false;
+}
+
 function esModerador() {
     if(isset($_SESSION["perfil"])){
         if($_SESSION["perfil"] == "MOD") {
