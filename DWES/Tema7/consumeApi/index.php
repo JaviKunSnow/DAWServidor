@@ -1,8 +1,8 @@
 <a href="./controlador/ConciertosControlador.php?accion=listar">Listar</a>
-<a href="">Listar id</a>
+<a href="./vista/formlistid.php">Listar id</a>
 <a href="./vista/formInsert.php">insertar </a>
-<a href="./controlador/ConciertosControlador.php?accion=modificar">Modificar</a>
-<a href="./controlador/ConciertosControlador.php?accion=borrar">Borrar</a>
+<a href="./vista/formput.php">Modificar</a>
+<a href="./vista/formdelete.php">Borrar</a>
 
 <?php
 
