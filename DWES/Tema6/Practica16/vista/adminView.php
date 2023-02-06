@@ -24,7 +24,7 @@
                                 <section class='d-flex justify-content-between align-items-center'>
                                     <section class='btn-group'>
                                         <form action="" method="post">
-                                            <input type="submit" href="" name="producto" class='btn btn-sm btn-outline-warning' value="Modificar">
+                                            <input type="submit" href="" name="venta" class='btn btn-sm btn-outline-warning' value="Modificar">
                                         </form>
                                     </section>
                                 </section>

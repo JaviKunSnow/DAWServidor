@@ -43,7 +43,8 @@ $vistas = array(
     'comprar' => './vista/verProductoView.php',
     'admin' => './vista/adminView.php',
     'productos' => './vista/productosView.php',
-    'albaran' => './vista/albaranView.php'
+    'albaran' => './vista/albaranView.php',
+    'venta' => './vista/ventaView.php'
 );
 
 ?>
