@@ -31,7 +31,7 @@ if(isset($_REQUEST['accion'])){
     } else {
         require '../vista/formInsert.php';
     }
-} else if(isset($_REQUEST['listarID'])) {
+} else if(isset($_REQUEST['listaID'])) {
     $lista = getById($_REQUEST['id']);
     require '../vista/listar.php';
     

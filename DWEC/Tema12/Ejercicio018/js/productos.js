@@ -1,6 +1,6 @@
-//const SERVER = "http://192.168.2.206:3000";
+const SERVER = "http://192.168.2.206:3000";
 
-const SERVER = "http://192.168.1.110:3000";
+//const SERVER = "http://192.168.1.110:3000";
 
 const peticion = new XMLHttpRequest();
 
@@ -62,3 +62,9 @@ function renderProducto(producto) {
     document.getElementById("1").appendChild(olInf);
     document.getElementById("2").appendChild(olGan);
 }
+
+document.getElementById("borrar").addEventListener("click", () => {
+    ol.innerHTML = "";
+    olInf.innerHTML = "";
+    olGan.innerHTML = "";
+})
