@@ -23,15 +23,15 @@
             echo "<td>" . $value->fechacomp . "</td>";
             echo "<td>" . $value->cod_producto . "</td>";
             echo "<td>" . $value->cantidad . "</td>";
-            echo "<td>" . $fila["precio_total"] . "</td>";
+            echo "<td>" . $value->precio_total . "</td>";
             if(estaValidado() && esAdmin()) {?>
                 <form action="./index.php" method="post">
                     <input type="hidden" name="cod_venta" value="<?
                     echo $value->id_venta;
                     ?>">
+                    <td><button type="submit" class='btn btn-warning me-2' name='editar'>Modificar</button></td>
+                    <td><button type="submit" class='btn btn-warning me-2' name='editar'>Eliminar</button></td>
                 </form>
-                <td><button class='btn btn-warning me-2' name='editar'>Modificar</button></td>
-                <td><button class='btn btn-warning me-2' name='editar'>Eliminar</button></td>
             <?
             }
             echo "</tr>";

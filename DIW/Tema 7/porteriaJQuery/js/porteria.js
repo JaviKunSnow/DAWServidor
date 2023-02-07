@@ -10,3 +10,4 @@ $(document).ready(function() {
     $(this).css("fill", "red");
     });
 });
+

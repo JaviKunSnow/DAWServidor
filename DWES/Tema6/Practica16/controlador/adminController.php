@@ -2,7 +2,7 @@
 
 if(isset($_REQUEST["producto"])) {
     $_SESSION['controlador'] = $controladores['producto'];
-    $_SESSION['vista'] = $vistas['producto'];
+    $_SESSION['vista'] = $vistas['productos'];
     require_once($_SESSION['controlador']);
 } else if(isset($_REQUEST["venta"])) {
     $_SESSION['controlador'] = $controladores['venta'];

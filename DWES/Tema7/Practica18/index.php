@@ -14,22 +14,23 @@
   <header>
   </header>
   <main>
-    <form action="./index.php" method="post">
-        <textarea name="texto" id="" cols="30" rows="10">
-
-        </textarea>
+    <form action="./ver.php" method="post">
         <div class="mb-3">
             <label for="" class="form-label">Ciudad</label>
-            <select class="form-select form-select-lg" name="" id="">
+            <select class="form-select form-select-lg" name="ciudad" id="ciudad">
                 <option selected>Select one</option>
-                <option value="">Zamora</option>
-                <option value="">Leon</option>
-                <option value="">Salamanca</option>
-                <option value="">Zamora</option>
-                <option value="">Zamora</option>
-                <option value="">Istanbul</option>
-                <option value="">Jakarta</option>
+                <option value="zamora">Zamora</option>
+                <option value="Le%C3%B3n">Leon</option>
+                <option value="salamanca">Salamanca</option>
+                <option value="palencia">Palencia</option>
+                <option value="soria">Soria</option>
+                <option value="segovia">Segovia</option>
+                <option value="avila">Avila</option>
+                <option value="valladolid">Valladolid</option>
             </select>
+        </div>
+        <div class="mb-3">
+          <button name="enviar" class="btn btn-primary" type="submit">Enviar</button>
         </div>
     </form>
   </main>

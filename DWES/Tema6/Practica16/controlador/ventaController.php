@@ -12,7 +12,7 @@ if(isset($_REQUEST['borrar'])) {
     $_SESSION['venta'] = $_REQUEST['cod_venta'];
     $producto = ventasDAO::findById($_SESSION['venta']);
     $_SESSION['vista'] = $vistas('verVenta');
-} else if(isset($_REQUEST['admVenta'])) {
+} else {
     $lista = ventasDAO::findAll();
 }
 
