@@ -9,7 +9,9 @@ if(!isset($_SESSION["enviado"]) && !isset($_SESSION["apuesta"])) {
             if(count($_REQUEST["check"]) == 5) {
                 $_SESSION["enviado"] = true;
                 $arrayChecks = $_REQUEST["check"];
+                // aqui recojo la cantidad de id que hay en las apuestas
                 $apuestasTotal = ApuestaDAO::findAll();
+                // aqui la id las recojo y le sumo una
                 $apuesta = new Apuesta(count($apuestasTotal) + 1,date('Y-m-d'), $_SESSION['id'], $arrayChecks[0], $arrayChecks[1], $arrayChecks[2], $arrayChecks[3], $arrayChecks[4]);
                 if(ApuestaDAO::insert($apuesta)) {
                     $_SESSION["apuesta"] = true;

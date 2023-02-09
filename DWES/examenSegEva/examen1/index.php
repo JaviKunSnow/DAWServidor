@@ -9,6 +9,7 @@ if(isset($_REQUEST["logout"])) {
     $_SESSION['pagina'] = 'login';
     $_SESSION['controlador'] = $controladores['login'];
     $_SESSION['vista'] = $vistas['login'];
+    setcookie("usuario", time()-100);
     header('location: index.php');
 
 } else {

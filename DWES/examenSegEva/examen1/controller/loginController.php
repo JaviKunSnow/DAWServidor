@@ -1,6 +1,5 @@
 <?php
 
-
 if(isset($_REQUEST["user"])){
     $user = $_REQUEST["user"];
     $pass = $_REQUEST["pass"];

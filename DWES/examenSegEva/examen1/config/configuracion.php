@@ -9,7 +9,7 @@ require_once ("./config/conexion.php");
 // core
 
 require_once ("./core/funciones.php");
-
+require_once ("./core/curl.php");
 // DAO
 
 require_once("./dao/factoryBD.php");

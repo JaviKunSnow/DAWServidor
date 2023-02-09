@@ -39,9 +39,11 @@
                     <input type="submit" name="generar" value="generar sorteo">
                 <?
                 } else if($_SESSION["sorteo"]) {?>
-                    <p>Sorteo generado: </p>
-                    
-                <?
+                    <p>Sorteo generado: </p><?
+                    foreach($numAlt as $valores) {?>
+                        <p><?echo $numerosAlt?></p>
+                    <?
+                    }
                 }
             ?>
             
