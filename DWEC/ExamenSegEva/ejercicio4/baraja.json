@@ -22,7 +22,7 @@
       "id": 1,
       "palo": "oros",
       "carta": "1",
-      "lugar": "jugador1"
+      "lugar": "mazo"
     },
     {
       "id": 2,
@@ -82,25 +82,25 @@
       "id": 11,
       "palo": "copas",
       "carta": "1",
-      "lugar": "jugador2"
+      "lugar": "mazo"
     },
     {
       "id": 12,
       "palo": "copas",
       "carta": "2",
-      "lugar": "jugador3"
+      "lugar": "mazo"
     },
     {
       "id": 13,
       "palo": "copas",
       "carta": "3",
-      "lugar": "jugador2"
+      "lugar": "mazo"
     },
     {
       "id": 14,
       "palo": "copas",
       "carta": "4",
-      "lugar": "jugador4"
+      "lugar": "mazo"
     },
     {
       "id": 15,
@@ -112,7 +112,7 @@
       "id": 16,
       "palo": "copas",
       "carta": "6",
-      "lugar": "jugador4"
+      "lugar": "mazo"
     },
     {
       "id": 17,
@@ -124,13 +124,13 @@
       "id": 18,
       "palo": "copas",
       "carta": "10",
-      "lugar": "jugador3"
+      "lugar": "mazo"
     },
     {
       "id": 19,
       "palo": "copas",
       "carta": "11",
-      "lugar": "jugador2"
+      "lugar": "mazo"
     },
     {
       "id": 20,
@@ -148,7 +148,7 @@
       "id": 22,
       "palo": "espadas",
       "carta": "2",
-      "lugar": "jugador2"
+      "lugar": "mazo"
     },
     {
       "id": 23,
@@ -178,13 +178,13 @@
       "id": 27,
       "palo": "espadas",
       "carta": "7",
-      "lugar": "jugador4"
+      "lugar": "mazo"
     },
     {
       "id": 28,
       "palo": "espadas",
       "carta": "10",
-      "lugar": "jugador1"
+      "lugar": "mazo"
     },
     {
       "id": 29,
@@ -196,7 +196,7 @@
       "id": 30,
       "palo": "espadas",
       "carta": "12",
-      "lugar": "jugador3"
+      "lugar": "mazo"
     },
     {
       "id": 31,
@@ -208,7 +208,7 @@
       "id": 32,
       "palo": "bastos",
       "carta": "2",
-      "lugar": "jugador1"
+      "lugar": "mazo"
     },
     {
       "id": 33,
@@ -220,7 +220,7 @@
       "id": 34,
       "palo": "bastos",
       "carta": "4",
-      "lugar": "jugador1"
+      "lugar": "mazo"
     },
     {
       "id": 35,
@@ -256,7 +256,7 @@
       "id": 40,
       "palo": "bastos",
       "carta": "12",
-      "lugar": "jugador4"
+      "lugar": "mazo"
     }
   ],
   "estados": [
