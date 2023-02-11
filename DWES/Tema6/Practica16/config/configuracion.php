@@ -31,7 +31,8 @@ $controladores = array(
     'home' => './controlador/homeController.php',
     'producto' => './controlador/productoController.php',
     'admin' => './controlador/adminController.php',
-    'venta' => './controlador/ventaController.php'
+    'venta' => './controlador/ventaController.php',
+    'editarProducto' => './controlador/editarProductoController.php'
 );
 
 

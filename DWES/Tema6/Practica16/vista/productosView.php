@@ -24,7 +24,7 @@
             echo "<td>" . $value->stock . "</td>";
             if(estaValidado() && esAdmin()) {?>
                 <form action="./index.php" method="post">
-                    <input type="hidden" name="cod_venta" value="<?
+                    <input type="hidden" name="cod_producto" value="<?
                     echo $value->cod_producto;
                     ?>">
                 <td><button type="submit" class='btn btn-warning me-2' name='editar'>Modificar</button></td>
