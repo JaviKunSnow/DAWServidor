@@ -66,4 +66,15 @@ public static function delete($id) {
     }
 }
 
+public static function buy($id, $stock) {
+    $sql = "update producto set stock = ? where cod_producto = ?;";
+    $datos = array($stock, $id);
+    $devuelve = parent::ejecuta($sql,$datos);
+    if($devuelve->rowCount() == 0) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
 }

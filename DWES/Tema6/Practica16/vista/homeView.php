@@ -64,7 +64,16 @@
                                         <small class='text-white'><? echo $producto->precio ?>€</small>
                                         <section class='btn-group'>
                                             <form action="" method="post">
-                                                <input type="submit" href="" name="comprar" class='btn btn-sm btn-outline-warning' value="Comprar">
+                                                <input type="hidden" name="cod_producto" value="<?echo $producto->cod_producto?>">
+                                                <?
+                                                    if(estaValidado()) {?>
+                                                        <input type="submit" name="comprar" class='btn btn-sm btn-outline-warning' value="Comprar">
+                                                    <?
+                                                    } else {?>
+                                                        <input type="submit" name="login" class='btn btn-sm btn-outline-warning' value="Comprar">
+                                                    <?
+                                                    }
+                                                ?>
                                             </form>
                                         </section>
                                     </section>

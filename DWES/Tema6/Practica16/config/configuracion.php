@@ -32,7 +32,8 @@ $controladores = array(
     'producto' => './controlador/productoController.php',
     'admin' => './controlador/adminController.php',
     'venta' => './controlador/ventaController.php',
-    'editarProducto' => './controlador/editarProductoController.php'
+    'editarProducto' => './controlador/editarProductoController.php',
+    'compra' => './controlador/compraController.php'
 );
 
 
@@ -47,7 +48,8 @@ $vistas = array(
     'productos' => './vista/productosView.php',
     'albaran' => './vista/albaranView.php',
     'venta' => './vista/ventasView.php',
-    'editarProducto' => './vista/editarProductosView.php'
+    'editarProducto' => './vista/editarProductosView.php',
+    'compra' => './vista/comprarProductoView.php'
 );
 
 ?>
