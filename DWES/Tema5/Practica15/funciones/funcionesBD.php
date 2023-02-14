@@ -382,7 +382,7 @@ function compFecha($fecha){
 }
 
 function subirImagen(){
-    $ruta = '../img/'. $_FILES['fichero']['name'];
+    $ruta = './webroot/img/'. $_FILES['fichero']['name'];
     move_uploaded_file($_FILES['fichero']['tmp_name'], $ruta);
 }
 

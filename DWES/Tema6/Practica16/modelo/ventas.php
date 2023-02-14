@@ -1,7 +1,6 @@
 <?php
 
 class Ventas {
-
     private $id_venta;
     private $usuario;
     private $fechacomp;

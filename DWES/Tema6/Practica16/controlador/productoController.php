@@ -11,7 +11,7 @@ if(isset($_REQUEST['borrar'])) {
     $_SESSION['vista'] = $vistas('editarProducto');
 } else if(isset($_REQUEST['insertar'])) {
     $_SESSION["accion"] = "insertar";
-    $_SESSION['vista'] = $vistas('editarProducto');
+    $_SESSION['vista'] = $vistas['editarProducto'];
     $_SESSION['controlador'] = $controladores['editarProducto'];
     
 } else {
