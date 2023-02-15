@@ -17,7 +17,6 @@
                                     <input type="text" name="nombreP" id="nombreP" class="form-control" value="<?php
                                     if($_SESSION['accionProducto'] == 'editar'){
                                         echo $producto->nombre;
-                                    
                                     ?>" disabled<?php
                                     }?>>
                                 </section>
@@ -76,9 +75,18 @@
                                     }?>>
                                 </section>
                             </section>
-
+                            
                             <section class="col-md-6 offset-md-4">
-                                <input type="submit" name="enviar" value="Registro" class="btn btn-outline-warning">
+                                <?
+                                    if($_SESSION["accionProducto"] == "editar") {?>
+                                        <input type="submit" name="enviar" value="Modificar" class="btn btn-outline-warning">
+                                    <?
+                                    } else {?>
+                                        <input type="submit" name="enviar" value="Registro" class="btn btn-outline-warning">
+                                    <?
+                                    }
+                                ?>
+                                
                             </section>
                     </section>
                     </form>

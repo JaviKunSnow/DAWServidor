@@ -1,3 +1,9 @@
+<?
+    if(isset($_SESSION["error"])) {
+        echo $_SESSION["error"];
+    }
+?>
+
 <main class="my-form" style="paddint-top: 100px;">
     <section class="container">
         <section class="row justify-content-center justify-items-center">

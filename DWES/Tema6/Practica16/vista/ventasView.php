@@ -26,10 +26,9 @@
             echo "<td>" . $value->precio_total . "</td>";
             if(estaValidado() && esAdmin()) {?>
                 <form action="./index.php" method="post">
-                    <input type="hidden" name="cod_venta" value="<?
+                    <input type="hidden" name="id_venta" value="<?
                     echo $value->id_venta;
                     ?>">
-                    <td><button type="submit" class='btn btn-warning me-2' name='editar'>Modificar</button></td>
                     <td><button type="submit" class='btn btn-warning me-2' name='editar'>Eliminar</button></td>
                 </form>
             <?

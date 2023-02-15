@@ -22,20 +22,27 @@
             echo "<td>" . $value->descripcion . "</td>";
             echo "<td>" . $value->precio . "</td>";
             echo "<td>" . $value->stock . "</td>";
-            if(estaValidado() && esAdmin()) {?>
-                <form action="./index.php" method="post">
-                    <input type="hidden" name="cod_producto" value="<?
-                    echo $value->cod_producto;
-                    ?>">
-                <td><button type="submit" class='btn btn-warning me-2' name='editar'>Modificar</button></td>
-                <td><button type="submit" class='btn btn-warning me-2' name='editar'>Eliminar</button></td>
-                </form>
-            <?
+            if(estaValidado()) {
+                if(esModerador() || esAdmin()) {?>
+                    <form action="./index.php" method="post">
+                        <input type="hidden" name="cod_producto" value="<?
+                        echo $value->cod_producto;
+                        ?>">
+                    <td><button type="submit" class='btn btn-warning me-2' name='editar'>Modificar</button></td>
+                    <?
+                        if(esAdmin()) {?>
+                            <td><button type="submit" class='btn btn-warning me-2' name='editar'>Eliminar</button></td>
+                        <?
+                        }
+                    ?>
+                    </form>
+                <?
+                }
+                echo "</tr>";
+                }
             }
-            echo "</tr>";
-            }
-        echo "</table>";
-            ?>
+            echo "</table>";
+                ?>
             <form action="./index.php" method="post">
                 <button type="submit" class='btn btn-warning me-2' name='insertar'>Insertar</button>
             </form>

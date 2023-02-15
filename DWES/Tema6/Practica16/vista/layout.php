@@ -17,6 +17,9 @@
         } else if($_SESSION['pagina'] == "registro") {?>
             <link rel="stylesheet" href="webroot/css/form.css">
         <?
+        } else if($_SESSION['pagina'] == "editar") {?>
+            <link rel="stylesheet" href="webroot/css/form.css">
+        <?
         }
     ?>
 </head>
