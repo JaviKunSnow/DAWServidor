@@ -82,7 +82,7 @@ function compTodo() {
                 if(!vacio("pass") && compPass("pass")){
                     if(!vacio("mail") && compMail("mail")){
                         if(!vacio("fecha") && compFecha("fecha")){
-                            if(existe("perfil") && $_REQUEST["perfil"] != 0){
+                            if(existe("rol") && $_REQUEST["rol"] != 0){
                                 return true;
                             }
                         }

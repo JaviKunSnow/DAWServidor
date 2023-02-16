@@ -35,12 +35,14 @@ if(isset($_REQUEST['home'])){
             $_SESSION['pagina'] = 'login';
             $_SESSION['controlador'] = $controladores['login'];
             $_SESSION['vista'] = $vistas['login'];
+            require_once($_SESSION['controlador']);
     
         } else if(isset($_REQUEST['registro'])) {
         
             $_SESSION['pagina'] = 'registro';
             $_SESSION['controlador'] = $controladores['registro'];
             $_SESSION['vista'] = $vistas['registro'];
+            require_once($_SESSION['controlador']);
     
         } else if(isset($_REQUEST["perfil"])) {
             

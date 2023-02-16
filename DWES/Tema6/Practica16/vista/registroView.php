@@ -3,7 +3,18 @@
         echo $_SESSION["error"];
     }
 ?>
-
+<?
+if ($_SESSION["registrado"]) { ?>
+    <main class="m-0 vh-100 row justify-content-center align-items-center">
+        <section class="container p-3 bg-dark text-light text-center" style="width: 400px; height: 200px;">
+            <h2>registro completado!</h2>
+            <form action="./index.php" method="post">
+                <input type="submit" name="login" class='btn btn-sm btn-outline-warning' value="iniciar sesion">
+            </form>
+        </section>
+    </main>
+<?
+} else { ?>
 <main class="my-form" style="paddint-top: 100px;">
     <section class="container">
         <section class="row justify-content-center justify-items-center">
@@ -101,7 +112,7 @@
                                 <section class="form-group row mb-2">
                                     <label for="permanent_address" class="col-md-4 col-form-label text-md-right">Elige una opcion de perfil:</label>
                                     <section class="col-md-6">
-                                    <select name="perfil" id="selector">
+                                    <select name="rol" id="selector">
                                         <option value="0">Seleccione una opción</option>
                                         <option value="ADM">Administrador</option>
                                         <option value="MOD">Moderador</option>
@@ -109,7 +120,7 @@
                                     </select>
                                     </section>
                                     <?php
-                                    if(existe("perfil") && $_REQUEST["perfil"] == 0){
+                                    if(existe("rol") && $_REQUEST["rol"] == 0){
                                         echo "<span style='color: red;'><-- No has elegido tipo de perfil</span>";
                                     }
                                     ?>
@@ -125,3 +136,6 @@
             </section>
         </section>
     </main>
+    <?
+}
+?>
